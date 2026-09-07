@@ -1,0 +1,7 @@
+{
+  "name": "healthway-backend",
+  "version": "1.0.0",
+  "description": "HealthWay Backend CommonJS Services and Routes",
+  "type": "commonjs",
+  "private": true
+}

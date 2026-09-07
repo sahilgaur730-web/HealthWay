@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #F5F7FA;
+    color: #1C2B3A;
+    font-family: Inter, "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F3F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #CFD8DC;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #90A4AE;
+}
+
+@keyframes marquee-smooth {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-smooth 35s linear infinite;
+}
+
+.animate-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   GLOBAL SITE-WIDE MULTILINGUAL LANGUAGE ISOLATION SYSTEM (MARATHI / HINDI / ENGLISH)
+   Guarantees zero text disappearance across web, mobile, and dynamic renders
+   ========================================================================== */
+
+/* Default Baseline (English visible, Marathi & Hindi hidden) */
+.lang-content.mr,
+.lang-block.mr,
+.mr-only,
+.lang-content.hi,
+.lang-block.hi,
+.hi-only {
+  display: none;
+}
+.lang-content.en {
+  display: inline;
+}
+.lang-block.en {
+  display: block;
+}
+
+/* 1. English Active State */
+body.lang-en .lang-content.mr,
+body.lang-en .lang-block.mr,
+body.lang-en .mr-only,
+body.lang-en .lang-content.hi,
+body.lang-en .lang-block.hi,
+body.lang-en .hi-only {
+  display: none !important;
+}
+body.lang-en .lang-content.en {
+  display: inline !important;
+}
+body.lang-en .lang-block.en {
+  display: block !important;
+}
+
+/* 2. Marathi Active State */
+body.lang-mr .lang-content.en,
+body.lang-mr .lang-block.en,
+body.lang-mr .en-only,
+body.lang-mr .lang-content.hi,
+body.lang-mr .lang-block.hi,
+body.lang-mr .hi-only {
+  display: none !important;
+}
+body.lang-mr .lang-content.mr {
+  display: inline !important;
+}
+body.lang-mr .lang-block.mr {
+  display: block !important;
+}
+
+/* 3. Hindi Active State */
+body.lang-hi .lang-content.en,
+body.lang-hi .lang-block.en,
+body.lang-hi .en-only,
+body.lang-hi .lang-content.mr,
+body.lang-hi .lang-block.mr,
+body.lang-hi .mr-only {
+  display: none !important;
+}
+body.lang-hi .lang-content.hi {
+  display: inline !important;
+}
+body.lang-hi .lang-block.hi {
+  display: block !important;
+}
+
+/* Utility to ensure canvas and interactive maps don't leak touch scroll */
+.touch-none {
+  touch-action: none;
+}

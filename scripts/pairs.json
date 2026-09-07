@@ -1,0 +1,5342 @@
+[
+  {
+    "en": "ABDM & FHIR R4 Interoperability Gateway",
+    "mr": "ABDM व FHIR R4 आंतरकार्यक्षमता मानक"
+  },
+  {
+    "en": "Ayushman Bharat Digital Mission (M1/M2/M3) & HMIS open data standards",
+    "mr": "आयुष्मान भारत डिजिटल मिशन आणि NHM-HMIS एकात्मता"
+  },
+  {
+    "en": "ABDM Milestones",
+    "mr": "शासकीय मानके (Compliance)"
+  },
+  {
+    "en": "NHM & HMIS Sync",
+    "mr": "NHM / HMIS समक्रमण"
+  },
+  {
+    "en": "Close Gateway",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Diagnostic Coordination & Lab Orders",
+    "mr": "डिजिटल निदान व लॅब समन्वय कक्ष"
+  },
+  {
+    "en": "Automated test requisition, barcode sample tracking, and direct result synchronization to patient ABHA records",
+    "mr": "जवळील लॅब नेटवर्क, डिजिटल टेस्ट ऑर्डरिंग आणि ABHA रेकॉर्डमध्ये स्वयंचलित अहवाल समक्रमण"
+  },
+  {
+    "en": "Prescribe Lab Test",
+    "mr": "नवीन लॅब टेस्ट ऑर्डर करा"
+  },
+  {
+    "en": "Accredited Government Diagnostic Facilities",
+    "mr": "क्षेत्रातील अधिकृत सरकारी लॅब व निदान केंद्रे"
+  },
+  {
+    "en": "All Orders",
+    "mr": "सर्व"
+  },
+  {
+    "en": "In Progress / Pending",
+    "mr": "प्रलंबित"
+  },
+  {
+    "en": "Completed",
+    "mr": "पूर्ण"
+  },
+  {
+    "en": "Search test or barcode...",
+    "mr": "तपासणी, रुग्ण किंवा बारकोड शोधा..."
+  },
+  {
+    "en": "Diagnostic Findings (NABL Verified):",
+    "mr": "तपासणी निष्कर्ष (Verified by Pathologist):"
+  },
+  {
+    "en": "Sample collection scheduled at PHC",
+    "mr": "रुग्ण नमुना संकलनासाठी लॅबमध्ये अपेक्षित आहे"
+  },
+  {
+    "en": "Sample en-route to central lab",
+    "mr": "नमुना लॅबकडे वाहतुकीत आहे"
+  },
+  {
+    "en": "Biochemical analyzer run in progress",
+    "mr": "अंतिम अहवाल तयार होत आहे"
+  },
+  {
+    "en": "Prescribe Digital Diagnostic Test",
+    "mr": "नवीन डिजिटल लॅब ऑर्डर सादर करा"
+  },
+  {
+    "en": "Diagnostic Test Name",
+    "mr": "तपासणीचे नाव"
+  },
+  {
+    "en": "Category",
+    "mr": "विभाग"
+  },
+  {
+    "en": "Priority",
+    "mr": "प्राधान्यता"
+  },
+  {
+    "en": "Target Laboratory Facility",
+    "mr": "तपासणी लॅब / केंद्र (Laboratory)"
+  },
+  {
+    "en": "Cancel",
+    "mr": "रद्द करा"
+  },
+  {
+    "en": "Transmit Lab Order",
+    "mr": "ऑर्डर पाठवा"
+  },
+  {
+    "en": "Completed & Synced",
+    "mr": "अहवाल पूर्ण (Ready in EHR)"
+  },
+  {
+    "en": "Processing at Lab",
+    "mr": "लॅबमध्ये तपासणी सुरू"
+  },
+  {
+    "en": "Sample Collected",
+    "mr": "नमुना गोळा केला' : lang === 'hi' ? 'सैंपल एकत्र किया गया"
+  },
+  {
+    "en": "Pending Collection",
+    "mr": "नमुना संकलन प्रलंबित"
+  },
+  {
+    "en": "PHC Shirur Clinical Pathology Lab",
+    "mr": "PHC शिरूर क्लिनिकल पॅथॉलॉजी लॅब"
+  },
+  {
+    "en": "District Hospital Pune Central Diagnostics & Imaging",
+    "mr": "जिल्हा रुग्णालय पुणे मध्यवर्ती निदान केंद्र"
+  },
+  {
+    "en": "Sub-Centre Vadgaon Point-of-Care Diagnostic Kit",
+    "mr": "उपकेंद्र वडगाव त्वरित निदान केंद्र (PoCT)"
+  },
+  {
+    "en": "INTEGRATED RURAL HEALTHCARE",
+    "mr": "एकात्मिक ग्रामीण आरोग्य प्रणाली' : lang === 'hi' ? 'एकीकृत ग्रामीण स्वास्थ्य सेवा"
+  },
+  {
+    "en": "Portal Access",
+    "mr": "पोर्टल प्रवेश' : lang === 'hi' ? 'पोर्टल प्रवेश"
+  },
+  {
+    "en": "Portal Access (Login)",
+    "mr": "पोर्टल प्रवेश (लॉगिन)' : lang === 'hi' ? 'पोर्टल प्रवेश (लॉगिन)"
+  },
+  {
+    "en": "Home",
+    "mr": "मुख्यपृष्ठ', labelHi: 'होम"
+  },
+  {
+    "en": "Patient Portal",
+    "mr": "रुग्ण पोर्टल' : lang === 'hi' ? 'नागरिक मरीज़ पोर्टल"
+  },
+  {
+    "en": "ASHA Portal",
+    "mr": "आशा पोर्टल', labelHi: 'आशा पोर्टल"
+  },
+  {
+    "en": "Doctor Portal",
+    "mr": "डॉक्टर पोर्टल', labelHi: 'डॉक्टर पोर्टल"
+  },
+  {
+    "en": "District Admin",
+    "mr": "जिल्हा प्रशासन', labelHi: 'जिला प्रशासन"
+  },
+  {
+    "en": "Govt of Maharashtra · Health Dept",
+    "mr": "महाराष्ट्र शासन · आरोग्य विभाग' : lang === 'hi' ? 'महाराष्ट्र शासन · स्वास्थ्य विभाग"
+  },
+  {
+    "en": "Facility Matrix",
+    "mr": "आरोग्य केंद्र संचलन मॅट्रिक्स"
+  },
+  {
+    "en": "Referrals",
+    "mr": "रेफरल्स"
+  },
+  {
+    "en": "Diagnostics",
+    "mr": "निदान केंद्र' : lang === 'hi' ? 'जाँच केंद्र"
+  },
+  {
+    "en": "108 Emergency Ambulance SOS",
+    "mr": "१०८ आणीबाणी रुग्णवाहिका तात्काळ बोलवा' : lang === 'hi' ? '१०८ आपातकालीन एम्बुलेंस तुरंत बुलाएं"
+  },
+  {
+    "en": "District Live Operational Alerts Stream",
+    "mr": "जिल्हास्तरीय अलर्ट व तातडीच्या सूचना"
+  },
+  {
+    "en": "Real-time stockouts, staff deficits, and overdue high-risk patient flags",
+    "mr": "औषध तुटवडा, कर्मचारी गैरहजेरी व उद्दिष्ट विलंबाच्या स्वयंचलित सूचना"
+  },
+  {
+    "en": "All",
+    "mr": "सर्व औषधे"
+  },
+  {
+    "en": "Critical",
+    "mr": "गंभीर स्तर (Critical)"
+  },
+  {
+    "en": "Warning",
+    "mr": "इशारा"
+  },
+  {
+    "en": "Info",
+    "mr": "माहिती"
+  },
+  {
+    "en": "No active alerts in this category",
+    "mr": "निवडलेल्या श्रेणीत कोणतेही अलर्ट नाहीत"
+  },
+  {
+    "en": "All facility operations are within threshold",
+    "mr": "सर्व केंद्रांची कामगिरी सुरळीत आहे"
+  },
+  {
+    "en": "Dispatch Stock",
+    "mr": "औषध साठा पाठवा"
+  },
+  {
+    "en": "Issue Notice",
+    "mr": "स्पष्टीकरण नोटीस"
+  },
+  {
+    "en": "Call Officer",
+    "mr": "कॉल करा"
+  },
+  {
+    "en": "View",
+    "mr": "पहा"
+  },
+  {
+    "en": "Directorate of Health Services · Integrated Rural Facility Command",
+    "mr": "सार्वजनिक आरोग्य विभाग · राष्ट्रीय आरोग्य अभियान (NHM) महाराष्ट्र"
+  },
+  {
+    "en": "Pop: ${data.district.population.toLocaleString('en-IN')}",
+    "mr": "लोकसंख्या: ${data.district.population.toLocaleString('en-IN')}"
+  },
+  {
+    "en": "${data.district.blocks} Blocks",
+    "mr": "${data.district.blocks} तालुके"
+  },
+  {
+    "en": "${data.district.totalFacilities} Facilities",
+    "mr": "${data.district.totalFacilities} एकूण आरोग्य केंद्रे"
+  },
+  {
+    "en": "Officer: ${data.district.officerInCharge} (DHO)",
+    "mr": "नोडल अधिकारी: ${data.district.officerInCharge}"
+  },
+  {
+    "en": "Last Synced:",
+    "mr": "माहिती अद्ययावत:"
+  },
+  {
+    "en": "Refreshing...",
+    "mr": "अद्ययावत करत आहे..."
+  },
+  {
+    "en": "Refresh Live",
+    "mr": "रीफ्रेश करा"
+  },
+  {
+    "en": "Export Report",
+    "mr": "अहवाल प्रिंट करा"
+  },
+  {
+    "en": "Immediate Attention Required",
+    "mr": "तातडीचा इशारा"
+  },
+  {
+    "en": "${criticalFacilities.length} facilities flagged with critical/below-average performance (Grade D / F)",
+    "mr": "${criticalFacilities.length} आरोग्य केंद्रांची कामगिरी अत्यंत खालावली आहे (D किंवा F श्रेणी)"
+  },
+  {
+    "en": "Review Deficits",
+    "mr": "गंभीर केंद्रे तपासा"
+  },
+  {
+    "en": "Total Enrolled",
+    "mr": "नोंदणीकृत नागरिक"
+  },
+  {
+    "en": "ABDM linked",
+    "mr": "आभा प्रणालीशी संलग्न"
+  },
+  {
+    "en": "+12.4% vs last mo.",
+    "mr": "+१२.४% मागील महिना"
+  },
+  {
+    "en": "Today's Consults",
+    "mr": "आजच्या एकूण तपासण्या"
+  },
+  {
+    "en": "Daily OPD",
+    "mr": "दैनिक ओपीडी"
+  },
+  {
+    "en": "+8% vs yesterday",
+    "mr": "+८% कालच्या तुलनेत"
+  },
+  {
+    "en": "Active Referrals",
+    "mr": "सक्रिय रेफरल्स"
+  },
+  {
+    "en": "${data.summary.pendingReferrals} in transit",
+    "mr": "${data.summary.pendingReferrals} प्रलंबित"
+  },
+  {
+    "en": "-5% vs yesterday",
+    "mr": "-५% कालच्या तुलनेत"
+  },
+  {
+    "en": "Stockouts",
+    "mr": "औषध तुटवडा"
+  },
+  {
+    "en": "Depleted items",
+    "mr": "साठा संपलेली"
+  },
+  {
+    "en": "+3 vs yesterday",
+    "mr": "+३ कालच्या तुलनेत"
+  },
+  {
+    "en": "High-Risk Cohort",
+    "mr": "उच्च जोखीम रुग्ण ट्रॅकर"
+  },
+  {
+    "en": "${data.summary.overdueFollowUps} overdue",
+    "mr": "${data.summary.overdueFollowUps} प्रलंबित"
+  },
+  {
+    "en": "-18 vs last week",
+    "mr": "-१८ मागील आठवडा"
+  },
+  {
+    "en": "Staff Attendance",
+    "mr": "कर्मचारी उपस्थिती"
+  },
+  {
+    "en": "${data.summary.staffPresent}/${data.summary.staffTotal} on duty",
+    "mr": "${data.summary.staffPresent}/${data.summary.staffTotal} हजर"
+  },
+  {
+    "en": "+2.1% vs avg",
+    "mr": "+२.१% सरासरीपेक्षा"
+  },
+  {
+    "en": "Facility Performance Distribution",
+    "mr": "जिल्हा आरोग्य केंद्र श्रेणी वितरण (A–F Performance Grades)"
+  },
+  {
+    "en": "Clear Grade Filter",
+    "mr": "फिल्टर काढा"
+  },
+  {
+    "en": "facilities",
+    "mr": "केंद्रे"
+  },
+  {
+    "en": "Facility Command Matrix",
+    "mr": "आरोग्य केंद्र संचलन ग्रिड"
+  },
+  {
+    "en": "Showing ${filteredFacilities.length} of ${enrichedFacilities.length} facilities",
+    "mr": "${filteredFacilities.length} पैकी ${enrichedFacilities.length} केंद्रे"
+  },
+  {
+    "en": "Search facility name, block, ID or in-charge...",
+    "mr": "केंद्राचे नाव, तालुका, आयडी किंवा डॉक्टरांच्या नावाने शोधा..."
+  },
+  {
+    "en": "Block:",
+    "mr": "तालुका:"
+  },
+  {
+    "en": "All Blocks",
+    "mr": "सर्व तालुके (All)"
+  },
+  {
+    "en": "Worst Score First",
+    "mr": "कमी गुण पहिले (Worst First)"
+  },
+  {
+    "en": "Best Score First",
+    "mr": "अधिक गुण पहिले (Best First)"
+  },
+  {
+    "en": "Most Alerts",
+    "mr": "सर्वाधिक इशारे (Most Alerts)"
+  },
+  {
+    "en": "Name (A-Z)",
+    "mr": "नावाप्रमाणे (A-Z)"
+  },
+  {
+    "en": "Type:",
+    "mr": "प्रकार:"
+  },
+  {
+    "en": "Grade:",
+    "mr": "श्रेणी:"
+  },
+  {
+    "en": "No facilities match your search criteria",
+    "mr": "कोणतेही आरोग्य केंद्र सापडले नाही"
+  },
+  {
+    "en": "Reset Filters",
+    "mr": "सर्व फिल्टर्स रीसेट करा"
+  },
+  {
+    "en": "Just now",
+    "mr": "आत्ताच (सक्रिय)"
+  },
+  {
+    "en": "${diffMins}m ago",
+    "mr": "${diffMins} मि. पूर्वी"
+  },
+  {
+    "en": "${diffHours}h ago",
+    "mr": "${diffHours} तास पूर्वी"
+  },
+  {
+    "en": "${diffDays}d ago",
+    "mr": "${diffDays} दिवस पूर्वी"
+  },
+  {
+    "en": "Block: ${facility.block}",
+    "mr": "तालुका: ${facility.blockMr}"
+  },
+  {
+    "en": "In-Charge:",
+    "mr": "वैद्यकीय अधिकारी:"
+  },
+  {
+    "en": "Consults",
+    "mr": "ओपीडी"
+  },
+  {
+    "en": "Staff",
+    "mr": "कर्मचारी"
+  },
+  {
+    "en": "Out of Stock",
+    "mr": "साठा संपला (Out of Stock)"
+  },
+  {
+    "en": "items",
+    "mr": "औषधे"
+  },
+  {
+    "en": "Adequate",
+    "mr": "पूर्ण उपलब्ध"
+  },
+  {
+    "en": "Deficit",
+    "mr": "तुटवडा"
+  },
+  {
+    "en": "Overdue HR",
+    "mr": "प्रलंबित"
+  },
+  {
+    "en": "Up to date",
+    "mr": "सर्व तपासणी पूर्ण"
+  },
+  {
+    "en": "Action needed",
+    "mr": "फॉलो-अप आवश्यक"
+  },
+  {
+    "en": "Monthly Total:",
+    "mr": "मासिक तपासण्या:"
+  },
+  {
+    "en": "View Details",
+    "mr": "तपशील पहा"
+  },
+  {
+    "en": "Block: ${facility.block} | District: Pune, Maharashtra",
+    "mr": "तालुका: ${facility.blockMr} | जिल्हा: पुणे, महाराष्ट्र"
+  },
+  {
+    "en": "Direct Administrative Interventions",
+    "mr": "प्रशासकीय जलद हस्तक्षेप (Administrative Quick Actions)"
+  },
+  {
+    "en": "Dispatch immediate relief or compliance notices",
+    "mr": "केंद्रातील त्रुटींवर तत्काळ उपाययोजना आदेश काढा"
+  },
+  {
+    "en": "Call In-Charge",
+    "mr": "प्रमुखांना कॉल"
+  },
+  {
+    "en": "Dispatch Inspector",
+    "mr": "निरीक्षक पाठवा"
+  },
+  {
+    "en": "Active Operational Flags",
+    "mr": "केंद्राशी संबंधित सक्रिय इशारे"
+  },
+  {
+    "en": "Weighted Performance Dimensions",
+    "mr": "६ मुख्य कामगिरी निर्देशांक (Weighted KPI Parameters)"
+  },
+  {
+    "en": "1. OPD Consults (20%)",
+    "mr": "१. ओपीडी उद्दिष्ट (२०%)"
+  },
+  {
+    "en": "Achieved: ${consultPct}% | Month: ${m.consultationsMonth.toLocaleString()}",
+    "mr": "साध्य: ${consultPct}% | चालू महिना: ${m.consultationsMonth.toLocaleString()}"
+  },
+  {
+    "en": "2. Staff Attendance (20%)",
+    "mr": "२. कर्मचारी उपस्थिती (२०%)"
+  },
+  {
+    "en": "Present Rate: ${staffPct}%",
+    "mr": "उपस्थिती दर: ${staffPct}%"
+  },
+  {
+    "en": "3. Drug Stock (20%)",
+    "mr": "३. औषध उपलब्धता (२०%)"
+  },
+  {
+    "en": "All essential drugs in buffer",
+    "mr": "सर्व अत्यावश्यक औषधे साठ्यात"
+  },
+  {
+    "en": "Emergency warehouse indent required",
+    "mr": "तातडीने वखार मागणी आवश्यक"
+  },
+  {
+    "en": "4. Referral Rate (15%)",
+    "mr": "४. रेफरल पूर्तता (१५%)"
+  },
+  {
+    "en": "${m.referralsCompleted}/${m.referralsSent} completed transit",
+    "mr": "${m.referralsCompleted}/${m.referralsSent} रेफरल्स पूर्ण"
+  },
+  {
+    "en": "5. High-Risk Followup (15%)",
+    "mr": "५. उच्च जोखीम तपासणी (१५%)"
+  },
+  {
+    "en": "Total ${m.highRiskPatients} cohort registered",
+    "mr": "एकूण ${m.highRiskPatients} नोंदणीकृत रुग्ण"
+  },
+  {
+    "en": "6. TB DOTS Compliance (10%)",
+    "mr": "६. टीबी उपचार पूर्तता (१०%)"
+  },
+  {
+    "en": "${m.tbPatientsActive} active patients under treatment",
+    "mr": "${m.tbPatientsActive} सक्रिय क्षयरोग रुग्ण"
+  },
+  {
+    "en": "Staff Attendance Breakdown by Cadre",
+    "mr": "संवर्गनिहाय कर्मचारी उपस्थिती तक्ता"
+  },
+  {
+    "en": "Medical Officer",
+    "mr": "वैद्यकीय अधिकारी"
+  },
+  {
+    "en": "Staff Nurse",
+    "mr": "परिचारिका (Nurse)"
+  },
+  {
+    "en": "ANM",
+    "mr": "ए.एन.एम."
+  },
+  {
+    "en": "Pharmacist",
+    "mr": "औषध निर्माता"
+  },
+  {
+    "en": "Lab Tech",
+    "mr": "प्रयोगशाळा तंत्रज्ञ"
+  },
+  {
+    "en": "Today's Deliveries:",
+    "mr": "आजच्या प्रसूती (Deliveries Today):"
+  },
+  {
+    "en": "Today's Vaccinations:",
+    "mr": "आजचे लसीकरण (Vaccinations Today):"
+  },
+  {
+    "en": "Last Data Sync:",
+    "mr": "माहिती अद्ययावत:"
+  },
+  {
+    "en": "Close Details",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Facility Performance Leaderboard",
+    "mr": "आरोग्य केंद्र क्रमवारी व कामगिरी फलक"
+  },
+  {
+    "en": "Weighted compliance & delivery rankings across district",
+    "mr": "६ निकषांवर आधारित अधिकृत मानांकन"
+  },
+  {
+    "en": "Top Performers",
+    "mr": "सर्वोत्कृष्ट केंद्रे"
+  },
+  {
+    "en": "Needs Attention",
+    "mr": "सुधारणा आवश्यक"
+  },
+  {
+    "en": "Block: ${fac.block}",
+    "mr": "तालुका: ${fac.blockMr}"
+  },
+  {
+    "en": "vs last mo.",
+    "mr": "मागील महिना"
+  },
+  {
+    "en": "6-Day District Operational Trends",
+    "mr": "६-दिवसीय दैनंदिन कार्यक्षमता कल"
+  },
+  {
+    "en": "Daily OPD consultations, emergency referrals, and warehouse stock alerts",
+    "mr": "पुणे जिल्ह्यातील प्राथमिक केंद्रे व रुग्णालयांमधील प्रत्यक्ष नोंदणी विश्लेषण"
+  },
+  {
+    "en": "Consultations",
+    "mr": "तपासण्या"
+  },
+  {
+    "en": "Stock Alerts",
+    "mr": "साठा इशारे"
+  },
+  {
+    "en": "6-Day Total",
+    "mr": "६ दिवसांतील एकूण"
+  },
+  {
+    "en": "Across 847 facilities",
+    "mr": "सर्व ८४७ केंद्रांमधून"
+  },
+  {
+    "en": "Daily Average",
+    "mr": "दैनिक सरासरी"
+  },
+  {
+    "en": "+8.4% vs last week",
+    "mr": "+८.४% वाढ"
+  },
+  {
+    "en": "Peak Day",
+    "mr": "कमाल दिवस (Peak Day)"
+  },
+  {
+    "en": "patients",
+    "mr": "रुग्ण"
+  },
+  {
+    "en": "Achieved Volume",
+    "mr": "प्रत्यक्ष साध्य"
+  },
+  {
+    "en": "Daily Target (3,000)",
+    "mr": "दैनिक लक्ष्य (३,०००)"
+  },
+  {
+    "en": "Source: HMIS Maharashtra & ABDM",
+    "mr": "स्त्रोत: HMIS महाराष्ट्र व आभा पोर्टल"
+  },
+  {
+    "en": "Total Staff Present Today",
+    "mr": "एकूण उपस्थित कर्मचारी"
+  },
+  {
+    "en": "Attendance Rate:",
+    "mr": "उपस्थिती दर:"
+  },
+  {
+    "en": "Approved Leave / Deputation",
+    "mr": "रजेवर असलेले कर्मचारी"
+  },
+  {
+    "en": "Authorized medical, maternity or training leave",
+    "mr": "पूर्वपरवानगीने रजा किंवा शासकीय प्रशिक्षणावर"
+  },
+  {
+    "en": "Critically Low Staffing (<70%)",
+    "mr": "अल्प उपस्थिती केंद्रे"
+  },
+  {
+    "en": "SC Bhosari (33%) & CHC Kharadi (68%)",
+    "mr": "SC भोसरी (३३%) व CHC खराडी (६८%)"
+  },
+  {
+    "en": "Staff Attendance by Professional Cadre",
+    "mr": "संवर्गनिहाय उपस्थिती अहवाल (Cadre Breakdown)"
+  },
+  {
+    "en": "Facility-Level Staff Attendance Records",
+    "mr": "आरोग्य केंद्रनिहाय प्रत्यक्ष उपस्थिती"
+  },
+  {
+    "en": "Live biometric and duty roster status",
+    "mr": "वैद्यकीय अधिकारी, परिचारिका व प्रयोगशाळा तंत्रज्ञांची थेट बायोमेट्रिक हजेरी"
+  },
+  {
+    "en": "Search facility or MO...",
+    "mr": "केंद्र किंवा डॉक्टर शोधा..."
+  },
+  {
+    "en": "At least one test must be selected.",
+    "mr": "किमान एक तपासणी निवडणे आवश्यक आहे."
+  },
+  {
+    "en": "en",
+    "mr": "mr"
+  },
+  {
+    "en": "Prescribe Digital Lab Test Order (40+ Catalog)",
+    "mr": "नवीन डिजिटल लॅब टेस्ट ऑर्डर (४०+ चाचण्या)"
+  },
+  {
+    "en": "Automated barcode assignment, collection method & ABHA sync",
+    "mr": "स्वयंचलित बारकोड, नमुना पद्धती व ABHA एकत्रीकरण"
+  },
+  {
+    "en": "Select Patient",
+    "mr": "रुग्ण निवडा (Patient Registry)"
+  },
+  {
+    "en": "Priority SLA Level",
+    "mr": "प्राधान्यता स्तर (Priority SLA)"
+  },
+  {
+    "en": "Collection Method",
+    "mr": "नमुना संकलन पद्धत (Sample Collection)"
+  },
+  {
+    "en": "Select Diagnostic Tests",
+    "mr": "तपासण्या निवडा (Select Tests)"
+  },
+  {
+    "en": "Selected",
+    "mr": "निवडल्या"
+  },
+  {
+    "en": "Search test name/code...",
+    "mr": "तपासणी नाव किंवा कोड शोधा..."
+  },
+  {
+    "en": "Clinical Indications & Prescribing Notes",
+    "mr": "क्लिनिकल इंडिकेशन व डॉक्टरांच्या सूचना (Clinical Notes)"
+  },
+  {
+    "en": "Transmit Test Order",
+    "mr": "डिजिटल लॅब ऑर्डर पाठवा"
+  },
+  {
+    "en": "Visit Lab",
+    "mr": "लॅब भेट"
+  },
+  {
+    "en": "Home Coll.",
+    "mr": "घरपोच"
+  },
+  {
+    "en": "At Facility",
+    "mr": "आरोग्य केंद्र"
+  },
+  {
+    "en": "All (40+)",
+    "mr": "सर्व (All)"
+  },
+  {
+    "en": "Hematology",
+    "mr": "रक्त (Blood)"
+  },
+  {
+    "en": "Biochemistry",
+    "mr": "बायोकेम (Biochem)"
+  },
+  {
+    "en": "Urine & Stool",
+    "mr": "लघवी (Urine)"
+  },
+  {
+    "en": "Microbiology",
+    "mr": "मायक्रोबायो (Micro)"
+  },
+  {
+    "en": "Radiology",
+    "mr": "इमेजिंग (Imaging)"
+  },
+  {
+    "en": "Diagnostic Coordination & Laboratory Network",
+    "mr": "डिजिटल निदान व प्रयोगशाळा समन्वय केंद्र"
+  },
+  {
+    "en": "Integrated lab finder, digital test orders (40+ catalog), barcode sample tracking & instant ABHA EHR sync",
+    "mr": "जवळील लॅब नेटवर्क, डिजिटल टेस्ट ऑर्डरिंग (४०+ चाचण्या), बारकोड ट्रॅकिंग आणि ABHA रेकॉर्डमध्ये स्वयंचलित अहवाल समक्रमण"
+  },
+  {
+    "en": "Total Test Orders",
+    "mr": "एकूण लॅब ऑर्डर्स"
+  },
+  {
+    "en": "In Analysis / Run",
+    "mr": "प्रलंबित / तपासणी सुरू"
+  },
+  {
+    "en": "Critical Findings",
+    "mr": "गंभीर स्तर (Critical)"
+  },
+  {
+    "en": "EHR / ABHA Synced",
+    "mr": "ABHA मध्ये अपलोड"
+  },
+  {
+    "en": "Test Orders & Status Tracker",
+    "mr": "चाचणी ऑर्डर्स व अहवाल ट्रॅकर"
+  },
+  {
+    "en": "Nearby Accredited Labs",
+    "mr": "जवळील लॅब व इमेजिंग सेंटर्स"
+  },
+  {
+    "en": "Nearby Diagnostic Laboratories & Imaging Centers",
+    "mr": "जवळील अधिकृत लॅब व निदान केंद्र शोधक"
+  },
+  {
+    "en": "Filter by distance, tests available, NABL status and home sample pickup",
+    "mr": "अंतर, चाचणी क्षमता आणि शासकीय पॅनल स्थितीनुसार शोधा"
+  },
+  {
+    "en": "Search lab facility...",
+    "mr": "लॅबचे नाव किंवा ठिकाण शोधा..."
+  },
+  {
+    "en": "Filters:",
+    "mr": "फिल्टर्स:"
+  },
+  {
+    "en": "Empanelled",
+    "mr": "पॅनेलवर अधिकृत (Empanelled)"
+  },
+  {
+    "en": "Home Collection",
+    "mr": "घरपोच नमुना संकलन (Home Collection)"
+  },
+  {
+    "en": "Open Now",
+    "mr": "आत्ता उघडे (Open Now)"
+  },
+  {
+    "en": "Govt Only",
+    "mr": "फक्त शासकीय (Govt Only)"
+  },
+  {
+    "en": "Clear Filters",
+    "mr": "फिल्टर्स क्लिअर करा"
+  },
+  {
+    "en": "No diagnostic facilities match the selected filters.",
+    "mr": "कोणतीही लॅब आढळली नाही. कृपया वेगळा फिल्टर निवडा."
+  },
+  {
+    "en": "away",
+    "mr": "अंतर"
+  },
+  {
+    "en": "Tests Available",
+    "mr": "चाचण्या उपलब्ध"
+  },
+  {
+    "en": "Select Facility",
+    "mr": "लॅब निवडा"
+  },
+  {
+    "en": "Verified Digital Diagnostic Report",
+    "mr": "प्रमाणित डिजिटल लॅब अहवाल"
+  },
+  {
+    "en": "Order ID: ${order.id} · Barcode: ${order.barcode}",
+    "mr": "ऑर्डर आयडी: ${order.id} · बारकोड: ${order.barcode}"
+  },
+  {
+    "en": "Patient Information:",
+    "mr": "रुग्ण तपशील (Patient Details):"
+  },
+  {
+    "en": "Doctor:",
+    "mr": "डॉक्टर:"
+  },
+  {
+    "en": "Diagnostic Facility:",
+    "mr": "तपासणी लॅब केंद्र:"
+  },
+  {
+    "en": "Date:",
+    "mr": "तारीख:"
+  },
+  {
+    "en": "CRITICAL VALUE ALERT - STAT INTERVENTION NEEDED",
+    "mr": "अत्यंत गंभीर मूल्य इशारा (CRITICAL VALUE ALERT)"
+  },
+  {
+    "en": "Critical bio-marker values detected outside physiological safe bounds. Immediate specialist escalation advised.",
+    "mr": "या अहवालात जीवन-धोकादायक स्तर आढळले आहेत. त्वरित तज्ञ डॉक्टरांशी संपर्क साधा किंवा आपत्कालीन विभागात दाखल करा."
+  },
+  {
+    "en": "Tests Conducted:",
+    "mr": "केलेल्या चाचण्या:"
+  },
+  {
+    "en": "Parameter",
+    "mr": "तपासणी घटक"
+  },
+  {
+    "en": "Result Value",
+    "mr": "निरीक्षित मूल्य"
+  },
+  {
+    "en": "Biological Ref",
+    "mr": "संदर्भ मर्यादा"
+  },
+  {
+    "en": "Flag",
+    "mr": "स्थिती"
+  },
+  {
+    "en": "Specimen is under automated analyzer run...",
+    "mr": "तपासणी प्रक्रिया लॅबमध्ये सुरू आहे..."
+  },
+  {
+    "en": "Consultant Pathologist Impression & Advisory:",
+    "mr": "पॅथॉलॉजिस्ट क्लिनिकल अभिप्राय व सल्ला:"
+  },
+  {
+    "en": "Ayushman Bharat Digital Mission (ABDM) FHIR Synced",
+    "mr": "ABHA डिजिटल हेल्थ रेकॉर्डमध्ये सुरक्षितपणे समक्रमित"
+  },
+  {
+    "en": "Electronically Signed by:",
+    "mr": "प्रमाणित करणारे पॅथॉलॉजिस्ट:"
+  },
+  {
+    "en": "Close",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Download Verified Report",
+    "mr": "प्रमाणित अहवाल डाउनलोड"
+  },
+  {
+    "en": "Pending / Run",
+    "mr": "प्रलंबित / सुरू"
+  },
+  {
+    "en": "Order Test",
+    "mr": "नवीन चाचणी"
+  },
+  {
+    "en": "No diagnostic orders found matching filter.",
+    "mr": "कोणतीही चाचणी ऑर्डर आढळली नाही."
+  },
+  {
+    "en": "Patient:",
+    "mr": "रुग्ण:"
+  },
+  {
+    "en": "Specimen & Testing Workflow SLA",
+    "mr": "नमुना व चाचणी प्रगती स्तर"
+  },
+  {
+    "en": "View STAT",
+    "mr": "अहवाल पहा"
+  },
+  {
+    "en": "Advance Workflow",
+    "mr": "पुढील टप्पा"
+  },
+  {
+    "en": "View Verified Report",
+    "mr": "अहवाल पहा"
+  },
+  {
+    "en": "Advised regular medication and confirmed next checkup.",
+    "mr": "गोळ्या नियमित घेण्याचा सल्ला दिला व तारीख निश्चित केली."
+  },
+  {
+    "en": "Home visit logged for ${selectedPatientForVisit.nameEn}!",
+    "mr": "${selectedPatientForVisit.nameMr} यांची गृहभेट यशस्वीरित्या नोंदवली गेली!"
+  },
+  {
+    "en": "Urgent alert dispatched to PHC Medical Officer Dr. Meera Deshmukh!",
+    "mr": "वैद्यकीय अधिकारी डॉ. मीरा देशमुख यांच्याकडे तातडीचा अलर्ट पाठवला गेला!"
+  },
+  {
+    "en": "Dismiss",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Suman Tai Patil (ASHA Worker)",
+    "mr": "सुमन ताई पाटील (आशा कार्यकर्ती)"
+  },
+  {
+    "en": "Assigned high-risk home visit schedule under PHC Shirur",
+    "mr": "प्राथमिक आरोग्य केंद्र शिरूर अंतर्गत उच्च जोखीम गृहभेट वेळापत्रक"
+  },
+  {
+    "en": "Urgent & Due Today",
+    "mr": "आजच्या / थकीत भेटी"
+  },
+  {
+    "en": "All Cohort",
+    "mr": "सर्व रुग्ण"
+  },
+  {
+    "en": "years",
+    "mr": "वर्षे"
+  },
+  {
+    "en": "${pt.daysOverdue} days overdue!",
+    "mr": "${pt.daysOverdue} दिवस थकीत!"
+  },
+  {
+    "en": "Next Due:",
+    "mr": "पुढील भेट:"
+  },
+  {
+    "en": "Clinical Risk Factors:",
+    "mr": "क्लिनिकल जोखीम घटक:"
+  },
+  {
+    "en": "Danger Signs to Check:",
+    "mr": "धोक्याची लक्षणे (तपासणी आवश्यक):"
+  },
+  {
+    "en": "Med Adherence:",
+    "mr": "औषध नियमितता:"
+  },
+  {
+    "en": "Call Patient",
+    "mr": "रुग्णास कॉल"
+  },
+  {
+    "en": "Escalate to MO",
+    "mr": "डॉक्टरांकडे अलर्ट"
+  },
+  {
+    "en": "Log Home Visit",
+    "mr": "गृहभेट नोंदवा (Log Visit)"
+  },
+  {
+    "en": "All high-risk home visits up to date!",
+    "mr": "अभिनंदन! आज कोणतीही भेट थकीत नाही"
+  },
+  {
+    "en": "Great job! No pending overdue visits in your village register.",
+    "mr": "आपल्या कार्यक्षेत्रातील सर्व उच्च जोखीम रुग्णांचे निरीक्षण वेळेवर पूर्ण झाले आहे."
+  },
+  {
+    "en": "Log ASHA Home Visit Record",
+    "mr": "गृहभेट व शारीरिक मापे नोंदणी"
+  },
+  {
+    "en": "Measured Vitals:",
+    "mr": "प्रत्यक्ष मोजलेली शारीरिक मापे (Vitals):"
+  },
+  {
+    "en": "Blood Pressure",
+    "mr": "रक्तदाब (BP)"
+  },
+  {
+    "en": "Blood Glucose",
+    "mr": "रक्तातील साखर (mg/dL)"
+  },
+  {
+    "en": "Weight (kg)",
+    "mr": "वजन (Weight kg)"
+  },
+  {
+    "en": "MUAC (mm)",
+    "mr": "दंडाचा घेर MUAC (मिमी)"
+  },
+  {
+    "en": "Medication Compliance",
+    "mr": "औषध नियमितता (Medication Adherence)"
+  },
+  {
+    "en": "Danger Signs Observed:",
+    "mr": "धोक्याची लक्षणे आढळली का?"
+  },
+  {
+    "en": "Clinical Notes / Actions Taken",
+    "mr": "प्रत्यक्ष निरीक्षण व मार्गदर्शन"
+  },
+  {
+    "en": "e.g. Patient stable, advised green leafy vegetables...",
+    "mr": "उदा. रुग्णाची प्रकृती समाधानकारक, आहारात बदल सुचवले..."
+  },
+  {
+    "en": "Next Scheduled Follow-Up Date",
+    "mr": "पुढील भेटीची तारीख"
+  },
+  {
+    "en": "Save Visit Log",
+    "mr": "भेट नोंद पूर्ण करा"
+  },
+  {
+    "en": "High-Risk Follow-Up Master Schedule",
+    "mr": "उच्च जोखीम रुग्ण पाठपुरावा दिनदर्शिका"
+  },
+  {
+    "en": "Chronological home visits and clinic appointments organized by clinical urgency",
+    "mr": "प्राधान्यक्रमानुसार दैनंदिन व साप्ताहिक गृहभेटींचे नियोजन"
+  },
+  {
+    "en": "Overdue Follow-Ups (${groupedSchedule.overdue.length})",
+    "mr": "थकीत भेटी (${groupedSchedule.overdue.length})"
+  },
+  {
+    "en": "days overdue",
+    "mr": "दिवस थकीत"
+  },
+  {
+    "en": "Due Today (${groupedSchedule.dueToday.length})",
+    "mr": "आजच्या नियोजित भेटी (${groupedSchedule.dueToday.length})"
+  },
+  {
+    "en": "Today",
+    "mr": "आज देय"
+  },
+  {
+    "en": "Upcoming Follow-Ups (Next 7 Days)",
+    "mr": "पुढील ७ दिवसांतील नियोजित भेटी"
+  },
+  {
+    "en": "Active Clinical Alert: ${overdueCount} high-risk patients have overdue follow-up visits!",
+    "mr": "सक्रिय दक्षता इशारा: ${overdueCount} उच्च जोखीम रुग्णांच्या पाठपुरावा भेटी थकीत आहेत!"
+  },
+  {
+    "en": "Automated Day 1/3/7 escalation protocol is triggered to ensure zero dropouts.",
+    "mr": "गर्भवती माता किंवा गंभीर रुग्णांची गैरहजेरी टाळण्यासाठी आशा कार्यकर्त्यांना तत्काळ अलर्ट पाठवा."
+  },
+  {
+    "en": "View Overdue Cohort",
+    "mr": "थकीत रुग्ण पहा"
+  },
+  {
+    "en": "Surveillance Cohort",
+    "mr": "तालुका दक्षता नोंदवही"
+  },
+  {
+    "en": "ASHA Home Visit Schedule",
+    "mr": "आशा कार्यकर्ती गृहभेट वेळापत्रक"
+  },
+  {
+    "en": "due",
+    "mr": "थकीत"
+  },
+  {
+    "en": "Flag New High-Risk Patient",
+    "mr": "नवीन उच्च जोखीम रुग्ण नोंदणी (Flag Patient)"
+  },
+  {
+    "en": "Clinical Analytics",
+    "mr": "क्लिनिकल विश्लेषण व अहवाल"
+  },
+  {
+    "en": "Search patient, village, ABHA, or ASHA...",
+    "mr": "रुग्णाचे नाव, गाव, आभा आयडी किंवा आशा..."
+  },
+  {
+    "en": "Showing ${filteredPatients.length} registered high-risk cases",
+    "mr": "एकूण सापडलेले रुग्ण: ${filteredPatients.length}"
+  },
+  {
+    "en": "Automated 24x7 Surveillance Active",
+    "mr": "२४ तास स्वयंचलित पाठपुरावा सक्रिय"
+  },
+  {
+    "en": "Assigned ASHA:",
+    "mr": "आशा कार्यकर्ती:"
+  },
+  {
+    "en": "Next Follow-Up:",
+    "mr": "पुढील पाठपुरावा तारीख:"
+  },
+  {
+    "en": "On Schedule",
+    "mr": "शेड्यूलनुसार"
+  },
+  {
+    "en": "Compliance:",
+    "mr": "औषध नियमितता:"
+  },
+  {
+    "en": "View History",
+    "mr": "इतिहास पहा"
+  },
+  {
+    "en": "Alert Sent!",
+    "mr": "अलर्ट पाठवला!"
+  },
+  {
+    "en": "Alert ASHA",
+    "mr": "आशा अलर्ट"
+  },
+  {
+    "en": "No patients match your search criteria",
+    "mr": "कोणताही रुग्ण आढळला नाही"
+  },
+  {
+    "en": "Try changing your category or urgency filter.",
+    "mr": "कृपया फिल्टर तपासा किंवा वेगळे नाव शोधून पहा."
+  },
+  {
+    "en": "Longitudinal Clinical & Visit History",
+    "mr": "रुग्ण क्लिनिकल इतिहास व गृहभेट नोंदी"
+  },
+  {
+    "en": "Latest Clinical Measurements:",
+    "mr": "शेवटची शारीरिक मापे:"
+  },
+  {
+    "en": "Previous Home Visits Record",
+    "mr": "मागील प्रत्यक्ष भेटींचा इतिहास"
+  },
+  {
+    "en": "Observation:",
+    "mr": "निरीक्षण:"
+  },
+  {
+    "en": "Action:",
+    "mr": "कृती:"
+  },
+  {
+    "en": "${patient.daysOverdue} days overdue!",
+    "mr": "${patient.daysOverdue} दिवस थकीत!"
+  },
+  {
+    "en": "Log Visit",
+    "mr": "भेट नोंदवा"
+  },
+  {
+    "en": "Total Monitored Cohort",
+    "mr": "सक्रिय दक्षता रुग्ण"
+  },
+  {
+    "en": "Avg Adherence Rate",
+    "mr": "सरासरी औषध नियमितता"
+  },
+  {
+    "en": "Target: > 85%",
+    "mr": "लक्ष्य: > ८५%"
+  },
+  {
+    "en": "Overdue Follow-ups",
+    "mr": "थकीत भेटी (Overdue)"
+  },
+  {
+    "en": "Critical Severity Cases",
+    "mr": "अति-तीव्र केसेस"
+  },
+  {
+    "en": "Clinical Risk Distribution",
+    "mr": "क्लिनिकल जोखीम प्रवर्ग वर्गीकरण"
+  },
+  {
+    "en": "Automated Escalation Protocol",
+    "mr": "स्वयंचलित पाठपुरावा व अलर्ट प्रणाली"
+  },
+  {
+    "en": "Day 1 Overdue — ASHA Push Alert",
+    "mr": "१ दिवस थकीत — आशा कार्यकर्तीला एसएमएस"
+  },
+  {
+    "en": "Instant notification dispatched to assigned ASHA worker to conduct priority home visit.",
+    "mr": "आशा कार्यकर्तीच्या मोबाईलवर रुग्णाचा पत्ता व तातडीची भेट नोंदवण्याची सूचना जाते."
+  },
+  {
+    "en": "Day 3 Overdue — PHC Medical Officer",
+    "mr": "३ दिवस थकीत — प्राथमिक आरोग्य केंद्र वैद्यकीय अधिकारी"
+  },
+  {
+    "en": "Alert escalates to PHC Medical Officer to mobilize health supervisor and review case.",
+    "mr": "वैद्यकीय अधिकारी डॉ. देशमुख यांना थेट अलर्ट; आरोग्य सहाय्यकास प्रत्यक्ष चौकशीसाठी पाठवले जाते."
+  },
+  {
+    "en": "Day 7 Overdue — Taluka / District Admin",
+    "mr": "७ दिवस थकीत — तालुका व जिल्हा शल्यचिकित्सक"
+  },
+  {
+    "en": "Red-flag critical intervention: Mobilize 108 emergency vehicle or outreach team.",
+    "mr": "१०८ रुग्णवाहिका किंवा विशेष पथक पाठवून रुग्णास रुग्णालयात दाखल करण्याचा आदेश निघतो."
+  },
+  {
+    "en": "Please enter patient name.",
+    "mr": "कृपया रुग्णाचे नाव प्रविष्ट करा."
+  },
+  {
+    "en": "Enroll patient into active surveillance with automated ASHA & PHC follow-up protocols",
+    "mr": "क्लिनिकल मार्गदर्शक तत्त्वांच्या आधारे रुग्णास सक्रिय दक्षता यादीत समाविष्ट करा"
+  },
+  {
+    "en": "Step ${currentStep} of 3",
+    "mr": "टप्पा ${currentStep} पैकी ३"
+  },
+  {
+    "en": "1. Patient Identity & Demographics",
+    "mr": "१. रुग्ण ओळख व लोकसंख्याशास्त्रीय माहिती"
+  },
+  {
+    "en": "Patient Name (Marathi)",
+    "mr": "रुग्णाचे नाव (मराठीत)"
+  },
+  {
+    "en": "Patient Name (English)",
+    "mr": "रुग्णाचे नाव (इंग्रजीत)"
+  },
+  {
+    "en": "Age (Years)",
+    "mr": "वय (वर्षे)"
+  },
+  {
+    "en": "Gender",
+    "mr": "लिंग"
+  },
+  {
+    "en": "Female",
+    "mr": "स्त्री"
+  },
+  {
+    "en": "Male",
+    "mr": "पुरुष"
+  },
+  {
+    "en": "Other",
+    "mr": "इतर"
+  },
+  {
+    "en": "Phone Number",
+    "mr": "मोबाईल नंबर"
+  },
+  {
+    "en": "Village",
+    "mr": "गाव"
+  },
+  {
+    "en": "ABHA ID",
+    "mr": "आभा ओळख क्रमांक (ABHA ID)"
+  },
+  {
+    "en": "2. Clinical Risk Cohort & Severity",
+    "mr": "२. क्लिनिकल जोखीम वर्ग व तीव्रता"
+  },
+  {
+    "en": "Select High-Risk Cohort",
+    "mr": "जोखीम प्रवर्ग निवडा"
+  },
+  {
+    "en": "Clinical Severity",
+    "mr": "तीव्रता पातळी (Severity Grading)"
+  },
+  {
+    "en": "Risk Factor (Marathi)",
+    "mr": "जोखीम कारण (मराठीत)"
+  },
+  {
+    "en": "Risk Factor (English)",
+    "mr": "जोखीम कारण (इंग्रजीत)"
+  },
+  {
+    "en": "Current Vitals Snapshot:",
+    "mr": "सध्याची शारीरिक मापे (Vitals Snapshot):"
+  },
+  {
+    "en": "3. ASHA Worker Assignment & Care Plan",
+    "mr": "३. आशा कार्यकर्ती वाटप व भेटीचे नियोजन"
+  },
+  {
+    "en": "Assigned ASHA Worker",
+    "mr": "नियुक्त आशा कार्यकर्ती"
+  },
+  {
+    "en": "ASHA Phone",
+    "mr": "आशा कार्यकर्तीचा फोन"
+  },
+  {
+    "en": "Attached Health Center",
+    "mr": "संबंधित आरोग्य केंद्र"
+  },
+  {
+    "en": "Attending Medical Officer",
+    "mr": "तपासणारे वैद्यकीय अधिकारी"
+  },
+  {
+    "en": "Home Visit Frequency",
+    "mr": "गृहभेटीची वारंवारता"
+  },
+  {
+    "en": "Every 3 Days (Critical)",
+    "mr": "दर ३ दिवसांनी (अति-दक्षता)"
+  },
+  {
+    "en": "Weekly (Every 7 Days)",
+    "mr": "साप्ताहिक (दर ७ दिवसांनी)"
+  },
+  {
+    "en": "Bi-Weekly (Every 14 Days)",
+    "mr": "पंधरवड्याला (१४ दिवस)"
+  },
+  {
+    "en": "Monthly (Every 30 Days)",
+    "mr": "मासिक (३० दिवस)"
+  },
+  {
+    "en": "First Follow-Up Date",
+    "mr": "पहिल्या भेटीची निश्चित तारीख"
+  },
+  {
+    "en": "Previous",
+    "mr": "मागील टप्पा"
+  },
+  {
+    "en": "Next Step",
+    "mr": "पुढील टप्पा"
+  },
+  {
+    "en": "Confirm & Enroll Patient",
+    "mr": "रुग्ण दक्षता यादीत जोडा"
+  },
+  {
+    "en": "Please enter Aadhaar or Mobile number",
+    "mr": "कृपया आधार किंवा मोबाईल क्रमांक प्रविष्ट करा"
+  },
+  {
+    "en": "OTP sent successfully (Test code: 789123)",
+    "mr": "ओटीपी यशस्वीरित्या पाठवला गेला (चाचणी कोड: 789123)"
+  },
+  {
+    "en": "ABHA identity successfully verified!",
+    "mr": "ABHA ओळखपत्र यशस्वीरित्या प्रमाणित झाले!"
+  },
+  {
+    "en": "ABHA Patient profile retrieved!",
+    "mr": "ABHA रुग्ण प्रोफाइल सापडले!"
+  },
+  {
+    "en": "No patient found for this ABHA identifier",
+    "mr": "कोणतेही रुग्ण सापडले नाही"
+  },
+  {
+    "en": "Care context successfully linked to ABHA account!",
+    "mr": "उपचार संदर्भ यशस्वीरित्या ABHA शी जोडला गेला!"
+  },
+  {
+    "en": "ABHA ID Linkage & Biometric Verification",
+    "mr": "ABHA ओळखपत्र प्रमाणीकरण व नोंदणी"
+  },
+  {
+    "en": "14-digit Ayushman Bharat Health Account (ABHA), Aadhaar/Mobile OTP validation, and HIP care context linking",
+    "mr": "१४-अंकी डिजिटल आयुष्मान भारत आरोग्य खाते (ABHA), आधार ओटीपी प्रमाणीकरण आणि केअर संदर्भ व्यवस्थापन"
+  },
+  {
+    "en": "Verify / Lookup",
+    "mr": "पडताळणी (Search)"
+  },
+  {
+    "en": "Create / Auth OTP",
+    "mr": "ओटीपी निर्मिती (OTP)"
+  },
+  {
+    "en": "Care Contexts",
+    "mr": "केअर संदर्भ (Care Contexts)"
+  },
+  {
+    "en": "Lookup Patient via ABHA ID or PHR Address",
+    "mr": "ABHA क्रमांक किंवा पत्ता द्वारे शोधा"
+  },
+  {
+    "en": "14-Digit ABHA Number or @abdm PHR Address",
+    "mr": "१४-अंकी ABHA किंवा @abdm पत्ता"
+  },
+  {
+    "en": "Lookup",
+    "mr": "शोधा"
+  },
+  {
+    "en": "Sample lookup: 14-8842-1928-3011 or sunita.jadhav@abdm",
+    "mr": "डेमो शोध उदाहरणे: 14-8842-1928-3011 किंवा sunita.jadhav@abdm"
+  },
+  {
+    "en": "Authenticate via Aadhaar / Mobile OTP",
+    "mr": "आधार / मोबाईल ओटीपी द्वारे प्रमाणीकरण"
+  },
+  {
+    "en": "Authentication Method",
+    "mr": "प्रमाणीकरण पद्धती"
+  },
+  {
+    "en": "Aadhaar Number (12 digits) or Registered Mobile",
+    "mr": "आधार क्रमांक (१२ अंक) किंवा नोंदणीकृत मोबाईल"
+  },
+  {
+    "en": "10-Digit Mobile Number",
+    "mr": "१०-अंकी मोबाईल क्रमांक"
+  },
+  {
+    "en": "Request ABDM Gateway OTP",
+    "mr": "ओटीपी पाठवा (Generate OTP)"
+  },
+  {
+    "en": "OTP Dispatched",
+    "mr": "ओटीपी पाठवला गेला आहे"
+  },
+  {
+    "en": "For ABDM Sandbox evaluation, enter code: 789123",
+    "mr": "सँडबॉक्स चाचणीसाठी कोड: 789123 प्रविष्ट करा"
+  },
+  {
+    "en": "6-Digit ABDM Verification OTP",
+    "mr": "६-अंकी पडताळणी कोड (OTP)"
+  },
+  {
+    "en": "Back",
+    "mr": "मागील"
+  },
+  {
+    "en": "Confirm & Authenticate",
+    "mr": "पडताळणी करा"
+  },
+  {
+    "en": "Available Local Care Contexts",
+    "mr": "स्थानिक उपचार संदर्भ (Care Contexts)"
+  },
+  {
+    "en": "Link clinical encounters from this facility to the patient ABHA record for nationwide PHR access.",
+    "mr": "या आरोग्य केंद्रातील क्लिनिकल नोंदी रुग्णाच्या ABHA खात्याशी जोडून डिजिटल आरोग्य लॉकरमध्ये उपलब्ध करून द्या."
+  },
+  {
+    "en": "Linked to ABHA",
+    "mr": "जोडलेले (Linked)"
+  },
+  {
+    "en": "Unlinked",
+    "mr": "प्रलंबित (Pending)"
+  },
+  {
+    "en": "Link Now",
+    "mr": "जोडा"
+  },
+  {
+    "en": "No Active ABHA Identity Loaded",
+    "mr": "कोणतेही सक्रिय ABHA ओळखपत्र लोड केलेले नाही"
+  },
+  {
+    "en": "Search for an existing ABHA ID or initiate an OTP authentication workflow on the left panel to load the patient card.",
+    "mr": "रुग्णाचा १४-अंकी ABHA क्रमांक शोधा किंवा आधार ओटीपी प्रमाणीकरण सुरू करण्यासाठी डावीकडील फॉर्म वापरा."
+  },
+  {
+    "en": "Patient Digital Consent & Privacy Framework",
+    "mr": "रुग्ण डिजिटल संमती व्यवस्थापक (Patient Consent Manager)"
+  },
+  {
+    "en": "Granular, patient-directed electronic consent artifacts with cryptographic verification and instant revocation rights",
+    "mr": "रुग्णाच्या स्पष्ट डिजिटल संमतीवर आधारित आरोग्य माहितीची देवाणघेवाण, क्रिप्टोग्राफिक इलेक्ट्रॉनिक स्वाक्षरी आणि मुदत ट्रॅकिंग"
+  },
+  {
+    "en": "New Consent Request",
+    "mr": "नवीन संमती विनंती"
+  },
+  {
+    "en": "All Consents",
+    "mr": "सर्व संमती"
+  },
+  {
+    "en": "Provider (HIP)",
+    "mr": "माहिती प्रदाता (HIP)"
+  },
+  {
+    "en": "Requester (HIU)",
+    "mr": "माहिती वापरकर्ता (HIU)"
+  },
+  {
+    "en": "Revoke",
+    "mr": "रद्द करा"
+  },
+  {
+    "en": "Initiate ABDM Consent Request",
+    "mr": "नवीन ABDM संमती विनंती तयार करा"
+  },
+  {
+    "en": "Standards-Compliant Data Export & Reporting",
+    "mr": "राष्ट्रीय मानकांनुसार डेटा निर्यात पॅनेल"
+  },
+  {
+    "en": "Generate verified dataset packages formatted for NHM HMIS, MCTS/RCH, Nikshay TB, and ABDM interoperability pipelines.",
+    "mr": "NHM HMIS, MCTS/RCH, निक्षय (Nikshay TB) आणि ABDM FHIR R4 आवश्यकतेनुसार शासकीय अहवाल त्वरित तयार करा आणि डाउनलोड करा."
+  },
+  {
+    "en": "Configure Export Parameters",
+    "mr": "नवीन अहवाल तयार करा"
+  },
+  {
+    "en": "Select Target Government Program:",
+    "mr": "शासकीय पोर्टल अहवाल निवडा:"
+  },
+  {
+    "en": "Facility Scope",
+    "mr": "आरोग्य संस्था व्याप्ती"
+  },
+  {
+    "en": "All Pune District Facilities (847)",
+    "mr": "सर्व पुणे जिल्हा संस्था (८४७)"
+  },
+  {
+    "en": "Reporting Period",
+    "mr": "अहवाल कालावधी"
+  },
+  {
+    "en": "November 2024 (Current Month)",
+    "mr": "नोव्हेंबर २०२४ (चालू महिना)"
+  },
+  {
+    "en": "October 2024",
+    "mr": "ऑक्टोबर २०२४"
+  },
+  {
+    "en": "Q2 FY 2024-25",
+    "mr": "दुसरी तिमाही (Q2 FY 2024-25)"
+  },
+  {
+    "en": "Full Year 2024",
+    "mr": "संपूर्ण वर्ष २०२४"
+  },
+  {
+    "en": "File Format",
+    "mr": "फाइल फॉरमॅट"
+  },
+  {
+    "en": "Export package generated and downloaded successfully: ${downloadSuccess}",
+    "mr": "अहवाल यशस्वीरित्या तयार झाला आणि डाउनलोड झाला: ${downloadSuccess}"
+  },
+  {
+    "en": "Compiling Dataset...",
+    "mr": "डेटा संकलित करत आहे..."
+  },
+  {
+    "en": "Generate & Download Package",
+    "mr": "अहवाल तयार करा व डाउनलोड करा"
+  },
+  {
+    "en": "Export Audit Trail & History",
+    "mr": "मागील निर्यात अहवाल इतिहास (ऑडिट ट्रेल)"
+  },
+  {
+    "en": "Cryptographically hashed history of generated government export packages.",
+    "mr": "माहिती अधिकृतता व ऑडिट नियमांचे पालन करणाऱ्या ऐतिहासिक निर्यातींचा नोंदवही."
+  },
+  {
+    "en": "Entries",
+    "mr": "नोंदी"
+  },
+  {
+    "en": "HL7 FHIR R4 Clinical Document Bundle",
+    "mr": "HL7 FHIR R4 क्लिनिकल डॉक्युमेंट बंडल"
+  },
+  {
+    "en": "Interoperable clinical exchange bundle compliant with National Health Authority specifications",
+    "mr": "आयुष्मान भारत डिजिटल मिशन (ABDM) मानकांनुसार तयार केलेला डिजिटल आरोग्य बंडल"
+  },
+  {
+    "en": "Copied!",
+    "mr": "कॉपी झाले!"
+  },
+  {
+    "en": "Copy JSON",
+    "mr": "JSON कॉपी करा"
+  },
+  {
+    "en": "Download .json",
+    "mr": "डाउनलोड करा"
+  },
+  {
+    "en": "Bundled Resources (",
+    "mr": "समाविष्ट FHIR घटक (' + bundle.total + '):"
+  },
+  {
+    "en": "Validated against NHA Sandbox StructureDefinition v4.0.0 for pan-India portability.",
+    "mr": "हे FHIR बंडल नॅशनल हेल्थ ऑथॉरिटी (NHA) सँडबॉक्स व्हॅलिडेटरद्वारे प्रमाणित केले जाऊ शकते."
+  },
+  {
+    "en": "FHIR R4 Clinical Health Records Viewer",
+    "mr": "FHIR R4 क्लिनिकल आरोग्य नोंदी दर्शक"
+  },
+  {
+    "en": "Interoperable clinical summaries structured per National Resource Centre for EHR Standards (NRCES).",
+    "mr": "राष्ट्रीय डिजिटल आरोग्य अभियानाच्या (NRCES) मानकांनुसार तयार केलेली इलेक्ट्रॉनिक आरोग्य बंडल्स."
+  },
+  {
+    "en": "Clinical Cards",
+    "mr": "क्लिनिकल कार्ड दृश्य"
+  },
+  {
+    "en": "Raw FHIR JSON",
+    "mr": "कच्चा FHIR JSON"
+  },
+  {
+    "en": "Search patient, ABHA or record ID...",
+    "mr": "नाव, ABHA किंवा ID शोधा..."
+  },
+  {
+    "en": "Patient Name",
+    "mr": "रुग्णाचे नाव"
+  },
+  {
+    "en": "Facility",
+    "mr": "आरोग्य केंद्र"
+  },
+  {
+    "en": "Clinician",
+    "mr": "वैद्यकीय अधिकारी"
+  },
+  {
+    "en": "Standard Coding:",
+    "mr": "मानकीकृत कोड:"
+  },
+  {
+    "en": "en-IN",
+    "mr": "mr-IN"
+  },
+  {
+    "en": "Select Resource",
+    "mr": "नोंद निवडा"
+  },
+  {
+    "en": "Validate R4",
+    "mr": "मानक पडताळणी"
+  },
+  {
+    "en": "Copied",
+    "mr": "कॉपी झाले"
+  },
+  {
+    "en": "Copy",
+    "mr": "कॉपी"
+  },
+  {
+    "en": "Download",
+    "mr": "डाउनलोड"
+  },
+  {
+    "en": "100% Valid per NRCES India FHIR R4 Profile",
+    "mr": "NRCES India FHIR R4 मानकांनुसार १००% वैध संसाधन"
+  },
+  {
+    "en": "Validation Errors Detected",
+    "mr": "मानक प्रमाणीकरण त्रुटी"
+  },
+  {
+    "en": "National Health Mission — HMIS Monthly Indicator Report",
+    "mr": "राष्ट्रीय आरोग्य अभियान — HMIS मासिक अहवाल"
+  },
+  {
+    "en": "Standardized monthly health indicators for direct reporting to State Health Society & MoHFW",
+    "mr": "महाराष्ट्र राज्य आरोग्य सोसायटी पोर्टलवर थेट अपलोड करण्यासाठी प्रमाणित मासिक दर्शक अहवाल"
+  },
+  {
+    "en": "Generating CSV...",
+    "mr": "तयार होत आहे..."
+  },
+  {
+    "en": "Export HMIS CSV",
+    "mr": "अधिकृत CSV डाउनलोड करा"
+  },
+  {
+    "en": "Category:",
+    "mr": "वर्गवारी:"
+  },
+  {
+    "en": "Indicator Description",
+    "mr": "मासिक दर्शक (Indicator)"
+  },
+  {
+    "en": "Monthly Target",
+    "mr": "लक्ष्य (Target)"
+  },
+  {
+    "en": "Achieved",
+    "mr": "साध्य (Achieved)"
+  },
+  {
+    "en": "Progress",
+    "mr": "प्रगती"
+  },
+  {
+    "en": "Status",
+    "mr": "स्थिती"
+  },
+  {
+    "en": "Aggregated from 847 health facilities across Pune District",
+    "mr": "एकूण ८४७ संस्थांचा एकत्रित डेटा"
+  },
+  {
+    "en": "Interoperability & Open Standards Command Center",
+    "mr": "आंतरकार्यक्षमता व शासकीय मानके केंद्र"
+  },
+  {
+    "en": "Ayushman Bharat Digital Mission (M1-M3), HL7 FHIR R4 Bundle Exchange, NHM HMIS Reporting & DPDP Consent Engine",
+    "mr": "आयुष्मान भारत डिजिटल मिशन (ABDM M1/M2/M3), HL7 FHIR R4 बंडल, NHM HMIS, आणि DPDP संमती व्यवस्थापन"
+  },
+  {
+    "en": "ABHA Verified",
+    "mr": "ABHA जोडणी"
+  },
+  {
+    "en": "100% Aadhaar Verified",
+    "mr": "१००% आधार प्रमाणित"
+  },
+  {
+    "en": "HFR Facilities",
+    "mr": "HFR नोंदणी"
+  },
+  {
+    "en": "100% District Coverage",
+    "mr": "सर्व संस्था समाविष्ट"
+  },
+  {
+    "en": "FHIR Exchanges",
+    "mr": "FHIR बंडल्स"
+  },
+  {
+    "en": "NRCES India Profile",
+    "mr": "NRCES मानकीकृत"
+  },
+  {
+    "en": "Active Consents",
+    "mr": "सक्रिय संमती"
+  },
+  {
+    "en": "DPDP Cryptographic",
+    "mr": "DPDP सुरक्षित ऑडिट"
+  },
+  {
+    "en": "National Health Authority (NHA) ABDM Certification Milestones",
+    "mr": "राष्ट्रीय आरोग्य प्राधिकरण (NHA) ABDM अधिकृत प्रमाणीकरण टप्पे"
+  },
+  {
+    "en": "Standard Clinical Terminologies & Code Systems",
+    "mr": "मानकीकृत क्लिनिकल शब्दावली (Terminology Standards)"
+  },
+  {
+    "en": "ABDM & ABHA Connect",
+    "mr": "ABDM गेटवे व ABHA"
+  },
+  {
+    "en": "Consent Manager (DPDP)",
+    "mr": "इलेक्ट्रॉनिक संमती व्यवस्थापक"
+  },
+  {
+    "en": "FHIR R4 Records",
+    "mr": "HL7 FHIR R4 नोंदी"
+  },
+  {
+    "en": "External Gateways",
+    "mr": "शासकीय प्रणाली जोडणी"
+  },
+  {
+    "en": "Data Export & Reports",
+    "mr": "डेटा निर्यात व अहवाल"
+  },
+  {
+    "en": "Standards & Registry",
+    "mr": "शासकीय मानके संदर्भ"
+  },
+  {
+    "en": "External Government Systems Gateway",
+    "mr": "शासकीय राष्ट्रीय आरोग्य प्रणाली जोडणी"
+  },
+  {
+    "en": "Bi-directional interoperability bridge linking HealthWay to national public health databases.",
+    "mr": "महाराष्ट्र शासन व भारत सरकारच्या सर्व प्रमुख राष्ट्रीय आरोग्य पोर्टलशी द्वि-दिशीय डेटा एकत्रीकरण."
+  },
+  {
+    "en": "Ping All Gateways",
+    "mr": "सर्व प्रणाली चाचणी"
+  },
+  {
+    "en": "Connected Nodes",
+    "mr": "जोडलेल्या प्रणाली"
+  },
+  {
+    "en": "Avg Gateway Latency",
+    "mr": "सरासरी लेटन्सी"
+  },
+  {
+    "en": "Gateway Uptime",
+    "mr": "गेटवे अपटाईम"
+  },
+  {
+    "en": "Transactions Today",
+    "mr": "आजचे ट्रॅन्झॅक्शन्स"
+  },
+  {
+    "en": "Supported Feeds",
+    "mr": "समर्थित डेटा प्रवाह"
+  },
+  {
+    "en": "Freq:",
+    "mr": "वारंवारता:"
+  },
+  {
+    "en": "Pinging...",
+    "mr": "चाचणी..."
+  },
+  {
+    "en": "Test Ping",
+    "mr": "पिंंग चाचणी"
+  },
+  {
+    "en": "Gateway Credentials",
+    "mr": "क्रेडेंशियल व गेटवे सेटिंग्ज"
+  },
+  {
+    "en": "Credentials Validated & Updated!",
+    "mr": "क्रेडेंशियल्स यशस्वीरित्या अद्यतनित केले गेले!"
+  },
+  {
+    "en": "TLS 1.3 handshake and token renewed with national registry.",
+    "mr": "गेटवे सुरक्षित हँडशेक पूर्ण झाले."
+  },
+  {
+    "en": "Gateway Client ID",
+    "mr": "क्लायंट / नोड आयडी"
+  },
+  {
+    "en": "API Secret Key",
+    "mr": "API गुप्त की (Secret Key)"
+  },
+  {
+    "en": "HFR Facility Code",
+    "mr": "आरोग्य संस्था कोड (HFR Facility Code)"
+  },
+  {
+    "en": "Save & Verify Token",
+    "mr": "जतन करा व प्रमाणीकृत करा"
+  },
+  {
+    "en": "Low Stock & Critical Alert Center",
+    "mr": "साठा सतर्कता व टंचाई व्यवस्थापन"
+  },
+  {
+    "en": "Real-time surveillance of stockouts, depleted buffers, and expiring drug batches",
+    "mr": "आरोग्य उपकेंद्रे आणि प्राथमिक केंद्रांमधील तातडीच्या औषध पुनर्नोंदणीची थेट यादी"
+  },
+  {
+    "en": "Trigger Bulk Replenishment",
+    "mr": "सर्व टंचाईसाठी एकत्रित पुरवठा आदेश"
+  },
+  {
+    "en": "Facility:",
+    "mr": "रुग्णालय:"
+  },
+  {
+    "en": "Current Qty:",
+    "mr": "शिल्लक प्रमाण:"
+  },
+  {
+    "en": "Reorder",
+    "mr": "मागणी नोंदवा"
+  },
+  {
+    "en": "All essential medicines in adequate stock!",
+    "mr": "अभिनंदन! सर्व औषध साठा पुरेसा आहे"
+  },
+  {
+    "en": "No stockouts or low-buffer alerts currently active.",
+    "mr": "कोणत्याही आरोग्य केंद्रात टंचाई किंवा संपलेला साठा नाही."
+  },
+  {
+    "en": "In Stock:",
+    "mr": "उपलब्ध प्रमाण:"
+  },
+  {
+    "en": "Check Center Availability",
+    "mr": "आरोग्य केंद्रात साठा तपासा"
+  },
+  {
+    "en": "In Stock",
+    "mr": "उपलब्ध (साठा पूर्ण)"
+  },
+  {
+    "en": "days buffer",
+    "mr": "दिवसांचा साठा"
+  },
+  {
+    "en": "Low Stock",
+    "mr": "मर्यादित साठा"
+  },
+  {
+    "en": "days left",
+    "mr": "दिवस शिल्लक"
+  },
+  {
+    "en": "Critical Low",
+    "mr": "अति-कमी साठा"
+  },
+  {
+    "en": "days",
+    "mr": "दिवस"
+  },
+  {
+    "en": "Expiring Soon",
+    "mr": "कालबाह्य जवळ (३० दिवस)"
+  },
+  {
+    "en": "SMS alert registered! You will receive a free text notification as soon as '${subscriptionSuccess}' is restocked.",
+    "mr": "धन्यवाद! '${subscriptionSuccess}' औषधाचा साठा उपलब्ध होताच आपल्या मोबाईलवर मोफत एसएमएस पाठवला जाईल."
+  },
+  {
+    "en": "Government Essential Drug Guarantee",
+    "mr": "शासकीय मोफत औषध हमी योजना"
+  },
+  {
+    "en": "Search by medicine brand, generic salt, or condition (e.g., Paracetamol, Metformin, Iron Folic, ORS)...",
+    "mr": "औषधाचे नाव, जेनेरिक फॉर्म्युला किंवा आजार शोधा (उदा. Paracetamol, Metformin, IFA, ORS)..."
+  },
+  {
+    "en": "Filter by Health Center",
+    "mr": "आरोग्य केंद्र निवडा (Facility)"
+  },
+  {
+    "en": "All Health Facilities (Sorted by Distance)",
+    "mr": "सर्व आरोग्य केंद्रे (जवळच्या क्रमाने)"
+  },
+  {
+    "en": "${fac.nameEn} (${fac.distanceKm} km)",
+    "mr": "${fac.nameMr} (${fac.distanceKm} किमी)"
+  },
+  {
+    "en": "In-Stock Only",
+    "mr": "फक्त उपलब्ध औषधे दाखवा"
+  },
+  {
+    "en": "Select Medicine Category",
+    "mr": "औषध वर्गवारी निवडा"
+  },
+  {
+    "en": "Showing ${filteredStock.length} inventory records",
+    "mr": "एकूण उपलब्ध नोंदी: ${filteredStock.length}"
+  },
+  {
+    "en": "Live Inventory Sync",
+    "mr": "थेट डेटाबेस सिंक"
+  },
+  {
+    "en": "Dosage Guide:",
+    "mr": "वापर मार्गदर्शन:"
+  },
+  {
+    "en": "km",
+    "mr": "किमी"
+  },
+  {
+    "en": "Batch:",
+    "mr": "बॅच क्र:"
+  },
+  {
+    "en": "Expiry:",
+    "mr": "कालबाह्यता:"
+  },
+  {
+    "en": "Alternative: Available in stock at RH Khed (14 km)",
+    "mr": "पर्याय: ग्रामीण रुग्णालय खेड येथे मुबलक साठा उपलब्ध (१४ किमी)"
+  },
+  {
+    "en": "Alert Registered",
+    "mr": "एसएमएस नोंदणी झाली"
+  },
+  {
+    "en": "Notify When Restocked",
+    "mr": "साठा आल्यावर कळवा (SMS)"
+  },
+  {
+    "en": "Available for immediate walk-in collection",
+    "mr": "प्रत्यक्ष खिडकीवर मोफत उपलब्ध"
+  },
+  {
+    "en": "Get Directions",
+    "mr": "नकाशा दिशा"
+  },
+  {
+    "en": "No matching medicines found",
+    "mr": "कोणतेही औषध सापडले नाही"
+  },
+  {
+    "en": "Try searching with generic salt names (e.g., Paracetamol, Metformin) or reset filters.",
+    "mr": "कृपया औषधाचे नाव किंवा स्पेलिंग तपासून पहा, किंवा फिल्टर सर्व औषधे वर सेट करा."
+  },
+  {
+    "en": "Reset All Filters",
+    "mr": "सर्व फिल्टर रीसेट करा"
+  },
+  {
+    "en": "Free Stock Arrival SMS Alert",
+    "mr": "मोफत औषध साठा एसएमएस अलर्ट"
+  },
+  {
+    "en": "We will send a free automated SMS notification to your mobile number as soon as fresh stock of '${showNotifyModal.medName}' arrives at the facility.",
+    "mr": "जेव्हा '${showNotifyModal.medName}' चा नवीन साठा प्राथमिक आरोग्य केंद्रात दाखल होईल, तेव्हा आम्ही तात्काळ खालील मोबाईल क्रमांकावर सूचना पाठवू."
+  },
+  {
+    "en": "Mobile Phone Number (10 digits)",
+    "mr": "मोबाईल नंबर (१० अंकी)"
+  },
+  {
+    "en": "Confirm SMS Alert",
+    "mr": "अलर्ट सुरू करा"
+  },
+  {
+    "en": "Stock inventory updated successfully!",
+    "mr": "औषध साठा यशस्वीरित्या अद्ययावत केला!"
+  },
+  {
+    "en": "No critical stockouts found in this facility.",
+    "mr": "या केंद्रात तातडीची औषध टंचाई नाही."
+  },
+  {
+    "en": "Emergency Indent ${newInd.indentNumber} dispatched to State Central Warehouse!",
+    "mr": "तातडीचे मागणीपत्रक ${newInd.indentNumber} राज्य वखार केंद्राकडे पाठवले गेले!"
+  },
+  {
+    "en": "Stock shipment received and replenished into local inventory!",
+    "mr": "साठा केंद्रावर प्राप्त झाला व इन्व्हेंटरीमध्ये समाविष्ट केला गेला!"
+  },
+  {
+    "en": "Urgent Alert: ${criticalItems.length} essential medicines are at critical levels or out of stock!",
+    "mr": "तातडीचा इशारा: ${criticalItems.length} औषधांचा साठा संपला किंवा अति-कमी आहे!"
+  },
+  {
+    "en": "Replenishment indents should be dispatched immediately to prevent rural patient hardship.",
+    "mr": "शिरूर व टाकळी उपकेंद्रात रुग्णांची गैरसोय टाळण्यासाठी तातडीने राज्य मध्यवर्ती वखारीकडून पुरवठा मागवा."
+  },
+  {
+    "en": "Dispatch Auto Indent to Central Warehouse",
+    "mr": "मध्यवर्ती वखारीला तातडीचे मागणीपत्रक पाठवा"
+  },
+  {
+    "en": "Total Formulations",
+    "mr": "एकूण औषध फॉर्म्युला"
+  },
+  {
+    "en": "Adequate (>30d)",
+    "mr": "पूर्ण साठा (Adequate)"
+  },
+  {
+    "en": "Low Stock (7-29d)",
+    "mr": "मर्यादित साठा (Low)"
+  },
+  {
+    "en": "Critical / Stockout",
+    "mr": "टंचाई / संपलेला"
+  },
+  {
+    "en": "Expiring <30 Days",
+    "mr": "कालबाह्य जवळ (Expiry)"
+  },
+  {
+    "en": "Facility Stock Registry",
+    "mr": "थेट साठा नोंदवही (Live Inventory)"
+  },
+  {
+    "en": "Reorder Indents & Supply Chain",
+    "mr": "पुरवठा मागणीपत्रके (Requisition Indents)"
+  },
+  {
+    "en": "Search by medicine, salt, or batch...",
+    "mr": "औषधाचे नाव किंवा बॅच नंबर शोधा..."
+  },
+  {
+    "en": "All Network Facilities",
+    "mr": "सर्व आरोग्य केंद्रे (All)"
+  },
+  {
+    "en": "Medicine & Generic Salt",
+    "mr": "औषध व घटक"
+  },
+  {
+    "en": "Batch / Expiry",
+    "mr": "बॅच व कालबाह्यता"
+  },
+  {
+    "en": "Current Stock",
+    "mr": "शिल्लक साठा"
+  },
+  {
+    "en": "Daily Rate & Days Buffer",
+    "mr": "दैनिक वापर / दिवस शिल्लक"
+  },
+  {
+    "en": "Stock Tier",
+    "mr": "स्थिती"
+  },
+  {
+    "en": "Action",
+    "mr": "कृती"
+  },
+  {
+    "en": "Update",
+    "mr": "साठा नोंदवा"
+  },
+  {
+    "en": "Reorder Indent",
+    "mr": "मागणी करा"
+  },
+  {
+    "en": "No medicine records match current filters.",
+    "mr": "निवडलेल्या फिल्टरनुसार कोणताही साठा आढळला नाही."
+  },
+  {
+    "en": "Central Warehouse Replenishment Pipeline",
+    "mr": "राज्य वखार मध्यवर्ती पुरवठा मागणीपत्रके"
+  },
+  {
+    "en": "Direct dispatch tracking from District Central Medical Store (Aundh, Pune)",
+    "mr": "जिल्हा मध्यवर्ती औषध भांडार (औंध, पुणे) कडून थेट वाहतूक व वितरण ट्रॅकिंग"
+  },
+  {
+    "en": "Create New Indent",
+    "mr": "नवीन मागणीपत्रक तयार करा"
+  },
+  {
+    "en": "Confirm Receipt",
+    "mr": "साठा प्राप्त झाला (Replenish)"
+  },
+  {
+    "en": "Origin Warehouse",
+    "mr": "पुरवठादार वखार केंद्र"
+  },
+  {
+    "en": "Transit & Tracking ID",
+    "mr": "वाहतूक व ट्रॅकिंग क्र."
+  },
+  {
+    "en": "Requisitioned Items",
+    "mr": "मागणी केलेली औषधे"
+  },
+  {
+    "en": "Current Stock:",
+    "mr": "सध्या शिल्लक:"
+  },
+  {
+    "en": "Update Stock & Batch Registry",
+    "mr": "औषध साठा नोंद व अद्यतन"
+  },
+  {
+    "en": "Medicine:",
+    "mr": "औषध:"
+  },
+  {
+    "en": "New Current Stock",
+    "mr": "नवीन साठा प्रमाण (Quantity)"
+  },
+  {
+    "en": "Batch Number",
+    "mr": "बॅच नंबर (Batch No)"
+  },
+  {
+    "en": "Expiry Date",
+    "mr": "कालबाह्यता दिनांक (Expiry)"
+  },
+  {
+    "en": "Adjustment Reason",
+    "mr": "अद्यतनाचा प्रकार"
+  },
+  {
+    "en": "Received New Batch",
+    "mr": "नवीन साठा प्राप्त झाला (Receipt)"
+  },
+  {
+    "en": "Prescription Dispensed",
+    "mr": "रुग्णांना वाटप झाले (Dispensed)"
+  },
+  {
+    "en": "Physical Inventory Count",
+    "mr": "प्रत्यक्ष साठा तपासणी (Reconciliation)"
+  },
+  {
+    "en": "Damaged / Discarded",
+    "mr": "खराब / कालबाह्य नष्ट केले (Discard)"
+  },
+  {
+    "en": "Save Changes",
+    "mr": "नोंद साठवा"
+  },
+  {
+    "en": "Target Medicine:",
+    "mr": "औषध:"
+  },
+  {
+    "en": "Select Update Action",
+    "mr": "नोंदणी प्रकार निवडा"
+  },
+  {
+    "en": "Quantity (${unit})",
+    "mr": "प्रमाण (${unit})"
+  },
+  {
+    "en": "Transaction Remarks",
+    "mr": "नोंदणी कारण / टिप्पणी"
+  },
+  {
+    "en": "e.g. Received shipment from State Medical Warehouse...",
+    "mr": "उदा. राज्य वखार केंद्राकडून १५ बॉक्स प्राप्त झाले..."
+  },
+  {
+    "en": "Save Update",
+    "mr": "नोंद साठवा"
+  },
+  {
+    "en": "Central Warehouse Supply Pipeline",
+    "mr": "राज्य व जिल्हा मध्यवर्ती पुरवठा साखळी नेटवर्क"
+  },
+  {
+    "en": "Warehouse ERP Connected",
+    "mr": "पुरवठा साखळी थेट जोडलेली"
+  },
+  {
+    "en": "Confirm Delivery",
+    "mr": "साठा केंद्रावर आला (Receipt)"
+  },
+  {
+    "en": "Dispatch Warehouse:",
+    "mr": "पुरवठादार वखार केंद्र:"
+  },
+  {
+    "en": "Transit Tracking Ref:",
+    "mr": "वाहतूक व पार्सल ट्रॅकिंग:"
+  },
+  {
+    "en": "Requisitioned Items:",
+    "mr": "मागणी केलेली औषधे:"
+  },
+  {
+    "en": "Expired cache pruned successfully!",
+    "mr": "कालबाह्य कॅश यशस्वीरित्या साफ केली!"
+  },
+  {
+    "en": "Pre-cached all Pune facilities for offline access!",
+    "mr": "पुणे जिल्ह्यातील सर्व केंद्रे ऑफलाइन कॅशमध्ये जतन झाली!"
+  },
+  {
+    "en": "Local backup file exported!",
+    "mr": "स्थानिक डेटा बॅकअप डाउनलोड झाला!"
+  },
+  {
+    "en": "Are you sure you want to reset all local offline storage?",
+    "mr": "तुम्ही सर्व स्थानिक ऑफलाइन डेटा साफ करू इच्छिता का?"
+  },
+  {
+    "en": "Local storage cleared and reset!",
+    "mr": "स्थानिक मेमरी पूर्ववत केली!"
+  },
+  {
+    "en": "Offline Local Storage & Cache Manager",
+    "mr": "स्थानिक डेटा कॅश व्यवस्थापक (IndexedDB PWA)"
+  },
+  {
+    "en": "Inspect and manage local IndexedDB stores for zero-connectivity environments",
+    "mr": "कमी इंटरनेट किंवा ऑफलाइन स्थितीत सुरक्षित राहणाऱ्या स्थानिक नोंदींचे नियंत्रण"
+  },
+  {
+    "en": "Local Storage Quota Utilization",
+    "mr": "ब्राउझर स्टोरेज वापर (Browser Storage Quota)"
+  },
+  {
+    "en": "IndexedDB Object Stores Breakdown",
+    "mr": "स्थानिक डेटाबेसमधील स्टोअर्स (8 Stores)"
+  },
+  {
+    "en": "Purpose & Description",
+    "mr": "वर्णन"
+  },
+  {
+    "en": "Prune Expired Cache",
+    "mr": "कालबाह्य कॅश साफ करा"
+  },
+  {
+    "en": "Pre-Cache 847 Facilities",
+    "mr": "८४७ केंद्रे ऑफलाइन प्री-कॅश करा"
+  },
+  {
+    "en": "Export JSON Backup",
+    "mr": "स्थानिक बॅकअप"
+  },
+  {
+    "en": "Reset Storage",
+    "mr": "सर्व डेटा रीसेट करा"
+  },
+  {
+    "en": "Record submitted and verified online with state database.",
+    "mr": "नोंद थेट राज्य सर्व्हरवर यशस्वीरित्या सबमिट केली गेली."
+  },
+  {
+    "en": "Offline Mode: Data saved locally. Will synchronize automatically upon reconnection.",
+    "mr": "ऑफलाइन मोड: माहिती स्थानिक कॅशमध्ये सुरक्षित जतन केली गेली. ऑनलाइन येताच सिंक होईल."
+  },
+  {
+    "en": "Error saving record. Please retry.",
+    "mr": "माहिती जतन करताना अडचण आली."
+  },
+  {
+    "en": "Unexpected transaction fault.",
+    "mr": "तांत्रिक त्रुटी आढळली."
+  },
+  {
+    "en": "Processing submission...",
+    "mr": "माहिती जतन करत आहे..."
+  },
+  {
+    "en": "Click to open Sync & Storage Manager",
+    "mr": "सिंक व्यवस्थापक उघडा"
+  },
+  {
+    "en": "(Data preserved locally)",
+    "mr": "(डेटा स्थानिक पातळीवर सेव्ह होईल)"
+  },
+  {
+    "en": "queued",
+    "mr": "प्रलंबित"
+  },
+  {
+    "en": "Synced!",
+    "mr": "सर्व नोंदी अद्ययावत!"
+  },
+  {
+    "en": "Syncing...",
+    "mr": "सिंक सुरू..."
+  },
+  {
+    "en": "Sync Now",
+    "mr": "आत्ताच सिंक करा"
+  },
+  {
+    "en": "Storage & Sync Details",
+    "mr": "तपशील"
+  },
+  {
+    "en": "Low-Bandwidth Connection",
+    "mr": "कमी बँडविड्थ नेटवर्क"
+  },
+  {
+    "en": "Offline Operations Active",
+    "mr": "ऑफलाइन कार्य मोड"
+  },
+  {
+    "en": "Connection is degraded. Form inputs are compressed and buffered in local IndexedDB for background sync.",
+    "mr": "नेटवर्क संथ आहे. डेटा सुरक्षित स्थानिक पातळीवर संकलित केला जात आहे आणि कनेक्शन सुधारताच पार्श्वभूमीत आपोआप सिंक होईल."
+  },
+  {
+    "en": "Data Synchronization & Offline Manager",
+    "mr": "डेटा सिंक व ऑफलाइन व्यवस्थापक"
+  },
+  {
+    "en": "Local IndexedDB cache, connection metrics & upload queue",
+    "mr": "स्थानिक कॅश, नेटवर्क गुणवत्ता व प्रलंबित नोंदी"
+  },
+  {
+    "en": "Sync Queue & Network",
+    "mr": "सिंक रांग व नेटवर्क"
+  },
+  {
+    "en": "Storage & Cache Manager",
+    "mr": "स्थानिक संचयन व कॅश व्यवस्थापक"
+  },
+  {
+    "en": "Online",
+    "mr": "ऑनलाइन"
+  },
+  {
+    "en": "Offline",
+    "mr": "ऑफलाइन"
+  },
+  {
+    "en": "Real-time telemetry link active with central state servers",
+    "mr": "सर्व्हरशी थेट संपर्क कार्यरत आहे"
+  },
+  {
+    "en": "Operating standalone; data buffered safely in IndexedDB",
+    "mr": "डेटा स्थानिक IndexedDB मध्ये सुरक्षित जतन केला जाईल"
+  },
+  {
+    "en": "Queued Records",
+    "mr": "प्रलंबित नोंदी"
+  },
+  {
+    "en": "Awaiting upload",
+    "mr": "अपलोडच्या प्रतीक्षेत"
+  },
+  {
+    "en": "Last Synced",
+    "mr": "शेवटचा सिंक वेळ"
+  },
+  {
+    "en": "Pending First Sync",
+    "mr": "अद्याप नाही"
+  },
+  {
+    "en": "Storage Quota",
+    "mr": "स्थानिक संचयन (Storage)"
+  },
+  {
+    "en": "Queued Payloads",
+    "mr": "सिंक रांगेतील नोंदी (Sync Queue)"
+  },
+  {
+    "en": "Clear Synced",
+    "mr": "पूर्ण झालेल्या नोंदी काढा"
+  },
+  {
+    "en": "Sync Queue is Empty",
+    "mr": "सिंक रांग रिकामी आहे"
+  },
+  {
+    "en": "All transactions are synced with the central repository",
+    "mr": "सर्व नोंदी राज्य सर्व्हरवर यशस्वीरित्या पाठवल्या गेल्या आहेत"
+  },
+  {
+    "en": "Remove item",
+    "mr": "काढून टाका"
+  },
+  {
+    "en": "Certified Offline Operations",
+    "mr": "ऑफलाइन कार्यरत असलेल्या शासकीय सुविधा"
+  },
+  {
+    "en": "HealthWay PWA Service Engine · IndexedDB Tier",
+    "mr": "महाआरोग्य PWA v1.0 · स्थानिक एन्क्रिप्टेड डेटाबेस"
+  },
+  {
+    "en": "Close Manager",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Create Specialist Referral (4-Step Wizard)",
+    "mr": "नवीन तज्ञ रेफरल नोंदणी (४ टप्पे)"
+  },
+  {
+    "en": "Government Inter-Facility Referral Pipeline",
+    "mr": "शासकीय आंतररुग्णालय रेफरल ट्रॅकिंग प्रणाली"
+  },
+  {
+    "en": "1. Urgency & Reason",
+    "mr": "१. रुग्ण व निकड"
+  },
+  {
+    "en": "2. Hospital Select",
+    "mr": "२. रुग्णालय निवड"
+  },
+  {
+    "en": "3. Vitals & Transport",
+    "mr": "३. वाहतूक व आशा"
+  },
+  {
+    "en": "4. Review & Dispatch",
+    "mr": "४. पडताळणी"
+  },
+  {
+    "en": "Select Patient from Registry",
+    "mr": "रेफरलसाठी रुग्ण निवडा (Select Patient)"
+  },
+  {
+    "en": "Clinical Urgency & Target SLA",
+    "mr": "रेफरलची निकड / निकड स्तर (Urgency Level)"
+  },
+  {
+    "en": "hours",
+    "mr": "तास"
+  },
+  {
+    "en": "Primary Clinical Indication *",
+    "mr": "रेफरलचे मुख्य कारण व क्लिनिकल इंडिकेशन *"
+  },
+  {
+    "en": "e.g., Severe pre-eclampsia with Doppler anomaly scan required...",
+    "mr": "उदा. ७वा महिना उच्च जोखीम गरोदरपण, गर्भाची असामान्य वाढ किंवा तीव्र छातीत कळ..."
+  },
+  {
+    "en": "Provisional Diagnosis / ICD Code",
+    "mr": "तात्पुरते निदान / संशयित आजार (Provisional Diagnosis)"
+  },
+  {
+    "en": "Select Destination Hospital",
+    "mr": "संदर्भ रुग्णालय निवडा"
+  },
+  {
+    "en": "Sorted by distance, bed availability & ambulance access",
+    "mr": "अंतर, खाटांची उपलब्धता व विशेष सेवांनुसार क्रमवारी"
+  },
+  {
+    "en": "Search facility...",
+    "mr": "रुग्णालय किंवा विभाग शोधा..."
+  },
+  {
+    "en": "Ambulance",
+    "mr": "रुग्णवाहिका"
+  },
+  {
+    "en": "ICU Beds: ${hosp.icuBedsAvailable}",
+    "mr": "ICU खाटा: ${hosp.icuBedsAvailable}"
+  },
+  {
+    "en": "Gen Beds: ${hosp.generalBedsAvailable}",
+    "mr": "जनरल खाटा: ${hosp.generalBedsAvailable}"
+  },
+  {
+    "en": "Specialties:",
+    "mr": "विभाग:"
+  },
+  {
+    "en": "Target Clinical Specialty / OPD Desk",
+    "mr": "विशिष्ट विभाग / स्पेशालिटी (Target Specialty)"
+  },
+  {
+    "en": "Current Vitals Snapshot",
+    "mr": "सद्य जीवनचिन्हे (Patient Vitals Snapshot)"
+  },
+  {
+    "en": "Government Transport Assistance Required",
+    "mr": "शासकीय रुग्णवाहिका सहाय्य आवश्यक (102 / 108 Emergency Transport)"
+  },
+  {
+    "en": "Assign ASHA Worker Escort",
+    "mr": "स्थानिक आशा कार्यकर्ती सोबत जाण्यासाठी नियुक्त (ASHA Escort Assigned)"
+  },
+  {
+    "en": "Send SMS with token and transport tracking to patient phone",
+    "mr": "रुग्णास डिजिटल रेफरल टोकन व रुग्णवाहिका माहिती एसएमएसने पाठवा"
+  },
+  {
+    "en": "Send high-priority escort dispatch SMS to ASHA worker",
+    "mr": "आशा कार्यकर्तीस तात्काळ रेफरल अलर्ट एसएमएस पाठवा"
+  },
+  {
+    "en": "Referral Token Preview",
+    "mr": "रेफरल टोकन पूर्वदृष्य"
+  },
+  {
+    "en": "Village:",
+    "mr": "गाव:"
+  },
+  {
+    "en": "Phone:",
+    "mr": "संपर्क दूरध्वनी:"
+  },
+  {
+    "en": "Destination Hospital:",
+    "mr": "रेफर केलेले रुग्णालय:"
+  },
+  {
+    "en": "Distance: ${selectedHospital.distanceKm} km",
+    "mr": "अंतर: ${selectedHospital.distanceKm} किमी"
+  },
+  {
+    "en": "Clinical Indication:",
+    "mr": "क्लिनिकल इंडिकेशन व कारण:"
+  },
+  {
+    "en": "Referral for specialist evaluation and intervention.",
+    "mr": "विशेषज्ञ तपासणी व पुढील उपचारांसाठी शिफारस"
+  },
+  {
+    "en": "Transport:",
+    "mr": "वाहतूक सहाय्य:"
+  },
+  {
+    "en": "108 Ambulance (ALS)",
+    "mr": "१०८ रुग्णवाहिका (ALS)"
+  },
+  {
+    "en": "102 Janani Express",
+    "mr": "१०२ जननी एक्सप्रेस"
+  },
+  {
+    "en": "None (Own vehicle)",
+    "mr": "नाही (स्वतःचे वाहन)"
+  },
+  {
+    "en": "ASHA Escort:",
+    "mr": "आशा सोबत:"
+  },
+  {
+    "en": "None",
+    "mr": "नाही"
+  },
+  {
+    "en": "Upon dispatch, the digital token is created, patient/ASHA receive instant SMS, and receiving hospital is alerted.",
+    "mr": "पुष्टी केल्यानंतर डिजिटल टोकन जारी होईल आणि रुग्णालय डॅशबोर्डवर तात्काळ अलर्ट जाईल."
+  },
+  {
+    "en": "Previous Step",
+    "mr": "मागील टप्पा"
+  },
+  {
+    "en": "Confirm & Dispatch Referral",
+    "mr": "रेफरल पाठवा व टोकन जारी करा"
+  },
+  {
+    "en": "OBGYN",
+    "mr": "स्त्रीरोग"
+  },
+  {
+    "en": "Cardio",
+    "mr": "हृदयरोग"
+  },
+  {
+    "en": "Pediatrics",
+    "mr": "बालरोग"
+  },
+  {
+    "en": "Surgery",
+    "mr": "सर्जरी"
+  },
+  {
+    "en": "Pulmo",
+    "mr": "श्वसनरोग"
+  },
+  {
+    "en": "Dr. Anita Joshi (MD, DGO)",
+    "mr": "डॉ. अनिता जोशी (MD, DGO)"
+  },
+  {
+    "en": "In 15 Days (Bi-weekly check)",
+    "mr": "१५ दिवसांनी (After 15 Days)"
+  },
+  {
+    "en": "Receiving Doctor Feedback & Counter-Referral",
+    "mr": "तज्ञ डॉक्टर फीडबॅक व काऊंटर-रेफरल"
+  },
+  {
+    "en": "Referral Case ID: ${referral.id}",
+    "mr": "रेफरल टोकन: ${referral.id}"
+  },
+  {
+    "en": "Origin:",
+    "mr": "रेफर करणारे केंद्र:"
+  },
+  {
+    "en": "Receiving Doctor Name",
+    "mr": "तपासणी करणारे डॉक्टर (Specialist)"
+  },
+  {
+    "en": "Clinical Outcome Status",
+    "mr": "उपचार स्थिती (Outcome Status)"
+  },
+  {
+    "en": "Final Specialist Diagnosis *",
+    "mr": "अंतिम क्लिनिकल निदान (Final Specialist Diagnosis) *"
+  },
+  {
+    "en": "e.g., Moderate Anemia / Mild Fetal Growth Restriction (FGR Type 1)",
+    "mr": "उदा. Moderate Anemia / Mild Fetal Growth Restriction (FGR Type 1)"
+  },
+  {
+    "en": "Treatment & Interventions Performed",
+    "mr": "केलेले उपचार व चाचण्यांचा तपशील (Treatment & Procedures)"
+  },
+  {
+    "en": "e.g., Doppler ultrasound completed (normal umbilical flow). 1 unit IV Iron Sucrose administered...",
+    "mr": "उदा. डॉपलर सोनोग्राफी करण्यात आली (सामान्य रक्तप्रवाह). १ युनिट IV Iron Sucrose देण्यात आला..."
+  },
+  {
+    "en": "Counter-Referral Advice to PHC Doctor",
+    "mr": "प्राथमिक केंद्राच्या डॉक्टरांसाठी सल्ला (Counter-Referral Advice)"
+  },
+  {
+    "en": "e.g., Weekly weight and BP check at PHC Shirur. Repeat anomaly USG at 32 weeks.",
+    "mr": "उदा. PHC मध्ये दर आठवड्याला वजन व बीपी तपासावे. पुढील सोनोग्राफी ३२व्या आठवड्यात आवश्यक."
+  },
+  {
+    "en": "Next Follow-up Timeline",
+    "mr": "पुढील तपासणी तारीख / कालावधी (Follow-up Target)"
+  },
+  {
+    "en": "Closed-Loop Care Coordination",
+    "mr": "क्लोज्ड-लूप समन्वय (Closed-Loop EHR Synchronization)"
+  },
+  {
+    "en": "This clinical feedback directly synchronizes back to the originating PHC doctor and patient ABHA record.",
+    "mr": "हा फीडबॅक त्वरित PHC शिरूरच्या डॉक्टरांच्या डॅशबोर्डवर दिसेल आणि रुग्णाच्या ABHA प्रोफाईलमध्ये सुरक्षित केला जाईल."
+  },
+  {
+    "en": "Submit Counter-Referral",
+    "mr": "फीडबॅक जतन करा व केस पूर्ण करा"
+  },
+  {
+    "en": "Referral token copied to clipboard!",
+    "mr": "रेफरल टोकन कॉपी केले!"
+  },
+  {
+    "en": "Back to List",
+    "mr": "मागे जा"
+  },
+  {
+    "en": "My Digital Referral & Journey Tracker",
+    "mr": "माझा डिजिटल संदर्भ व प्रवास ट्रॅकर"
+  },
+  {
+    "en": "Real-time progress, transport tracking and digital referral token",
+    "mr": "प्राथमिक आरोग्य केंद्रावरून उच्च रुग्णालयात पाठवलेल्या संदर्भ सेवेची सद्यस्थिती"
+  },
+  {
+    "en": "Print Slip",
+    "mr": "स्लिप प्रिंट करा"
+  },
+  {
+    "en": "Government Digital Referral Token",
+    "mr": "अधिकृत डिजिटल रेफरल टोकन"
+  },
+  {
+    "en": "Scan at hospital desk for instant intake",
+    "mr": "रुग्णालय काऊंटरवर दाखवण्यासाठी स्कॅन करा"
+  },
+  {
+    "en": "Originating PHC",
+    "mr": "रेफर करणारे केंद्र"
+  },
+  {
+    "en": "Referred Hospital",
+    "mr": "रेफर केलेले रुग्णालय"
+  },
+  {
+    "en": "Urgency Level",
+    "mr": "निकड स्तर"
+  },
+  {
+    "en": "Fast-track protocol",
+    "mr": "तातडीचे क्लिनिकल ट्रॅकिंग"
+  },
+  {
+    "en": "Referral Milestone Timeline (7-Stages)",
+    "mr": "रेफरल प्रगती टप्पे (७ टप्पे)"
+  },
+  {
+    "en": "Free Government Emergency Transport",
+    "mr": "मोफत १०२ जननी / १०८ आपत्कालीन रुग्णवाहिका"
+  },
+  {
+    "en": "Driver:",
+    "mr": "चालक:"
+  },
+  {
+    "en": "Call Driver",
+    "mr": "चालकास कॉल करा"
+  },
+  {
+    "en": "Destination Hospital Contact Desk",
+    "mr": "रुग्णालय संपर्क व मदत केंद्र"
+  },
+  {
+    "en": "Desk Helpline",
+    "mr": "हेल्पलाईन क्रमांक"
+  },
+  {
+    "en": "Call Hospital Desk",
+    "mr": "रुग्णालयास थेट कॉल करा"
+  },
+  {
+    "en": "Overdue (${referral.overdueHours || 1}h+)",
+    "mr": "मुदत उलटली (${referral.overdueHours || 1}h+)"
+  },
+  {
+    "en": "Referring Facility:",
+    "mr": "रेफर करणारे केंद्र (Origin):"
+  },
+  {
+    "en": "Target Hospital & Department:",
+    "mr": "रेफर केलेले रुग्णालय व विभाग (Destination):"
+  },
+  {
+    "en": "Specialist Counter-Referral Summary:",
+    "mr": "तज्ञ डॉक्टरांचा अभिप्राय व काऊंटर-रेफरल:"
+  },
+  {
+    "en": "Diagnosis:",
+    "mr": "निदान:"
+  },
+  {
+    "en": "Advice:",
+    "mr": "सल्ला:"
+  },
+  {
+    "en": "View Pipeline",
+    "mr": "सविस्तर पहा"
+  },
+  {
+    "en": "Call Patient (${referral.patientPhone})",
+    "mr": "रुग्णास कॉल करा (${referral.patientPhone})"
+  },
+  {
+    "en": "Advance to: ${STAGE_CONFIGS[nextStage]?.labelEn}",
+    "mr": "टप्पा पुढे: ${STAGE_CONFIGS[nextStage]?.labelMr.split(' (')[0]}"
+  },
+  {
+    "en": "Edit Feedback",
+    "mr": "फीडबॅक संपादित करा"
+  },
+  {
+    "en": "Doctor Feedback",
+    "mr": "तज्ञ फीडबॅक नोंदवा"
+  },
+  {
+    "en": "High-priority SMS alert sent to ASHA worker.",
+    "mr": "आशा कार्यकर्तीस एसएमएस पाठवला गेला आहे."
+  },
+  {
+    "en": "Escalated to District Health Officer. Ticket: ${ticket.ticketId}",
+    "mr": "जिल्हा आरोग्य अधिकाऱ्यांना एस्कलेट केले: ${ticket.ticketId}"
+  },
+  {
+    "en": "Specialist Referral Pipeline & Inter-Facility Tracker",
+    "mr": "तज्ञ रेफरल ट्रॅकिंग व आंतररुग्णालय समन्वय"
+  },
+  {
+    "en": "7-stage state machine (CREATED to COMPLETED), urgency SLA monitoring, auto overdue alerts & closed-loop counter-referrals",
+    "mr": "७-टप्पे स्थिती ट्रॅकिंग (CREATED -> COMPLETED), निकड SLA, ऑटो ओव्हरड्यू अलर्ट्स आणि क्लोज्ड-लूप डॉक्टर फीडबॅक"
+  },
+  {
+    "en": "New Referral Slip",
+    "mr": "नवीन रेफरल तयार करा"
+  },
+  {
+    "en": "Total Referrals",
+    "mr": "एकूण रेफरल्स"
+  },
+  {
+    "en": "Active Pipeline",
+    "mr": "प्रक्रियेत / सक्रिय"
+  },
+  {
+    "en": "Overdue SLA Alerts",
+    "mr": "मुदत ओलांडलेले"
+  },
+  {
+    "en": "Completed & Counter-Referred",
+    "mr": "उपचार पूर्ण"
+  },
+  {
+    "en": "Pipeline Detail: ${selectedReferral.patientNameEn} (${selectedReferral.id})",
+    "mr": "रेफरल तपशील: ${selectedReferral.patientNameMr} (${selectedReferral.id})"
+  },
+  {
+    "en": "This case exceeded urgency SLA by ${selectedReferral.overdueHours || 1} hours. Rapid intervention options:",
+    "mr": "हा रेफरल ${selectedReferral.overdueHours || 1} तासाने मुदत ओलांडलेला आहे. त्वरित कृती करा:"
+  },
+  {
+    "en": "Call Patient (${selectedReferral.patientPhone})",
+    "mr": "रुग्णास कॉल करा (${selectedReferral.patientPhone})"
+  },
+  {
+    "en": "Alert ASHA Escort",
+    "mr": "आशा अलर्ट"
+  },
+  {
+    "en": "Escalate to DHO",
+    "mr": "DHO एस्कलेट करा"
+  },
+  {
+    "en": "Automated Reminder & Escalation Audit Trail",
+    "mr": "स्वयंचलित एसएमएस स्मरणपत्रे (SMS Dispatch Log)"
+  },
+  {
+    "en": "Active",
+    "mr": "सक्रिय"
+  },
+  {
+    "en": "Overdue",
+    "mr": "मुदत ओलांडलेले"
+  },
+  {
+    "en": "Search patient, token, hospital...",
+    "mr": "रुग्ण, टोकन किंवा रुग्णालय शोधा..."
+  },
+  {
+    "en": "No referrals found matching current filter.",
+    "mr": "कोणतेही रेफरल्स आढळले नाहीत."
+  },
+  {
+    "en": "Emergency SMS alert dispatched to ASHA worker.",
+    "mr": "आशा कार्यकर्त्यास त्वरित एसएमएस इशारा पाठवला."
+  },
+  {
+    "en": "Escalated to DHO Command Center. Ticket: ${ticket.ticketId}",
+    "mr": "जिल्हा आरोग्य अधिकाऱ्यांना एस्कलेशन तिकीट जारी: ${ticket.ticketId}"
+  },
+  {
+    "en": "Notifications & Alerts",
+    "mr": "सूचना व इशारे"
+  },
+  {
+    "en": "Active Health Alerts & Logs",
+    "mr": "आरोग्य सूचना व इशारे"
+  },
+  {
+    "en": "Overdue Referral Cases",
+    "mr": "मुदत ओलांडलेले रेफरल्स (Overdue)"
+  },
+  {
+    "en": "Call Patient (${ref.patientPhone})",
+    "mr": "रुग्णास कॉल करा (${ref.patientPhone})"
+  },
+  {
+    "en": "Call",
+    "mr": "कॉल करा"
+  },
+  {
+    "en": "Escalate DHO",
+    "mr": "DHO एस्कलेट"
+  },
+  {
+    "en": "Critical Diagnostic Findings",
+    "mr": "गंभीर लॅब अहवाल (Critical Values)"
+  },
+  {
+    "en": "Recent Automated SMS Logs",
+    "mr": "स्वयंचलित एसएमएस नोंदी"
+  },
+  {
+    "en": "No recent automated SMS logs.",
+    "mr": "कोणत्याही ताज्या नोंदी नाहीत."
+  },
+  {
+    "en": "Automated overdue check & reminders dispatched.",
+    "mr": "स्वयंचलित स्मरणपत्रे व तपासणी पूर्ण झाली."
+  },
+  {
+    "en": "Trigger Auto-Reminders Now",
+    "mr": "आत्ता स्मरणपत्रे तपासा (Run Reminder Engine)"
+  },
+  {
+    "en": "URGENT ALERT: Referral Threshold Overdue",
+    "mr": "तातडीचा इशारा: रेफरल मुदत संपली आहे (Overdue)"
+  },
+  {
+    "en": "Elapsed hours exceeded urgency maxHours. ASHA alert & patient follow-up required.",
+    "mr": "नियोजित वेळेत रुग्ण पोहोचला नाही किंवा स्वीकृती नोंदवली गेली नाही. तात्काळ संपर्क करा."
+  },
+  {
+    "en": "Are you sure you want to end the consultation?",
+    "mr": "सल्लामसलत पूर्ण करायची आहे का?"
+  },
+  {
+    "en": "P2P Encrypted Call",
+    "mr": "थेट सुरक्षित जोडणी"
+  },
+  {
+    "en": "Connecting...",
+    "mr": "जोडणी करत आहे..."
+  },
+  {
+    "en": "Audio-Only Consultation Active",
+    "mr": "ऑडिओ सल्लामसलत सक्रिय"
+  },
+  {
+    "en": "Low bandwidth mode conserving 85% data for crystal-clear audio.",
+    "mr": "कमी बँडविड्थ मोड — ८५% इंटरनेट डेटा बचत आणि अखंड आवाज."
+  },
+  {
+    "en": "You (Local)",
+    "mr": "तुम्ही (स्थानिक)"
+  },
+  {
+    "en": "Chat",
+    "mr": "चॅट"
+  },
+  {
+    "en": "Notes",
+    "mr": "नोंदी"
+  },
+  {
+    "en": "AI Help",
+    "mr": "एआय"
+  },
+  {
+    "en": "Vitals",
+    "mr": "व्हायटल्स"
+  },
+  {
+    "en": "Auto-Translate (11 Langs)",
+    "mr": "स्वयंचलित भाषांतर"
+  },
+  {
+    "en": "Can you hear me clearly?",
+    "mr": "माझा आवाज येतोय का?"
+  },
+  {
+    "en": "Hear me?",
+    "mr": "आवाज येतोय का?"
+  },
+  {
+    "en": "Check vitals now",
+    "mr": "व्हायटल्स तपासा"
+  },
+  {
+    "en": "Check Vitals",
+    "mr": "व्हायटल्स तपासा"
+  },
+  {
+    "en": "Prescription is ready",
+    "mr": "प्रिस्क्रिप्शन तयार आहे"
+  },
+  {
+    "en": "Rx Ready",
+    "mr": "प्रिस्क्रिप्शन तयार"
+  },
+  {
+    "en": "Type message or use voice...",
+    "mr": "संदेश टाइप करा किंवा बोला..."
+  },
+  {
+    "en": "Live Speech Transcription",
+    "mr": "थेट ऑडिओ ट्रान्सक्रिप्शन"
+  },
+  {
+    "en": "Clinical Officer Notes",
+    "mr": "वैद्यकीय अधिकाऱ्याच्या नोंदी"
+  },
+  {
+    "en": "Save Notes to EHR",
+    "mr": "नोंदी जतन करा"
+  },
+  {
+    "en": "AI Symptom Pre-Assessment",
+    "mr": "लक्षण पूर्व-मूल्यांकन"
+  },
+  {
+    "en": "Analyze Symptoms",
+    "mr": "लक्षणे विश्लेषित करा"
+  },
+  {
+    "en": "Prescription Simplifier",
+    "mr": "प्रिस्क्रिप्शन सुलभ करा"
+  },
+  {
+    "en": "Generate Visual Patient Cards",
+    "mr": "सुलभ औषध तक्ता तयार करा"
+  },
+  {
+    "en": "Morning",
+    "mr": "सकाळी"
+  },
+  {
+    "en": "Afternoon",
+    "mr": "दुपारी"
+  },
+  {
+    "en": "Night",
+    "mr": "रात्री"
+  },
+  {
+    "en": "Read Aloud in Local Language",
+    "mr": "मराठीत वाचून दाखवा (Audio)"
+  },
+  {
+    "en": "Frontline Patient Vitals",
+    "mr": "रुग्ण शारीरिक तपासणी (Vitals)"
+  },
+  {
+    "en": "Share & AI Analyze Vitals",
+    "mr": "डॉक्टरांशी शेअर करा व विश्लेषित करा"
+  },
+  {
+    "en": "Quality:",
+    "mr": "गुणवत्ता:"
+  },
+  {
+    "en": "Audio Only Active",
+    "mr": "ऑडिओ मोड सुरू"
+  },
+  {
+    "en": "Audio Mode",
+    "mr": "कमी डेटा मोड"
+  },
+  {
+    "en": "AI Summary",
+    "mr": "एआय सारांश"
+  },
+  {
+    "en": "End Call",
+    "mr": "कॉल समाप्त"
+  },
+  {
+    "en": "Official Teleconsultation Clinical Summary",
+    "mr": "डिजिटल सल्लामसलत सारांश (AI Summary)"
+  },
+  {
+    "en": "Read Aloud",
+    "mr": "वाचून दाखवा (Audio)"
+  },
+  {
+    "en": "Print",
+    "mr": "प्रिंट करा"
+  },
+  {
+    "en": "Sync to ABHA EHR",
+    "mr": "ABHA रेकॉर्डमध्ये सिंक करा"
+  },
+  {
+    "en": "Audio voice guidance",
+    "mr": "मराठी आवाज मार्गदर्शन' : lang === 'hi' ? 'हिंदी आवाज़ मार्गदर्शन"
+  },
+  {
+    "en": "Stop",
+    "mr": "थांबवा' : lang === 'hi' ? 'रोकें"
+  },
+  {
+    "en": "Listen",
+    "mr": "ऐका' : lang === 'hi' ? 'सुनें"
+  },
+  {
+    "en": "Tap the microphone to speak your question or health condition",
+    "mr": "माईक बटण दाबून तुमची अडचण किंवा प्रश्न सांगा"
+  },
+  {
+    "en": "Listening... please speak now",
+    "mr": "ऐकत आहे... कृपया बोला"
+  },
+  {
+    "en": "Could not capture voice. Please try again.",
+    "mr": "आवाज समजला नाही. कृपया पुन्हा प्रयत्न करा."
+  },
+  {
+    "en": "Rural Health Voice Assistant",
+    "mr": "ग्रामीण व्हॉइस सहाय्यक (मराठी/English)"
+  },
+  {
+    "en": "Hands-free voice navigation for low-literacy users",
+    "mr": "अल्पसाक्षर नागरिकांसाठी थेट बोलून मार्गदर्शन"
+  },
+  {
+    "en": "mr",
+    "mr": "en"
+  },
+  {
+    "en": "मराठी",
+    "mr": "English"
+  },
+  {
+    "en": "Click to speak",
+    "mr": "बोलण्यासाठी येथे दाबा"
+  },
+  {
+    "en": "Listening... please speak clearly",
+    "mr": "आम्ही ऐकत आहोत... कृपया स्पष्ट बोला"
+  },
+  {
+    "en": "Speaking response...",
+    "mr": "व्हॉइस उत्तर ऐकवत आहे..."
+  },
+  {
+    "en": "e.g. \"I have fever\", \"check medicine\", \"108 ambulance\"",
+    "mr": "उदा. \"मला ताप आहे\", \"औषध साठा\", \"१०८ रुग्णवाहिका\""
+  },
+  {
+    "en": "Voice Input:",
+    "mr": "तुमचा आवाज (You Said):"
+  },
+  {
+    "en": "Assistant Guidance:",
+    "mr": "आरोग्य सहाय्यक उत्तर:"
+  },
+  {
+    "en": "Or tap a quick command:",
+    "mr": "किंवा खालीलपैकी एक निवडा:"
+  },
+  {
+    "en": "Sunita Ramchandra Jadhav",
+    "mr": "सुनीता रामचंद्र जाधव"
+  },
+  {
+    "en": "Mahadev Vitthal Patil",
+    "mr": "महादेव विठ्ठल पाटील"
+  },
+  {
+    "en": "Rukmini Baban Shinde",
+    "mr": "रुक्मिणी बबन शिंदे"
+  },
+  {
+    "en": "Radhabai Namdev Kadam",
+    "mr": "राधाबाई नामदेव कदम"
+  },
+  {
+    "en": "Aniket Rahul Bhosale",
+    "mr": "अनिकेत राहुल भोसले"
+  },
+  {
+    "en": "Exit",
+    "mr": "बाहेर पडा' : lang === 'hi' ? 'बाहर निकलें"
+  },
+  {
+    "en": "Suman Tai Patil",
+    "mr": "सुमन ताई पाटील' : lang === 'hi' ? 'सुमन ताई पाटिल"
+  },
+  {
+    "en": "Dr. Meera Deshmukh",
+    "mr": "डॉ. मीरा देशमुख"
+  },
+  {
+    "en": "District Health Officer",
+    "mr": "जिल्हा आरोग्य अधिकारी' : lang === 'hi' ? 'जिला स्वास्थ्य अधिकारी"
+  },
+  {
+    "en": "Sunita Jadhav",
+    "mr": "सुनीता जाधव' : lang === 'hi' ? 'सुनीता जाधव"
+  },
+  {
+    "en": "ASHA Worker · Vadgaon",
+    "mr": "आशा कार्यकर्ती · वडगाव' : lang === 'hi' ? 'आशा कार्यकर्ता · वडगांव"
+  },
+  {
+    "en": "Medical Officer · PHC Shirur",
+    "mr": "वैद्यकीय अधिकारी · PHC शिरूर' : lang === 'hi' ? 'चिकित्सा अधिकारी · PHC शिरूर"
+  },
+  {
+    "en": "Pune Zilla Parishad",
+    "mr": "पुणे जिल्हा परिषद' : lang === 'hi' ? 'पुणे जिला परिषद"
+  },
+  {
+    "en": "Vadgaon, Shirur",
+    "mr": "वडगाव, शिरूर' : lang === 'hi' ? 'वडगांव, शिरूर"
+  },
+  {
+    "en": "24x7 Ambulance Dispatch",
+    "mr": "२४/७ मोफत रुग्णवाहिका' : lang === 'hi' ? '२४/७ निःशुल्क एम्बुलेंस"
+  },
+  {
+    "en": "Emergency medical transport under MEMS.",
+    "mr": "गंभीर स्थितीत १०८ वर मोफत संपर्क साधा.' : lang === 'hi' ? 'गंभीर स्थिति में १०८ पर निःशुल्क संपर्क करें।"
+  },
+  {
+    "en": "Navigation Menu",
+    "mr": "मेनू' : lang === 'hi' ? 'नेविगेशन मेनू"
+  },
+  {
+    "en": "Return Home",
+    "mr": "मुख्यपृष्ठावर जा' : lang === 'hi' ? 'मुख्य पृष्ठ पर लौटें"
+  },
+  {
+    "en": "Dashboard",
+    "mr": "मुख्य डॅशबोर्ड', labelHi: 'मुख्य डैशबोर्ड"
+  },
+  {
+    "en": "Book Appointment",
+    "mr": "अपॉइंटमेंट बुक करा"
+  },
+  {
+    "en": "Health Records",
+    "mr": "माझ्या आरोग्य नोंदी', labelHi: 'स्वास्थ्य रिकॉर्ड"
+  },
+  {
+    "en": "Medicine Stock",
+    "mr": "औषध उपलब्धता"
+  },
+  {
+    "en": "Referral Status",
+    "mr": "रेफरल स्थिती', labelHi: 'रेफरल स्थिति"
+  },
+  {
+    "en": "Lab Diagnostics",
+    "mr": "डिजिटल लॅब समन्वय', labelHi: 'डिजिटल लैब समन्वय"
+  },
+  {
+    "en": "Symptom Triage",
+    "mr": "लक्षण तपासणी"
+  },
+  {
+    "en": "Emergency 108",
+    "mr": "आणीबाणी १०८', labelHi: 'आपातकाल १०८"
+  },
+  {
+    "en": "Daily Field Tasks",
+    "mr": "दैनिक कार्यसूची', labelHi: 'दैनिक कार्यसूची"
+  },
+  {
+    "en": "Village Registry",
+    "mr": "गाव रुग्ण यादी"
+  },
+  {
+    "en": "Register Patient",
+    "mr": "नवीन रुग्ण नोंदणी"
+  },
+  {
+    "en": "Field Teleconsult",
+    "mr": "फील्ड ट्रायज व डॉक्टर', labelHi: 'फील्ड ट्रिआज व डॉक्टर"
+  },
+  {
+    "en": "108 Ambulance",
+    "mr": "१०८ रुग्णवाहिका', labelHi: '१०८ एम्बुलेंस"
+  },
+  {
+    "en": "Consult Queue",
+    "mr": "टेलीकन्सल्ट यादी', labelHi: 'परामर्श कतार"
+  },
+  {
+    "en": "Video Room",
+    "mr": "व्हिडिओ कन्सल्ट रूम', labelHi: 'वीडियो कंसल्ट रूम"
+  },
+  {
+    "en": "Patient EHR Archive",
+    "mr": "PHC रुग्ण रेकॉर्ड्स"
+  },
+  {
+    "en": "Specialist Referrals",
+    "mr": "तज्ञ रेफरल ट्रॅकर"
+  },
+  {
+    "en": "Overview & Trends",
+    "mr": "जिल्हा विहंगावलोकन', labelHi: 'जिला विहंगावलोकन"
+  },
+  {
+    "en": "36 Facilities Matrix",
+    "mr": "३६ केंद्रे संचलन', labelHi: '३६ केंद्र संचालन"
+  },
+  {
+    "en": "Medicine Supply",
+    "mr": "औषध पुरवठा साखळी', labelHi: 'दवा आपूर्ति श्रृंखला"
+  },
+  {
+    "en": "ABDM & FHIR Standards",
+    "mr": "ABDM / FHIR मानके', labelHi: 'आभा / FHIR मानक"
+  },
+  {
+    "en": "District Health Administration",
+    "mr": "जिल्हा आरोग्य प्रशासन डॅशबोर्ड"
+  },
+  {
+    "en": "Directorate of Health Services · Government of Maharashtra",
+    "mr": "सार्वजनिक आरोग्य विभाग · राष्ट्रीय आरोग्य अभियान (NHM) महाराष्ट्र"
+  },
+  {
+    "en": "Executive Overview & HMIS Trends",
+    "mr": "प्रशासकीय आढावा व कल"
+  },
+  {
+    "en": "District Facility Command Center (Demand 9)",
+    "mr": "जिल्हा आरोग्य केंद्र नियंत्रण कक्ष (Demand 9)"
+  },
+  {
+    "en": "Active Facilities",
+    "mr": "कार्यरत केंद्रे"
+  },
+  {
+    "en": "36",
+    "mr": "३६"
+  },
+  {
+    "en": "100% digitally connected",
+    "mr": "१००% डिजिटल प्रणालीशी जोडलेली"
+  },
+  {
+    "en": "1,248",
+    "mr": "१,२४८"
+  },
+  {
+    "en": "342 live teleconsults included",
+    "mr": "३४२ थेट टेलीकन्सल्टेशन्स समाविष्ट"
+  },
+  {
+    "en": "41",
+    "mr": "४१"
+  },
+  {
+    "en": "34 ambulance transits completed",
+    "mr": "३४ रुग्णवाहिका वाहतूक पूर्ण"
+  },
+  {
+    "en": "Drug Availability",
+    "mr": "औषध उपलब्धता"
+  },
+  {
+    "en": "3 facilities flagged for indent",
+    "mr": "३ केंद्रांमध्ये साठ्याची तातडीची मागणी"
+  },
+  {
+    "en": "District Command",
+    "mr": "जिल्हा नियंत्रण कक्ष"
+  },
+  {
+    "en": "847 Facilities & KPIs",
+    "mr": "८४७ केंद्रे थेट मॉनिटरिंग"
+  },
+  {
+    "en": "Staff attendance & beds",
+    "mr": "३६ PHC व उपकेंद्रांची स्थिती"
+  },
+  {
+    "en": "Medicine Supply Chain",
+    "mr": "जिल्हा औषध पुरवठा साखळी"
+  },
+  {
+    "en": "Stockout early warnings",
+    "mr": "साठा संपण्याच्या सूचना"
+  },
+  {
+    "en": "Maternal & chronic disease",
+    "mr": "मातृत्व व जुनाट आजार ट्रॅकिंग"
+  },
+  {
+    "en": "Weekly Consultations & Teleconsult Trends",
+    "mr": "आठवडी बाह्यरुग्ण व टेलीकन्सल्टेशन कल (Weekly Trends)"
+  },
+  {
+    "en": "OPD volume comparison: In-person visits vs Teleconsultations",
+    "mr": "शिरूर तालुक्यातील प्राथमिक केंद्रे व उपकेंद्रांचे विश्लेषण"
+  },
+  {
+    "en": "Total Consults",
+    "mr": "एकूण तपासण्या"
+  },
+  {
+    "en": "Teleconsults",
+    "mr": "टेलीकन्सल्ट"
+  },
+  {
+    "en": "PHC & Sub-Centre Operational Status",
+    "mr": "आरोग्य केंद्र प्रत्यक्ष कामगिरी (Operational Matrix)"
+  },
+  {
+    "en": "Staff attendance, medicine stock index, and pending transfers",
+    "mr": "कर्मचारी उपस्थिती, औषध स्थिती व प्रलंबित रेफरल्स"
+  },
+  {
+    "en": "Launch Command Center",
+    "mr": "लाईव्ह कमांड केंद्र उघडा"
+  },
+  {
+    "en": "View All 36 Facilities",
+    "mr": "सर्व ३६ केंद्रे पहा"
+  },
+  {
+    "en": "Facility Name",
+    "mr": "आरोग्य केंद्राचे नाव"
+  },
+  {
+    "en": "Type",
+    "mr": "प्रकार"
+  },
+  {
+    "en": "Patients Seen",
+    "mr": "आजचे रुग्ण"
+  },
+  {
+    "en": "Medicine Status",
+    "mr": "औषध साठा स्थिती"
+  },
+  {
+    "en": "Back to Admin Overview",
+    "mr": "प्रशासन डॅशबोर्डकडे परत"
+  },
+  {
+    "en": "Back to Admin Dashboard",
+    "mr": "प्रशासन डॅशबोर्डवर परत"
+  },
+  {
+    "en": "District Health Facilities Command Center",
+    "mr": "जिल्हा आरोग्य केंद्र संचलन व कामगिरी नियंत्रण कक्ष"
+  },
+  {
+    "en": "Real-time operational matrix of Sub-Centres, PHCs, CHCs, and District Hospitals in Pune District",
+    "mr": "पुणे जिल्ह्यातील सर्व प्राथमिक आरोग्य केंद्रे, उपकेंद्रे आणि ग्रामीण रुग्णालयांचे थेट व्यवस्थापन (Demand 9)"
+  },
+  {
+    "en": "Live Dashboard",
+    "mr": "कमांड डॅशबोर्ड"
+  },
+  {
+    "en": "Directory View",
+    "mr": "निर्देशिका सूची"
+  },
+  {
+    "en": "Search facility or in-charge doctor...",
+    "mr": "केंद्राचे नाव किंवा डॉक्टरांच्या नावाने शोधा..."
+  },
+  {
+    "en": "Shirur Block · Distance: ${fac.distance}",
+    "mr": "तालुका शिरूर · अंतर: ${fac.distance}"
+  },
+  {
+    "en": "Beds",
+    "mr": "खाटा"
+  },
+  {
+    "en": "Essential Drugs:",
+    "mr": "औषध साठा प्रकार:"
+  },
+  {
+    "en": "Manage Inventory",
+    "mr": "साठा व्यवस्थापित करा"
+  },
+  {
+    "en": "High-Risk Clinical Surveillance & Follow-Up",
+    "mr": "जिल्हा उच्च जोखीम रुग्ण दक्षता व पाठपुरावा ट्रॅकर"
+  },
+  {
+    "en": "Maternal high-risk cohort, severe chronic NCDs, infant LBW, and active TB DOTS surveillance with automated escalation",
+    "mr": "गर्भवती माता (ANC), तीव्र मधुमेह, उच्च रक्तदाब, क्षयरोग (TB DOTS), व कुपोषण रुग्णांचे सक्रिय दैनंदिन निरीक्षण"
+  },
+  {
+    "en": "Active Clinical Escalations Active",
+    "mr": "२४/७ सक्रिय क्लिनिकल अलर्ट्स"
+  },
+  {
+    "en": "District Medicine Inventory & Supply Chain",
+    "mr": "जिल्हा औषध पुरवठा साखळी व साठा व्यवस्थापन"
+  },
+  {
+    "en": "Centralized EDL repository, real-time consumption velocity, expiry surveillance, and warehouse indents",
+    "mr": "प्राथमिक केंद्रे आणि उपकेंद्रांमधील जीवनरक्षक औषध साठ्याचे थेट नियंत्रण, कालबाह्यता ट्रॅकिंग व स्वयंचलित मागणीपत्रके"
+  },
+  {
+    "en": "State Central Warehouse Connected",
+    "mr": "राज्य वखार मध्यवर्ती प्रणाली"
+  },
+  {
+    "en": "Online Mode — Real-time synchronization active",
+    "mr": "ऑनलाइन — सर्व डेटा क्लाउड सर्व्हरशी थेट समक्रमित आहे"
+  },
+  {
+    "en": "Offline Mode — Records saved locally; auto-sync upon connectivity",
+    "mr": "ऑफलाइन मोड — डेटा स्थानिक पातळीवर सुरक्षित आहे; नेटवर्क आल्यावर सिंक होईल"
+  },
+  {
+    "en": "Simulate Offline",
+    "mr": "ऑफलाइन सिम्युलेट करा"
+  },
+  {
+    "en": "Connect Online",
+    "mr": "ऑनलाइन व्हा"
+  },
+  {
+    "en": "National Health Mission · Accredited Social Health Activist",
+    "mr": "राष्ट्रीय आरोग्य अभियान · मान्यताप्राप्त सामाजिक आरोग्य कार्यकर्ती"
+  },
+  {
+    "en": "Patients Tracked",
+    "mr": "नोंदणीकृत नागरिक"
+  },
+  {
+    "en": "High-Risk Cases",
+    "mr": "उच्च जोखीम रुग्ण"
+  },
+  {
+    "en": "Doctor Teleconsult",
+    "mr": "डॉक्टर टेलीकन्सल्ट"
+  },
+  {
+    "en": "Assisted Video/Audio",
+    "mr": "सहाय्यित व्हिडिओ कॉल"
+  },
+  {
+    "en": "Generate ABHA ID",
+    "mr": "ABHA कार्ड व माहिती"
+  },
+  {
+    "en": "127 Patient Records",
+    "mr": "१२७ नागरिकांच्या नोंदी"
+  },
+  {
+    "en": "Field Triage & Doctor",
+    "mr": "फील्ड ट्रायज व डॉक्टर"
+  },
+  {
+    "en": "Instant Teleconsult",
+    "mr": "तातडीने टेलीकन्सल्ट"
+  },
+  {
+    "en": "108 Emergency",
+    "mr": "१०८ रुग्णवाहिका"
+  },
+  {
+    "en": "1-Tap SOS Dispatch",
+    "mr": "तातडीने कॉल करा"
+  },
+  {
+    "en": "Today's Field Visits Checklist",
+    "mr": "आजचे प्रत्यक्ष भेटीचे वेळापत्रक"
+  },
+  {
+    "en": "Done",
+    "mr": "पूर्ण"
+  },
+  {
+    "en": "Check off tasks as you complete home visits and record patient vitals",
+    "mr": "घरोघरी जाऊन तपासणी पूर्ण झाल्यावर \"पूर्ण झाले\" खूण करा"
+  },
+  {
+    "en": "Pending (${pendingCount})",
+    "mr": "शिल्लक (${pendingCount})"
+  },
+  {
+    "en": "High Priority",
+    "mr": "तातडीचे"
+  },
+  {
+    "en": "High",
+    "mr": "तातडीचे"
+  },
+  {
+    "en": "Mark Done",
+    "mr": "नोंद करा"
+  },
+  {
+    "en": "High-Risk Maternal Surveillance",
+    "mr": "उच्च जोखीम माता दक्षता इशारा (High Risk ANC Alert)"
+  },
+  {
+    "en": "Sunita Jadhav (7th month, Hb 10.2) and 3 other patients are due for specialized PHC review this week.",
+    "mr": "सुनीता जाधव (७वा महिना, Hb १०.२) आणि इतर ३ मातांची तपासणी आठवड्याभरात प्राथमिक केंद्रात होणे अनिवार्य आहे."
+  },
+  {
+    "en": "View Risk Cohort",
+    "mr": "जोखीम यादी पहा"
+  },
+  {
+    "en": "Back to ASHA Dashboard",
+    "mr": "आशा डॅशबोर्डवर परत"
+  },
+  {
+    "en": "Village Patient Registry (Vadgaon)",
+    "mr": "गाव रुग्ण नोंदवही (वडगाव कार्यक्षेत्र)"
+  },
+  {
+    "en": "127 registered community members under ASHA Suman Tai Patil",
+    "mr": "आशा कार्यकर्ती सुमन ताई पाटील यांच्या कार्यक्षेत्रातील १२७ नोंदणीकृत नागरिक"
+  },
+  {
+    "en": "Register New Patient",
+    "mr": "नवीन रुग्ण जोडा"
+  },
+  {
+    "en": "Search by name, ABHA ID, or phone...",
+    "mr": "नाव, ABHA ID किंवा फोन नंबरने शोधा..."
+  },
+  {
+    "en": "Risk Level:",
+    "mr": "जोखीम स्तर:"
+  },
+  {
+    "en": "Conditions",
+    "mr": "आरोग्य स्थिती / निदान"
+  },
+  {
+    "en": "Follow-up:",
+    "mr": "पुढील भेट:"
+  },
+  {
+    "en": "Examine",
+    "mr": "तपासा"
+  },
+  {
+    "en": "ABDM Compliant Registration",
+    "mr": "आयुष्मान भारत डिजिटल मिशन (ABHA)"
+  },
+  {
+    "en": "New Rural Patient Registration",
+    "mr": "नवीन ग्रामीण रुग्ण नोंदणी"
+  },
+  {
+    "en": "Generate digital ABHA identity card and log baseline health metrics",
+    "mr": "नागरिकाची आधार आधारित ABHA आरोग्य ओळख तयार करा आणि मूलभूत नोंदी भरा"
+  },
+  {
+    "en": "1. Personal Demographics",
+    "mr": "१. वैयक्तिक माहिती (Personal Details)"
+  },
+  {
+    "en": "Patient Full Name (Marathi) *",
+    "mr": "रुग्णाचे पूर्ण नाव (मराठीत) *"
+  },
+  {
+    "en": "Patient Full Name (English) *",
+    "mr": "पूर्ण नाव (इंग्रजीत) *"
+  },
+  {
+    "en": "Aadhaar Last 4 Digits *",
+    "mr": "आधार कार्ड शेवटचे ४ अंक *"
+  },
+  {
+    "en": "Mobile Phone *",
+    "mr": "मोबाईल नंबर *"
+  },
+  {
+    "en": "Age *",
+    "mr": "वय *"
+  },
+  {
+    "en": "Blood",
+    "mr": "रक्तगट"
+  },
+  {
+    "en": "Village / Wasti *",
+    "mr": "गाव / वस्ती *"
+  },
+  {
+    "en": "2. Baseline Health Vitals",
+    "mr": "२. प्राथमिक शारीरिक तपासणी (Baseline Vitals)"
+  },
+  {
+    "en": "Blood Sugar (mg/dL)",
+    "mr": "रक्तातील साखर (Sugar)"
+  },
+  {
+    "en": "Hemoglobin (g/dL)",
+    "mr": "हिमोग्लोबिन (Hb g/dL)"
+  },
+  {
+    "en": "3. Risk Category Flags",
+    "mr": "३. जोखीम मूल्यमापन (High-Risk Screening)"
+  },
+  {
+    "en": "Maternal / Pregnant Mother",
+    "mr": "गरोदर माता (Maternal / ANC Cohort)"
+  },
+  {
+    "en": "Hypertension Screening",
+    "mr": "उच्च रक्तदाब संशय (Hypertension)"
+  },
+  {
+    "en": "Diabetes Screening",
+    "mr": "मधुमेह संशय (Diabetes Mellitus)"
+  },
+  {
+    "en": "TB Suspect Protocol",
+    "mr": "क्षयरोग संशय (TB / Cough > 2 Weeks)"
+  },
+  {
+    "en": "Generate ABHA & Complete Registration",
+    "mr": "ABHA कार्ड तयार करा व नोंदणी करा"
+  },
+  {
+    "en": "Patient Successfully Registered!",
+    "mr": "रुग्ण नोंदणी यशस्वी!"
+  },
+  {
+    "en": "ABHA Health ID card successfully provisioned under Ayushman Bharat Digital Mission.",
+    "mr": "आयुष्मान भारत डिजिटल मिशन (ABHA) अंतर्गत डिजिटल आरोग्य ओळखपत्र जारी केले आहे."
+  },
+  {
+    "en": "Govt of Maharashtra · ABHA Health Card",
+    "mr": "महाराष्ट्र शासन · ABHA डिजिटल आरोग्य कार्ड"
+  },
+  {
+    "en": "Gender / Age",
+    "mr": "लिंग / वय"
+  },
+  {
+    "en": "Blood Group",
+    "mr": "रक्तगट"
+  },
+  {
+    "en": "Print ABHA Card",
+    "mr": "कार्ड प्रिंट करा"
+  },
+  {
+    "en": "Add Another Patient",
+    "mr": "आणखी रुग्ण जोडा"
+  },
+  {
+    "en": "Go to Registry",
+    "mr": "रुग्ण यादीवर जा"
+  },
+  {
+    "en": "PHC Teleconsultation Gateway",
+    "mr": "टेलीकन्सल्टेशन सिस्टीम"
+  },
+  {
+    "en": "Field Triage & Doctor Teleconsult",
+    "mr": "फील्ड ट्रायज व डॉक्टर थेट सल्ला (Teleconsult)"
+  },
+  {
+    "en": "Record field vitals and initiate video teleconsultation with PHC Medical Officer",
+    "mr": "गावात प्रत्यक्ष रुग्णाचे व्हायटल्स तपासा आणि प्राथमिक आरोग्य केंद्रातील डॉक्टरांशी संपर्क जोडा"
+  },
+  {
+    "en": "1. Select Patient from Registry",
+    "mr": "१. रुग्ण निवडा"
+  },
+  {
+    "en": "2. Real-Time Measured Vitals",
+    "mr": "२. प्रत्यक्ष मोजलेले व्हायटल्स (Field Vitals)"
+  },
+  {
+    "en": "High Risk Danger Signs (Bleeding, severe pain, breathing distress)",
+    "mr": "धोक्याची लक्षणे (कळ, तीव्र रक्तस्त्राव, धाप किंवा चक्कर)"
+  },
+  {
+    "en": "Instantly fast-tracks priority triage in PHC duty queue",
+    "mr": "तातडीने लाल (RED) किंवा नारंगी (ORANGE) प्राधान्य दिले जाईल"
+  },
+  {
+    "en": "3. Chief Complaint & Symptoms",
+    "mr": "३. मुख्य तक्रार / डॉक्टरांसाठी शेरा"
+  },
+  {
+    "en": "Describe patient symptoms e.g. acute fever, severe headache, abdominal pain...",
+    "mr": "उदा. दोन दिवसांपासून ताप व पोटात कळ येत आहे..."
+  },
+  {
+    "en": "Process Triage & Connect",
+    "mr": "ट्रायज नोंदवा व डॉक्टरांशी जोडा"
+  },
+  {
+    "en": "Field Triage Successfully Dispatched",
+    "mr": "फील्ड ट्रायज यशस्वीरीत्या नोंदवले"
+  },
+  {
+    "en": "Call 108 Emergency Ambulance",
+    "mr": "१०८ रुग्णवाहिकेला तात्काळ कॉल करा"
+  },
+  {
+    "en": "Start Video Call",
+    "mr": "थेट व्हिडिओ कॉल सुरू करा"
+  },
+  {
+    "en": "View PHC Queue",
+    "mr": "आरोग्य केंद्र रांग पहा"
+  },
+  {
+    "en": "Next Patient",
+    "mr": "नवीन रुग्ण ट्रायज करा"
+  },
+  {
+    "en": "On Duty",
+    "mr": "कर्तव्यावर उपस्थित (Active)"
+  },
+  {
+    "en": "Medical Officer (MBBS, DGO) · Primary Health Centre Shirur",
+    "mr": "वैद्यकीय अधिकारी (Medical Officer) · प्राथमिक आरोग्य केंद्र शिरूर"
+  },
+  {
+    "en": "Teleconsult Queue",
+    "mr": "टेलीकन्सल्ट प्रतीक्षा"
+  },
+  {
+    "en": "Urgent Cases",
+    "mr": "तातडीच्या केसेस"
+  },
+  {
+    "en": "Teleconsult Room",
+    "mr": "व्हिडिओ कन्सल्ट रूम"
+  },
+  {
+    "en": "Live video & Rx writer",
+    "mr": "थेट सल्ला व प्रिस्क्रिप्शन"
+  },
+  {
+    "en": "Medical history & labs",
+    "mr": "मागील इतिहास व अहवाल"
+  },
+  {
+    "en": "District hospital transfers",
+    "mr": "जिल्हा रुग्णालयात रेफर"
+  },
+  {
+    "en": "Incoming Teleconsultation Queue",
+    "mr": "थेट टेलीकन्सल्टेशन प्रतीक्षा यादी (Live Queue)"
+  },
+  {
+    "en": "Waiting",
+    "mr": "रुग्ण प्रतीक्षेत"
+  },
+  {
+    "en": "Real-time consultation requests dispatched by frontline ASHA workers and Sub-Centres",
+    "mr": "उपकेंद्रे आणि आशा कार्यकर्त्यांकडून आलेले तात्काळ सल्ला विनंती कॉल्स"
+  },
+  {
+    "en": "All Calls",
+    "mr": "सर्व कॉल्स"
+  },
+  {
+    "en": "Urgent (${urgentCount})",
+    "mr": "तातडीचे (${urgentCount})"
+  },
+  {
+    "en": "Chief Complaint:",
+    "mr": "तक्रार / कारण:"
+  },
+  {
+    "en": "Logged Vitals:",
+    "mr": "व्हायटल्स (Field):"
+  },
+  {
+    "en": "Start Video Consult",
+    "mr": "टेलीकन्सल्टेशन सुरू करा"
+  },
+  {
+    "en": "Back to Doctor Dashboard",
+    "mr": "डॉक्टर डॅशबोर्डवर परत"
+  },
+  {
+    "en": "PHC Patient EHR Archive",
+    "mr": "PHC रुग्ण वैद्यकीय अभिलेख (EHR Archive)"
+  },
+  {
+    "en": "Complete electronic medical history and ABHA diagnostic records",
+    "mr": "प्राथमिक आरोग्य केंद्र शिरूर अंतर्गत नोंदणीकृत रुग्णांचा वैद्यकीय इतिहास"
+  },
+  {
+    "en": "Search by name or ABHA ID...",
+    "mr": "नाव किंवा ABHA ID ने शोधा..."
+  },
+  {
+    "en": "Showing ${filtered.length} Patients",
+    "mr": "एकूण सापडलेले रुग्ण: ${filtered.length}"
+  },
+  {
+    "en": "Last Visit:",
+    "mr": "शेवटची भेट:"
+  },
+  {
+    "en": "View EHR",
+    "mr": "इतिहास पहा"
+  },
+  {
+    "en": "Print History",
+    "mr": "संपूर्ण इतिहास प्रिंट करा"
+  },
+  {
+    "en": "Care Coordination & Referral Network",
+    "mr": "तज्ञ संदर्भ व लॅब समन्वय केंद्र"
+  },
+  {
+    "en": "Manage tertiary hospital transfers, ambulance dispatch, 7-stage SLAs and digital lab orders",
+    "mr": "प्राथमिक आरोग्य केंद्र शिरूर ते जिल्हा रुग्णालय समन्वय, रुग्णवाहिका पाठपुरावा व निदान चाचण्या"
+  },
+  {
+    "en": "Referrals (Demand 5)",
+    "mr": "रेफरल पाइपलाइन (Demand 5)"
+  },
+  {
+    "en": "Diagnostics (Demand 6)",
+    "mr": "डिजिटल लॅब समन्वय (Demand 6)"
+  },
+  {
+    "en": "Select Center",
+    "mr": "केंद्र निवडा"
+  },
+  {
+    "en": "Date & Time",
+    "mr": "तारीख व वेळ"
+  },
+  {
+    "en": "Patient Info",
+    "mr": "रुग्ण तपशील"
+  },
+  {
+    "en": "Confirm",
+    "mr": "खात्री करा"
+  },
+  {
+    "en": "Back to Dashboard",
+    "mr": "डॅशबोर्डवर परत"
+  },
+  {
+    "en": "24x7 Emergency Response",
+    "mr": "२४/७ आपत्कालीन प्रतिसाद"
+  },
+  {
+    "en": "108 Emergency Response Center",
+    "mr": "१०८ आणीबाणी मदत केंद्र (Emergency SOS)"
+  },
+  {
+    "en": "Maharashtra Emergency Medical Services (MEMS) — 100% Free Service",
+    "mr": "महाराष्ट्र शासन आपत्कालीन वैद्यकीय सेवा (MEMS) — २४/७ विनामूल्य मदत"
+  },
+  {
+    "en": "Ambulance Dispatched",
+    "mr": "रुग्णवाहिका सक्रिय"
+  },
+  {
+    "en": "Require Immediate Emergency Ambulance?",
+    "mr": "तात्काळ रुग्णवाहिका हवी आहे का?"
+  },
+  {
+    "en": "Select Emergency Condition:",
+    "mr": "आणीबाणीचे स्वरूप निवडा:"
+  },
+  {
+    "en": "1-Tap Dispatch",
+    "mr": "१-टॅप मदत बोलवा"
+  },
+  {
+    "en": "Live GPS Geolocation Beacon:",
+    "mr": "थेट जीपीएस बीकन (Detected GPS Coordinates):"
+  },
+  {
+    "en": "Live Estimated Time of Arrival",
+    "mr": "अंदाजे आगमन वेळ (Live ETA Countdown)"
+  },
+  {
+    "en": "Mins",
+    "mr": "मिनिटे"
+  },
+  {
+    "en": "BLS Ambulance MH-12-HE-1080 dispatched and en route via Koregaon Bhima Bypass.",
+    "mr": "१०८ बेसिक लाईफ सपोर्ट (BLS) रुग्णवाहिका वाघोली-शिरूर बायपासवरून आपल्या दिशेने वेगाने निघाली आहे."
+  },
+  {
+    "en": "Hospital Pre-Arrival Casualty Desk Notified",
+    "mr": "जिल्हा रुग्णालय कॅज्युअल्टी कक्षाला पूर्वसूचना पाठवली"
+  },
+  {
+    "en": "Casualty Helpline:",
+    "mr": "कॅज्युअल्टी थेट फोन:"
+  },
+  {
+    "en": "Priority Token:",
+    "mr": "ट्रायज कोड:"
+  },
+  {
+    "en": "Ambulance Details",
+    "mr": "रुग्णवाहिका माहिती"
+  },
+  {
+    "en": "EMT Paramedic:",
+    "mr": "पॅरामेडिक:"
+  },
+  {
+    "en": "Call Ambulance Driver",
+    "mr": "चालकाशी थेट संपर्क करा"
+  },
+  {
+    "en": "Life Support Equipment",
+    "mr": "जीवनरक्षक उपकरणे"
+  },
+  {
+    "en": "Oxygen 100%",
+    "mr": "ऑक्सिजन सिलेंडर"
+  },
+  {
+    "en": "AED Unit",
+    "mr": "डिफिब्रिलेटर (AED)"
+  },
+  {
+    "en": "Delivery Kit",
+    "mr": "डिलिव्हरी किट"
+  },
+  {
+    "en": "Nebulizer",
+    "mr": "नेब्युलायझर"
+  },
+  {
+    "en": "Cancel Emergency Request",
+    "mr": "आणीबाणी कॉल रद्द करा (Cancel SOS)"
+  },
+  {
+    "en": "Other Government Emergency Helplines",
+    "mr": "इतर शासकीय आपत्कालीन संपर्क"
+  },
+  {
+    "en": "Call ${contact.number} Direct",
+    "mr": "${contact.number} वर थेट कॉल करा"
+  },
+  {
+    "en": "108 Emergency Ambulance",
+    "mr": "१०८ रुग्णवाहिका (आणीबाणी कक्ष)"
+  },
+  {
+    "en": "102 Janani Shishu Express",
+    "mr": "१०२ जननी शिशु एक्सप्रेस"
+  },
+  {
+    "en": "104 Health Advisory Helpline",
+    "mr": "१०४ शासकीय आरोग्य सल्लागार"
+  },
+  {
+    "en": "Severe accidents, cardiac arrest, maternal labor emergencies",
+    "mr": "गंभीर अपघात, हृदयविकार, प्रसूती आणीबाणी (विनामूल्य)"
+  },
+  {
+    "en": "Free ambulance for expectant mothers and newborns",
+    "mr": "गरोदर माता व नवजात बालकांसाठी मोफत वाहतूक"
+  },
+  {
+    "en": "24x7 government medical guidance & tele-triage",
+    "mr": "२४/७ शासकीय वैद्यकीय मार्गदर्शन व मानसिक आधार"
+  },
+  {
+    "en": "Medicine Availability & Pharmacy Search",
+    "mr": "आरोग्य केंद्र औषध साठा व फार्मसी उपलब्धता"
+  },
+  {
+    "en": "Real-time essential drug inventory across local Sub-Centres, PHCs, and Rural Hospitals with SMS alerts",
+    "mr": "परिसरातील सर्व प्राथमिक आरोग्य केंद्रे, उपकेंद्रे आणि ग्रामीण रुग्णालयांमधील मोफत औषधांची थेट उपलब्धता तपासा"
+  },
+  {
+    "en": "Live Inventory Sync Active",
+    "mr": "थेट डिजिटल साठा प्रणाली"
+  },
+  {
+    "en": "Back to Patient Dashboard",
+    "mr": "रुग्ण डॅशबोर्डवर परत"
+  },
+  {
+    "en": "ABHA QR Card",
+    "mr": "आभा क्यूआर कार्ड"
+  },
+  {
+    "en": "ABDM Consent & Share",
+    "mr": "ABDM संमती व देवाणघेवाण"
+  },
+  {
+    "en": "Print EHR",
+    "mr": "प्रिंट"
+  },
+  {
+    "en": "Age:",
+    "mr": "वय:"
+  },
+  {
+    "en": "Switch ABHA",
+    "mr": "आभा खाते बदला"
+  },
+  {
+    "en": "Start Triage",
+    "mr": "नवीन ट्रायज करा"
+  },
+  {
+    "en": "Total Visits",
+    "mr": "एकूण भेटी"
+  },
+  {
+    "en": "Active Meds",
+    "mr": "सक्रिय औषधे"
+  },
+  {
+    "en": "Lab Reports",
+    "mr": "लॅब अहवाल"
+  },
+  {
+    "en": "Vaccination",
+    "mr": "लसीकरण स्थिती"
+  },
+  {
+    "en": "Known Health Conditions & Status",
+    "mr": "नोंदवलेले आजार व स्थिती"
+  },
+  {
+    "en": "Documented Drug Allergies",
+    "mr": "औषध ॲलर्जी (Drug Allergies)"
+  },
+  {
+    "en": "Latest Measured Vitals (15 Jun 2024)",
+    "mr": "शेवटचे व्हिटल्स (१५ जून २०२४)"
+  },
+  {
+    "en": "Immunization & Maternal ANC Schedule",
+    "mr": "लसीकरण व प्रसूतीपूर्व तपासणी वेळापत्रक"
+  },
+  {
+    "en": "Search visit, doctor, diagnosis, or facility...",
+    "mr": "तपासणी, डॉक्टर किंवा केंद्र शोधा..."
+  },
+  {
+    "en": "All Facility Levels",
+    "mr": "सर्व आरोग्य केंद्रे (All Tiers)"
+  },
+  {
+    "en": "Sub-Centre",
+    "mr": "उपकेंद्र (Sub-Centre)"
+  },
+  {
+    "en": "PHC",
+    "mr": "प्राथमिक आरोग्य केंद्र (PHC)"
+  },
+  {
+    "en": "District Hospital",
+    "mr": "जिल्हा रुग्णालय (District Hosp)"
+  },
+  {
+    "en": "Clinical Diagnosis:",
+    "mr": "क्लिनिकल निदान (Clinical Diagnosis):"
+  },
+  {
+    "en": "Visit Vitals:",
+    "mr": "भेटीवेळचे व्हिटल्स:"
+  },
+  {
+    "en": "Prescriptions:",
+    "mr": "दिलेली औषधे:"
+  },
+  {
+    "en": "Doctor Advice & Notes:",
+    "mr": "डॉक्टरांचा सल्ला:"
+  },
+  {
+    "en": "Active Prescriptions & Regimens",
+    "mr": "औषधोपचार व चालू गोळ्या"
+  },
+  {
+    "en": "Instructions:",
+    "mr": "वेळ व पद्धत:"
+  },
+  {
+    "en": "Duration:",
+    "mr": "कालावधी:"
+  },
+  {
+    "en": "Interpretation:",
+    "mr": "निष्कर्ष:"
+  },
+  {
+    "en": "Health Documents, Scans & Discharge Slips",
+    "mr": "वैद्यकीय प्रमाणपत्रे व स्कॅन्स"
+  },
+  {
+    "en": "Preview",
+    "mr": "पहा"
+  },
+  {
+    "en": "Connect ABHA Digital Account",
+    "mr": "आभा (ABHA) खाते जोडा"
+  },
+  {
+    "en": "Enter your 14-digit ABHA Number or Aadhaar-linked mobile for OTP verification.",
+    "mr": "आपला १४-अंकी आभा क्रमांक किंवा नोंदणीकृत मोबाईल नंबर प्रविष्ट करा."
+  },
+  {
+    "en": "Enter the 6-digit OTP sent to your Aadhaar mobile (Demo code: 432101).",
+    "mr": "मोबाईलवर आलेला ६-अंकी OTP प्रविष्ट करा (चाचणीसाठी 432101 वापरा)."
+  },
+  {
+    "en": "Age",
+    "mr": "वय"
+  },
+  {
+    "en": "Yrs",
+    "mr": "वर्षे"
+  },
+  {
+    "en": "Upcoming Appointment",
+    "mr": "उद्याची तपासणी अपॉइंटमेंट"
+  },
+  {
+    "en": "Scheduled",
+    "mr": "नियोजित"
+  },
+  {
+    "en": "PHC Shirur — Dr. Meera Deshmukh (Antenatal ANC 3)",
+    "mr": "PHC शिरूर — डॉ. मीरा देशमुख (प्रसूतीपूर्व तपासणी ANC 3)"
+  },
+  {
+    "en": "Tomorrow at 10:30 AM · Token #07",
+    "mr": "उद्या सकाळी १०:३० वाजता · टोकन क्र. ०७"
+  },
+  {
+    "en": "Quick Services",
+    "mr": "त्वरित सेवा (Quick Services)"
+  },
+  {
+    "en": "Teleconsultation",
+    "mr": "दूर सल्लामसलत"
+  },
+  {
+    "en": "Live Doctor Call",
+    "mr": "थेट व्हिडिओ/ऑडिओ डॉक्टर"
+  },
+  {
+    "en": "PHC or District Hospital",
+    "mr": "PHC किंवा जिल्हा रुग्णालय"
+  },
+  {
+    "en": "Live Queue TV",
+    "mr": "थेट रांग टीव्ही"
+  },
+  {
+    "en": "Now Serving & Wait Time",
+    "mr": "चालू टोकन व प्रतीक्षा वेळ"
+  },
+  {
+    "en": "View Records",
+    "mr": "आरोग्य नोंदी पहा"
+  },
+  {
+    "en": "Prescriptions & Lab Tests",
+    "mr": "प्रिस्क्रिप्शन व लॅब अहवाल"
+  },
+  {
+    "en": "Nearby PHC Inventories",
+    "mr": "जवळच्या केंद्रातील साठा"
+  },
+  {
+    "en": "Clinical Severity Assessment",
+    "mr": "आजाराची तीव्रता जाणून घ्या"
+  },
+  {
+    "en": "Active Referral Case",
+    "mr": "सक्रिय रेफरल केस"
+  },
+  {
+    "en": "District Hospital Pune — Specialist Obstetric Consultation",
+    "mr": "जिल्हा रुग्णालय पुणे — तज्ञ प्रसूती सल्ला"
+  },
+  {
+    "en": "Referred by: Sub-Centre Vadgaon (Sunanda Patil, ANM)",
+    "mr": "रेफर करणारे केंद्र: उपकेंद्र वडगाव (सुनंदा पाटील)"
+  },
+  {
+    "en": "Full Referral Tracker",
+    "mr": "संपूर्ण ट्रॅकर पहा"
+  },
+  {
+    "en": "Pending",
+    "mr": "प्रलंबित"
+  },
+  {
+    "en": "Clinical Visit History",
+    "mr": "मागील तपासणी इतिहास"
+  },
+  {
+    "en": "All consultations recorded in Maharashtra PHC network",
+    "mr": "प्राथमिक आरोग्य केंद्र व उपकेंद्रातील सर्व भेटी"
+  },
+  {
+    "en": "View All Records",
+    "mr": "सर्व नोंदी पहा"
+  },
+  {
+    "en": "Weight:",
+    "mr": "वजन:"
+  },
+  {
+    "en": "Referred",
+    "mr": "रेफर केले"
+  },
+  {
+    "en": "Reached Hospital",
+    "mr": "रुग्णालय पोहोचले"
+  },
+  {
+    "en": "Specialist Consult",
+    "mr": "तज्ञ सल्ला"
+  },
+  {
+    "en": "Treatment Complete",
+    "mr": "उपचार पूर्ण"
+  },
+  {
+    "en": "Please enter valid 10-digit mobile number",
+    "mr": "कृपया वैध १० अंकी मोबाइल नंबर टाका"
+  },
+  {
+    "en": "Please enter complete 6-digit OTP",
+    "mr": "कृपया पूर्ण ६ अंकी OTP टाका"
+  },
+  {
+    "en": "Please enter valid ABHA ID",
+    "mr": "कृपया वैध ABHA आयडी किंवा नंबर टाका"
+  },
+  {
+    "en": "Patient Access Portal",
+    "mr": "रुग्ण प्रवेश पोर्टल"
+  },
+  {
+    "en": "text-blue-200",
+    "mr": "bg-[#1A4B8C] text-white font-bold"
+  },
+  {
+    "en": "Patient Login",
+    "mr": "रुग्ण लॉग इन"
+  },
+  {
+    "en": "Access your ABHA health records, lab reports, and medicine availability",
+    "mr": "आपल्या आरोग्य नोंदी, तपासणी अहवाल व औषध माहिती पाहण्यासाठी"
+  },
+  {
+    "en": "Login with Mobile Number",
+    "mr": "मोबाइल नंबरने लॉग इन"
+  },
+  {
+    "en": "Fast and secure login via SMS OTP",
+    "mr": "OTP द्वारे तात्काळ सुरक्षित प्रवेश"
+  },
+  {
+    "en": "Login with ABHA Number",
+    "mr": "ABHA आयडीने लॉग इन"
+  },
+  {
+    "en": "Quick Demo: Open Sunita's Dashboard",
+    "mr": "थेट चाचणी डॅशबोर्ड उघडा (सुनीता जाधव)"
+  },
+  {
+    "en": "Back to options",
+    "mr": "मागे"
+  },
+  {
+    "en": "Mobile Number",
+    "mr": "मोबाइल नंबर"
+  },
+  {
+    "en": "A 6-digit OTP will be sent to your mobile",
+    "mr": "नोंदणीकृत क्रमांकावर ६ अंकी OTP पाठवला जाईल"
+  },
+  {
+    "en": "Sending OTP...",
+    "mr": "OTP पाठवत आहे..."
+  },
+  {
+    "en": "Send OTP",
+    "mr": "OTP पाठवा"
+  },
+  {
+    "en": "Change Number",
+    "mr": "नंबर बदला"
+  },
+  {
+    "en": "Enter the 6-digit OTP sent to +91 ${mobile}",
+    "mr": "+९१ ${mobile} वर पाठवलेला ६ अंकी OTP टाका"
+  },
+  {
+    "en": "Verifying...",
+    "mr": "पडताळणी होत आहे..."
+  },
+  {
+    "en": "Verify & Continue",
+    "mr": "पुष्टी करा व पुढे जा"
+  },
+  {
+    "en": "Didn't receive OTP?",
+    "mr": "OTP मिळाला नाही?"
+  },
+  {
+    "en": "Resend (Auto Fill)",
+    "mr": "पुन्हा पाठवा (Auto Fill)"
+  },
+  {
+    "en": "ABHA Address or 14-Digit Number",
+    "mr": "ABHA पत्ता किंवा १४-अंकी क्रमांक"
+  },
+  {
+    "en": "e.g. MH-PN-24-00000001 or sunita@abdm",
+    "mr": "उदा. MH-PN-24-00000001 किंवा sunita@abdm"
+  },
+  {
+    "en": "Verifying ABHA...",
+    "mr": "तपासत आहे..."
+  },
+  {
+    "en": "Validate ABHA",
+    "mr": "ABHA पडताळणी करा"
+  },
+  {
+    "en": "OTP sent to Aadhaar linked mobile number ending in ...4821",
+    "mr": "आधार लिंक केलेल्या मोबाइलवर OTP पाठवला आहे"
+  },
+  {
+    "en": "Confirm and Open Dashboard",
+    "mr": "डॅशबोर्ड उघडा"
+  },
+  {
+    "en": "Secured Portal · Compliant with ABDM Guidelines",
+    "mr": "सुरक्षित पोर्टल · ABDM भारत सरकार नियमांनुसार"
+  },
+  {
+    "en": "Referral Pipeline",
+    "mr": "रेफरल स्थिती (Pipeline)"
+  },
+  {
+    "en": "Lab Orders & Results",
+    "mr": "निदान तपासण्या (Lab Tests)"
+  },
+  {
+    "en": "My Referrals:",
+    "mr": "माझे रेफरल्स:"
+  },
+  {
+    "en": "Find Token (REF-...)",
+    "mr": "टोकन शोधा (REF-...)"
+  },
+  {
+    "en": "No active referral records found.",
+    "mr": "कोणताही सक्रिय संदर्भ आढळला नाही."
+  },
+  {
+    "en": "My Diagnostic Test Orders & Verified Reports",
+    "mr": "माझ्या लॅब तपासण्या व डिजिटल अहवाल"
+  },
+  {
+    "en": "Track sample collection, testing progress and view ABHA uploaded reports",
+    "mr": "प्राथमिक आरोग्य केंद्रात किंवा जिल्हा लॅबमध्ये केलेल्या तपासण्यांची सद्यस्थिती"
+  },
+  {
+    "en": "View Duty Nurse Queue",
+    "mr": "ओपीडी ट्रायज रांग पहा"
+  },
+  {
+    "en": "Emergency Help: Call 108",
+    "mr": "तातडीची मदत: १०८ कॉल करा"
+  },
+  {
+    "en": "Govt of Maharashtra • Public Health Dept",
+    "mr": "महाराष्ट्र शासन • सार्वजनिक आरोग्य विभाग"
+  },
+  {
+    "en": "Digital Clinical Triage System",
+    "mr": "डिजिटल क्लिनिकल ट्रायज प्रणाली"
+  },
+  {
+    "en": "Rapid severity prioritization & clinical emergency guidance based on WHO ETAT protocols",
+    "mr": "लक्षणे आणि वैद्यकीय नोंदींवर आधारित तत्काळ प्राधान्य मूल्यांकन (WHO ETAT मानकांनुसार)"
+  },
+  {
+    "en": "4-Level Clinical CDSS",
+    "mr": "४-स्तरीय क्लिनिकल मॉडेल"
+  },
+  {
+    "en": "Red / Orange / Yellow / Green",
+    "mr": "तातडीनुसार वर्गीकरण"
+  },
+  {
+    "en": "Step 1: Patient Information",
+    "mr": "पायरी १: रुग्णाची प्राथमिक माहिती"
+  },
+  {
+    "en": "Age and demographic profile determine risk multipliers",
+    "mr": "वयानुसार आणि स्थितीनुसार जोखीम गुणांक लागू होतो"
+  },
+  {
+    "en": "Load from ABHA",
+    "mr": "आभा (ABHA) वरून माहिती भरा"
+  },
+  {
+    "en": "Patient Full Name *",
+    "mr": "रुग्णाचे पूर्ण नाव *"
+  },
+  {
+    "en": "Age (Years) *",
+    "mr": "वय (वर्षे) *"
+  },
+  {
+    "en": "Infants (<1) & elderly (65+) automatically receive risk weights",
+    "mr": "१ वर्षांखालील बाळ व ६५ वर्षांवरील ज्येष्ठांसाठी विशेष जोखीम"
+  },
+  {
+    "en": "Gender *",
+    "mr": "लिंग *"
+  },
+  {
+    "en": "ABHA Health ID (Optional)",
+    "mr": "आभा क्रमांक (ABHA ID)"
+  },
+  {
+    "en": "Patient is currently pregnant (Maternal ANC)",
+    "mr": "रुग्ण सध्या गरोदर आहे (Maternal / ANC)"
+  },
+  {
+    "en": "Enables maternal obstetric escalation safeguards",
+    "mr": "मॅटर्नल क्लिनिकल ट्रायज प्रोटोकॉल आपोआप लागू होईल"
+  },
+  {
+    "en": "Next: Select Symptoms",
+    "mr": "पुढील पायरी: लक्षणे निवडा"
+  },
+  {
+    "en": "Step 2: Symptoms & Onset Duration",
+    "mr": "पायरी २: लक्षणे आणि कालावधी"
+  },
+  {
+    "en": "Select all present symptoms across clinical categories",
+    "mr": "३०+ वैद्यकीय लक्षणे आणि कालावधीनुसार अचूक वर्गीकरण"
+  },
+  {
+    "en": "Symptoms Selected",
+    "mr": "लक्षणे निवडली"
+  },
+  {
+    "en": "How long have these symptoms lasted? *",
+    "mr": "त्रास कधीपासून सुरू झाला? (कालावधी) *"
+  },
+  {
+    "en": "Search symptoms (e.g. fever, breathing, chest)...",
+    "mr": "लक्षण शोधा (उदा. ताप, खोकला, छातीत कळ)..."
+  },
+  {
+    "en": "Next: Record Vitals",
+    "mr": "पुढील पायरी: व्हिटल्स नोंदणी"
+  },
+  {
+    "en": "Step 3: Vital Signs Monitoring",
+    "mr": "पायरी ३: रुग्णाचे व्हिटल्स (Vital Signs)"
+  },
+  {
+    "en": "Enter measured vital signs to refine priority risk scoring (Optional but recommended)",
+    "mr": "अचूक ट्रायज गुणांक काढण्यासाठी उपलब्ध उपकरणानुसार व्हिटल्स प्रविष्ट करा"
+  },
+  {
+    "en": "Normal: 95-100% (<90% Critical)",
+    "mr": "सामान्य: ९५% - १००% (<९०% अतिगंभीर)"
+  },
+  {
+    "en": "Normal: 120/80 mmHg (>140 High)",
+    "mr": "सामान्य: १२०/८० mmHg (>१४० उच्च)"
+  },
+  {
+    "en": "Normal: 60 - 100 bpm",
+    "mr": "सामान्य: ६० - १०० ठोके/मिनिट"
+  },
+  {
+    "en": "Normal: 98.6°F (>101°F Fever)",
+    "mr": "सामान्य: ९८.६°F (>१०१°F ताप)"
+  },
+  {
+    "en": "Clinical Note:",
+    "mr": "आरोग्य सूचना:"
+  },
+  {
+    "en": "If medical monitoring equipment is unavailable at village level, you may continue without vitals; symptom scoring will prioritize care.",
+    "mr": "गावात डिजिटल उपकरण उपलब्ध नसल्यास ही पायरी वगळता येईल. क्लिनिकल गुणांक लक्षणांच्या आधारे मोजला जाईल."
+  },
+  {
+    "en": "Next: Medical History",
+    "mr": "पुढील पायरी: वैद्यकीय इतिहास"
+  },
+  {
+    "en": "Step 4: Pre-Existing Chronic Conditions",
+    "mr": "पायरी ४: आधीचे आजार व वैद्यकीय इतिहास"
+  },
+  {
+    "en": "Chronic comorbidities apply a clinical severity multiplier of 1.25x",
+    "mr": "दीर्घकालीन आजार असल्यास ट्रायज स्कोरमध्ये १.२५ पट वाढ होते"
+  },
+  {
+    "en": "Select any known existing chronic conditions:",
+    "mr": "खालीलपैकी कोणतेही जुने आजार आहेत का?"
+  },
+  {
+    "en": "Known Drug Allergies or Additional Notes (Optional)",
+    "mr": "कोणत्या औषधांची ॲलर्जी किंवा इतर टिप्पणी"
+  },
+  {
+    "en": "Calculating Triage...",
+    "mr": "मूल्यांकन सुरू आहे..."
+  },
+  {
+    "en": "Run Clinical Triage",
+    "mr": "ट्रायज निकाल काढा"
+  },
+  {
+    "en": "CRITICAL EMERGENCY: IMMEDIATE MEDICAL ATTENTION REQUIRED",
+    "mr": "तातडीची आणीबाणी (CRITICAL RED ALERT)"
+  },
+  {
+    "en": "High risk to life detected. Do not delay. Keep patient stable and contact 108 immediately.",
+    "mr": "रुग्णाला त्वरित रुग्णवाहिकेतून किंवा जवळच्या आपत्कालीन वॉर्डात हलवा. विलंब करू नका."
+  },
+  {
+    "en": "Call 108 Ambulance",
+    "mr": "१०८ रुग्णवाहिका कॉल करा"
+  },
+  {
+    "en": "Triage Classification",
+    "mr": "ट्रायज वर्गीकरण"
+  },
+  {
+    "en": "Max Wait Time",
+    "mr": "अपेक्षित प्रतीक्षा वेळ"
+  },
+  {
+    "en": "Triage Score",
+    "mr": "क्लिनिकल स्कोर"
+  },
+  {
+    "en": "Age / Gender",
+    "mr": "वय / लिंग"
+  },
+  {
+    "en": "Reference ID",
+    "mr": "संदर्भ क्रमांक"
+  },
+  {
+    "en": "Immediate Action Required:",
+    "mr": "तातडीने करावयाची कृती (Clinical Directive)"
+  },
+  {
+    "en": "Reported Symptoms",
+    "mr": "नोंदवलेली लक्षणे"
+  },
+  {
+    "en": "Vitals Risk Observations",
+    "mr": "व्हिटल्स फ्लॅग व निरीक्षणे"
+  },
+  {
+    "en": "All recorded vital signs within standard range.",
+    "mr": "सर्व नोंदी सुरक्षित मर्यादेत आहेत."
+  },
+  {
+    "en": "Clinical Care Guidelines & Patient Advice:",
+    "mr": "वैद्यकीय सल्ला व काळजी मार्गदर्शक तत्त्वे"
+  },
+  {
+    "en": "Print Triage Slip",
+    "mr": "ट्रायज पावती प्रिंट करा"
+  },
+  {
+    "en": "Dispatched to Queue",
+    "mr": "रांगेत पाठवले आहे"
+  },
+  {
+    "en": "Send to Clinic Queue",
+    "mr": "ओपीडी रांगेत पाठवा"
+  },
+  {
+    "en": "Teleconsult Doctor",
+    "mr": "डॉक्टर टेलिकन्सल्टेशन"
+  },
+  {
+    "en": "Start New Triage",
+    "mr": "पुन्हा ट्रायज करा"
+  },
+  {
+    "en": "Clinic Duty Nurse Triage Queue",
+    "mr": "आरोग्य केंद्र ट्रायज रांग"
+  },
+  {
+    "en": "Active Triage Patients:",
+    "mr": "सक्रिय रुग्ण संख्या:"
+  },
+  {
+    "en": "Close Queue Drawer",
+    "mr": "बंद करा"
+  },
+  {
+    "en": "Access Portals",
+    "mr": "पोर्टल प्रवेश करा' : lang === 'hi' ? 'पोर्टल प्रवेश करें"
+  },
+  {
+    "en": "108 Emergency SOS",
+    "mr": "१०८ आणीबाणी सेवा' : lang === 'hi' ? '१०८ आपातकालीन सेवा"
+  },
+  {
+    "en": "Voice Assistant",
+    "mr": "व्हॉइस सहाय्यक' : lang === 'hi' ? 'आवाज़ सहायक"
+  },
+  {
+    "en": "Active PHCs",
+    "mr": "कार्यरत PHC' : lang === 'hi' ? 'सक्रिय प्राथमिक स्वास्थ्य केंद्र"
+  },
+  {
+    "en": "Total Facilities",
+    "mr": "एकूण केंद्रे' : lang === 'hi' ? 'कुल स्वास्थ्य केंद्र"
+  },
+  {
+    "en": "ABHA Patients",
+    "mr": "ABHA नागरिक' : lang === 'hi' ? 'पंजीकृत आभा नागरिक"
+  },
+  {
+    "en": "108 Dispatch",
+    "mr": "१०८ रुग्णवाहिका' : lang === 'hi' ? '२४/७ एम्बुलेंस सेवा"
+  },
+  {
+    "en": "Live Health Operations",
+    "mr": "आरोग्य थेट नियंत्रण कक्ष' : lang === 'hi' ? 'स्वास्थ्य सीधा नियंत्रण कक्ष"
+  },
+  {
+    "en": "36 Districts Connected · 24/7 Active",
+    "mr": "३६ जिल्हे जोडलेले · २४/७ सक्रिय' : lang === 'hi' ? '३६ जिले जुड़े · २४/७ सक्रिय"
+  },
+  {
+    "en": "LIVE",
+    "mr": "थेट सेतू' : lang === 'hi' ? 'लाइव सेतु"
+  },
+  {
+    "en": "108 Emergency Dispatch",
+    "mr": "१०८ आणीबाणी रुग्णवाहिका' : lang === 'hi' ? '१०८ आपातकालीन एम्बुलेंस"
+  },
+  {
+    "en": "12 BLS/ALS units on call · 1-Tap GPS",
+    "mr": "१२ रुग्णवाहिका सज्ज · १-टॅप जीपीएस' : lang === 'hi' ? '१२ एम्बुलेंस तैनात · १-टैप जीपीएस"
+  },
+  {
+    "en": "Doctor Teleconsult Queue",
+    "mr": "थेट डॉक्टर टेलीकन्सल्ट' : lang === 'hi' ? 'सीधा डॉक्टर टेलीकंसल्ट"
+  },
+  {
+    "en": "Low-latency HD audio/video · <5m wait",
+    "mr": "कमी बँडविड्थ व्हिडिओ · <५ मि प्रतीक्षा' : lang === 'hi' ? 'कम बैंडविड्थ वीडियो · <५ मिनट प्रतीक्षा"
+  },
+  {
+    "en": "ABHA Digital Health Record",
+    "mr": "ABHA डिजिटल हेल्थ कार्ड' : lang === 'hi' ? 'आभा डिजिटल हेल्थ कार्ड"
+  },
+  {
+    "en": "Instant 14-digit ABHA · NABL verified",
+    "mr": "१४ अंकी सुरक्षित आयडी · थेट लॅब सिंक' : lang === 'hi' ? '१४ अंकों की सुरक्षित आईडी · सीधी लैब सिंक"
+  },
+  {
+    "en": "PHC Drug Supply Chain",
+    "mr": "स्थानिक औषध साठा' : lang === 'hi' ? 'स्थानीय दवा उपलब्धता"
+  },
+  {
+    "en": "Real-time dispensary inventory & tracking",
+    "mr": "थेट डिस्पेंसरी साठा · त्वरित वितरण' : lang === 'hi' ? 'सीधा डिस्पेंसरी स्टॉक · त्वरित वितरण"
+  },
+  {
+    "en": "Dedicated User Portals",
+    "mr": "चार मुख्य पोर्टल्स' : lang === 'hi' ? 'चार मुख्य पोर्टल"
+  },
+  {
+    "en": "Tailored for Every Healthcare Stakeholder",
+    "mr": "प्रत्येक भूमिकेसाठी स्वतंत्र कार्यक्षेत्र' : lang === 'hi' ? 'प्रत्येक भूमिका के लिए समर्पित कार्यक्षेत्र"
+  },
+  {
+    "en": "Citizen Patient Portal",
+    "mr": "रुग्ण पोर्टल' : lang === 'hi' ? 'नागरिक मरीज़ पोर्टल"
+  },
+  {
+    "en": "Open Portal",
+    "mr": "प्रवेश करा' : lang === 'hi' ? 'प्रवेश करें"
+  },
+  {
+    "en": "ASHA Field Worker Portal",
+    "mr": "आशा कार्यकर्ती पोर्टल' : lang === 'hi' ? 'आशा कार्यकर्ता पोर्टल"
+  },
+  {
+    "en": "Doctor Teleconsult Portal",
+    "mr": "डॉक्टर टेलीकन्सल्टेशन' : lang === 'hi' ? 'डॉक्टर टेलीकंसल्टेशन"
+  },
+  {
+    "en": "District Health Admin",
+    "mr": "जिल्हा प्रशासन डॅशबोर्ड' : lang === 'hi' ? 'जिला प्रशासन डैशबोर्ड"
+  },
+  {
+    "en": "Patient Journey",
+    "mr": "रुग्ण प्रवास' : lang === 'hi' ? 'मरीज़ यात्रा"
+  },
+  {
+    "en": "Seamless Journey: Village Sub-Centre to District Hospital",
+    "mr": "गावातून जिल्हा रुग्णालयापर्यंत अखंड जोडणी' : lang === 'hi' ? 'गाँव से जिला अस्पताल तक निर्बाध स्वास्थ्य यात्रा"
+  },
+  {
+    "en": "Step",
+    "mr": "टप्पा' : lang === 'hi' ? 'चरण"
+  },
+  {
+    "en": "STEP",
+    "mr": "टप्पा' : lang === 'hi' ? 'चरण"
+  },
+  {
+    "en": "Try Live Simulation",
+    "mr": "थेट अनुभव घ्या' : lang === 'hi' ? 'लाइव सिमुलेशन देखें"
+  },
+  {
+    "en": "Government Programs",
+    "mr": "शासकीय योजना' : lang === 'hi' ? 'सरकारी योजनाएं"
+  },
+  {
+    "en": "Integrated National Health Programs",
+    "mr": "राष्ट्रीय आरोग्य अभियानांतर्गत योजना' : lang === 'hi' ? 'राष्ट्रीय स्वास्थ्य मिशन अंतर्गत प्रमुख योजनाएं"
+  },
+  {
+    "en": "Frequently Asked Questions",
+    "mr": "वारंवार विचारले जाणारे प्रश्न' : lang === 'hi' ? 'अक्सर पूछे जाने वाले प्रश्न"
+  },
+  {
+    "en": "Select Healthcare Portal",
+    "mr": "पोर्टल निवडा' : lang === 'hi' ? 'स्वास्थ्य पोर्टल चुनें"
+  },
+  {
+    "en": "OTP & ABHA login, appointments & medicine check",
+    "mr": "लॉग इन, अपॉइंटमेंट व औषध तपासणी' : lang === 'hi' ? 'लॉगिन, अपॉइंटमेंट व दवा उपलब्धता"
+  },
+  {
+    "en": "ASHA Worker Portal",
+    "mr": "आशा कार्यकर्ती पोर्टल' : lang === 'hi' ? 'आशा कार्यकर्ता पोर्टल"
+  },
+  {
+    "en": "Offline checklists, patient registry & triage",
+    "mr": "ऑफलाइन कार्यसूची व गाव नोंदवही' : lang === 'hi' ? 'ऑफलाइन कार्यसूची व गाँव मरीज़ सूची"
+  },
+  {
+    "en": "Doctor Teleconsultation Portal",
+    "mr": "डॉक्टर पोर्टल' : lang === 'hi' ? 'डॉक्टर टेलीकंसल्टेशन पोर्टल"
+  },
+  {
+    "en": "Live video consult queue & digital prescription",
+    "mr": "थेट व्हिडिओ कन्सल्ट व ई-प्रिस्क्रिप्शन' : lang === 'hi' ? 'सीधा वीडियो कंसल्ट व ई-प्रिस्क्रिप्शन"
+  },
+  {
+    "en": "District Admin Dashboard",
+    "mr": "जिल्हा प्रशासन' : lang === 'hi' ? 'जिला प्रशासन डैशबोर्ड"
+  },
+  {
+    "en": "Facility matrix, analytics & drug supply",
+    "mr": "३६ केंद्रांचे थेट नियंत्रण व साठा मॅट्रिक्स' : lang === 'hi' ? '३६ केंद्रों का सीधा नियंत्रण व आपूर्ति मैट्रिक्स"
+  },
+  {
+    "en": "Interoperability Hub",
+    "mr": "आंतरकार्यक्षमता केंद्र' : lang === 'hi' ? 'इंटरऑपरेबिलिटी हब"
+  },
+  {
+    "en": "ABDM Milestones, FHIR R4 & NHM HMIS reports",
+    "mr": "HL7 FHIR R4 बंडल व NHM HMIS अहवाल' : lang === 'hi' ? 'HL7 FHIR R4 बंडल व NHM HMIS रिपोर्ट"
+  },
+  {
+    "en": "Live Queue",
+    "mr": "थेट रांग व्यवस्थापन"
+  },
+  {
+    "en": "Today's Appointments",
+    "mr": "आजच्या अपॉइंटमेंट्स"
+  },
+  {
+    "en": "Flow Analytics & Reports",
+    "mr": "रुग्ण प्रवाह व अहवाल"
+  },
+  {
+    "en": "TV Display & Kiosk",
+    "mr": "प्रतीक्षा स्क्रीन व्यवस्था"
+  },
+  {
+    "en": "Complete Blood Count with Platelets & ESR",
+    "mr": "संपूर्ण रक्त तपासणी (CBC + ESR)"
+  },
+  {
+    "en": "Blood Grouping & Rh Typing",
+    "mr": "रक्तगट व आरएच फॅक्टर (Blood Group & Rh Type)"
+  },
+  {
+    "en": "Peripheral Blood Smear for Malaria Parasite",
+    "mr": "पेरिफेरस ब्लड स्मीअर (मलेरिया जंतू तपासणी)"
+  },
+  {
+    "en": "Glycated Hemoglobin (HbA1c Glycemic Index)",
+    "mr": "ग्लायकेटेड हिमोग्लोबिन (HbA1c - ३ महिन्यांची साखर)"
+  },
+  {
+    "en": "Sickle Cell Solubility & HPLC Screening",
+    "mr": "सिकल सेल सॉल्युबिलिटी व इलेक्ट्रोफोरेसीस"
+  },
+  {
+    "en": "Dengue NS1 Antigen & Duo Antibody Test",
+    "mr": "डेंग्यू NS1 अँटीजेन व IgM/IgG रॅपिड"
+  },
+  {
+    "en": "Prothrombin Time with INR (Coagulation)",
+    "mr": "प्रोथ्रोम्बिन टाईम (PT / INR कोॲग्युलेशन)"
+  },
+  {
+    "en": "Reticulocyte Count (Bone Marrow Activity)",
+    "mr": "रेटिक्युलोसाईट काउंट (Reticulocyte Count)"
+  },
+  {
+    "en": "Bleeding Time (BT) & Clotting Time (CT)",
+    "mr": "रक्तस्राव व गोठण वेळ (Bleeding & Clotting Time)"
+  },
+  {
+    "en": "Coombs Test (Rh Incompatibility Screening)",
+    "mr": "कुम्ब्स टेस्ट (Direct & Indirect Antiglobulin)"
+  },
+  {
+    "en": "Serum Ferritin, Iron & TIBC Profile",
+    "mr": "सिरम फेरिटिन व आयर्न प्रोफाईल (Ferritin & TIBC)"
+  },
+  {
+    "en": "Fasting & Post-Prandial Blood Sugar",
+    "mr": "रक्तातील साखर - उपाशीपोटी व जेवणानंतर (FBS & PPBS)"
+  },
+  {
+    "en": "Liver Function Test (Bilirubin, SGOT, SGPT, ALP, Proteins)",
+    "mr": "यकृत कार्यक्षमता तपासणी (Liver Function Test - LFT)"
+  },
+  {
+    "en": "Kidney Function Test (Creatinine, Urea, BUN, Uric Acid)",
+    "mr": "मूत्रपिंड कार्यक्षमता तपासणी (Kidney Function / RFT)"
+  },
+  {
+    "en": "Lipid Profile (Cardiovascular Risk Evaluation)",
+    "mr": "लिपिड प्रोफाईल (Cholesterol, HDL, LDL, Triglycerides)"
+  },
+  {
+    "en": "Thyroid Function Profile (TSH, FT3, FT4)",
+    "mr": "थायरॉईड प्रोफाईल (TSH, Free T3, Free T4)"
+  },
+  {
+    "en": "Serum Electrolytes (Na+, K+, Cl-)",
+    "mr": "सिरम इलेक्ट्रोलाइट्स (Sodium, Potassium, Chloride)"
+  },
+  {
+    "en": "Serum Total Calcium & Phosphorus",
+    "mr": "सिरम कॅल्शियम व फॉस्फरस (Calcium & Phosphorus)"
+  },
+  {
+    "en": "High-Sensitivity Cardiac Troponin I (MI Rule-out)",
+    "mr": "कार्डियाक ट्रॉपोनिन I (Cardiac Troponin I STAT)"
+  },
+  {
+    "en": "Serum Amylase & Lipase",
+    "mr": "सिरम अमायलेज व लायपेज (Pancreatic Enzymes)"
+  },
+  {
+    "en": "Vitamin D3 (25-OH) & Vitamin B12 Immunoassay",
+    "mr": "व्हिटॅमिन D3 व व्हिटॅमिन B12 तपासणी"
+  },
+  {
+    "en": "High-Sensitivity C-Reactive Protein (Infection/Inflammation)",
+    "mr": "सी-रिॲक्टिव्ह प्रोटीन (Quantitative hs-CRP)"
+  },
+  {
+    "en": "Urine Routine & Microscopic Examination",
+    "mr": "युरिन रुटीन व मायक्रोस्कोपी (Urine Routine & Microscopic)"
+  },
+  {
+    "en": "Rapid Urine Pregnancy Card Test (hCG Detection)",
+    "mr": "त्वरित गर्भधारणा चाचणी (Rapid Urine Pregnancy Test - UPT)"
+  },
+  {
+    "en": "Urine Albumin & Sugar (Frontline Strip Method)",
+    "mr": "युरिन अल्ब्युमिन व शुगर (Dipstick Strip Test)"
+  },
+  {
+    "en": "Urine Albumin-to-Creatinine Ratio (Early Diabetic Nephropathy)",
+    "mr": "युरिन मायक्रोअल्ब्युमिन / क्रिएटिनिन गुणोत्तर (UACR)"
+  },
+  {
+    "en": "24-Hour Urinary Protein Excretion (Preeclampsia / Nephrotic)",
+    "mr": "२४ तास युरिन प्रोटीन (24-Hour Urinary Protein)"
+  },
+  {
+    "en": "Stool Routine, Parasites & Occult Blood (FOBT)",
+    "mr": "शौचाची तपासणी व गुप्त रक्त (Stool Routine & Occult Blood)"
+  },
+  {
+    "en": "Urine Bile Salts (Hay\\",
+    "mr": "युरिन बाईल सॉल्ट्स व बाईल पिगमेंट (Bile Salts & Pigments)"
+  },
+  {
+    "en": "Bence Jones Protein Heat Coagulation Test",
+    "mr": "बेन्स जोन्स प्रोटीन (Bence Jones Protein Test)"
+  },
+  {
+    "en": "GeneXpert MTB/RIF Sputum Assay (NTEP Verified)",
+    "mr": "क्षयरोग थुंकी जिन-एक्स्पर्ट (CBNAAT for MTB/RIF)"
+  },
+  {
+    "en": "Sputum Acid-Fast Bacilli (AFB) Smear Microscopy",
+    "mr": "थुंकी मायक्रोस्कोपी (Sputum Smear for AFB - ZN Staining)"
+  },
+  {
+    "en": "Widal Agglutination Reaction (Salmonella Typhi)",
+    "mr": "विडल टेस्ट (Widal Slide & Tube for Typhoid)"
+  },
+  {
+    "en": "HIV 1 & 2 Rapid Triline Antibody (NACO Empanelled)",
+    "mr": "एचआयव्ही १ व २ अँटीबॉडी तपासणी (NACO Rapid Test)"
+  },
+  {
+    "en": "Hepatitis B Surface Antigen (HBsAg Screening)",
+    "mr": "हिपॅटायटीस बी पृष्ठभाग अँटीजेन (HBsAg Rapid)"
+  },
+  {
+    "en": "Hepatitis C Virus (HCV) Antibody Rapid Card",
+    "mr": "हिपॅटायटीस सी अँटीबॉडी चाचणी (HCV Rapid Screen)"
+  },
+  {
+    "en": "Syphilis VDRL / RPR Non-Treponemal Flocculation",
+    "mr": "सिफिलीस व्हीडीआरएल / आरपीआर चाचणी (VDRL / RPR)"
+  },
+  {
+    "en": "Urine Bacterial Culture & Antibiotic Susceptibility",
+    "mr": "लघवी कल्चर व अँटिबायोटिक संवेदनशीलता (Culture & Sensitivity)"
+  },
+  {
+    "en": "Obstetric Level-II Anomaly Scan (20-22 Wks)",
+    "mr": "प्रसूतीपूर्व ॲनोमली स्कॅन (Obstetric USG Anomaly 20-22 Wks)"
+  },
+  {
+    "en": "Obstetric Feto-Maternal Color Doppler Study",
+    "mr": "प्रसूतीपूर्व कलर डॉपलर स्कॅन (Obstetric Color Doppler)"
+  },
+  {
+    "en": "Digital Chest Radiography (PA View)",
+    "mr": "डिजिटल छातीचा क्ष-किरण (Digital Chest X-Ray PA View)"
+  },
+  {
+    "en": "Ultrasound Whole Abdomen & Pelvis",
+    "mr": "पोट व ओटीपोटाची सोनोग्राफी (USG Abdomen & Pelvis)"
+  },
+  {
+    "en": "12-Lead Electrocardiogram with Automated Tele-ECG Analysis",
+    "mr": "१२-लीड डिजिटल ईसीजी (12-Lead Digital ECG with AI Analysis)"
+  },
+  {
+    "en": "Transthoracic 2D Echocardiography with Color Flow",
+    "mr": "२डी इकोकार्डिओग्राफी व कलर डॉपलर (2D Echocardiography)"
+  },
+  {
+    "en": "Non-Contrast Computed Tomography of Brain (Head NCCT)",
+    "mr": "मेंदूचा सीटी स्कॅन (Non-Contrast CT Brain Emergency)"
+  },
+  {
+    "en": "Digital Bilateral Screening Mammography",
+    "mr": "डिजिटल मॅमोग्राफी (Bilateral Screening Mammogram)"
+  },
+  {
+    "en": "PHC Shirur Clinical Pathology Laboratory",
+    "mr": "प्राथमिक आरोग्य केंद्र शिरूर क्लिनिकल पॅथॉलॉजी लॅब"
+  },
+  {
+    "en": "District Hospital Pune Central Diagnostics & Imaging Hub",
+    "mr": "जिल्हा रुग्णालय पुणे मध्यवर्ती निदान केंद्र (औंध)"
+  },
+  {
+    "en": "Sub-Centre Vadgaon Digital Point-of-Care Diagnostic Kit",
+    "mr": "उपकेंद्र वडगाव डिजिटल पॉईंट-ऑफ-केअर युनिट (PoCT)"
+  },
+  {
+    "en": "Shirur Taluka Public Health Laboratory",
+    "mr": "शिरूर तालुका सार्वजनिक आरोग्य लॅब (Public Health Lab)"
+  },
+  {
+    "en": "Sahyadri Empanelled Rural Diagnostic Center, Chakan",
+    "mr": "सह्याद्री शासकीय संलग्न डायग्नोस्टिक नेटवर्क, चाकण"
+  },
+  {
+    "en": "Metropolis Rural Sample Collection Center, Shirur",
+    "mr": "मेट्रोपोलिस पॅथॉलॉजी संकलन केंद्र, शिरूर"
+  },
+  {
+    "en": "Emergency (<=2h)",
+    "mr": "तात्काळ (Emergency <=२ तास)"
+  },
+  {
+    "en": "Urgent (<=24h)",
+    "mr": "तातडीचे (Urgent <=२४ तास)"
+  },
+  {
+    "en": "Routine (<=72h)",
+    "mr": "नियमित (Routine <=७२ तास)"
+  },
+  {
+    "en": "Elective (<=7 days)",
+    "mr": "नियोजित (Elective <=७ दिवस)"
+  },
+  {
+    "en": "Token Created",
+    "mr": "नोंदणीकृत (Created)"
+  },
+  {
+    "en": "Patient & ASHA Notified",
+    "mr": "एसएमएस पाठवला (Notified)"
+  },
+  {
+    "en": "Hospital Desk Accepted",
+    "mr": "रुग्णालयाने स्वीकारले (Accepted)"
+  },
+  {
+    "en": "In Transit / Dispatched",
+    "mr": "वाहतुकीत (In Transit)"
+  },
+  {
+    "en": "Reached Destination",
+    "mr": "रुग्णालयात पोहोचले (Reached)"
+  },
+  {
+    "en": "Admitted / In Consultation",
+    "mr": "दाखल / तपासणी सुरू (Admitted)"
+  },
+  {
+    "en": "Treatment Complete & Counter-Referral",
+    "mr": "उपचार पूर्ण व फीडबॅक (Completed)"
+  },
+  {
+    "en": "Overdue Alert",
+    "mr": "मुदत उलटून गेलेली (Overdue)"
+  },
+  {
+    "en": "Cancelled",
+    "mr": "रद्द केले (Cancelled)"
+  },
+  {
+    "en": "District Hospital Aundh, Pune",
+    "mr": "जिल्हा रुग्णालय औंध, पुणे"
+  },
+  {
+    "en": "Sassoon General Hospital & B.J. Medical College, Pune",
+    "mr": "ससून सर्वोपचार रुग्णालय व बी.जे. मेडिकल कॉलेज, पुणे"
+  },
+  {
+    "en": "Sub-District Hospital Shirur",
+    "mr": "उपजिल्हा रुग्णालय शिरूर"
+  },
+  {
+    "en": "Rural Hospital Khed",
+    "mr": "ग्रामीण रुग्णालय खेड"
+  },
+  {
+    "en": "District Tuberculosis Center & Chest Hospital, Aundh",
+    "mr": "जिल्हा क्षयरोग केंद्र व छाती रुग्णालय, औंध"
+  },
+  {
+    "en": "Govt HealthWay: Diagnostic report (${testNames}) for ${patientName} is verified and synced to ABHA record. Barcode: ${barcode}.",
+    "mr": "महाराष्ट्र आरोग्य सेतू: ${patientName} यांचा लॅब अहवाल (${testNames}) तयार असून ABHA रेकॉर्डमध्ये अपलोड झाला आहे. बारकोड: ${barcode}."
+  },
+  {
+    "en": "I have high fever and severe cough",
+    "mr": "मला तीव्र ताप आणि खोकला आहे"
+  },
+  {
+    "en": "Completed & NABL Verified",
+    "mr": "अहवाल तयार व प्रमाणित' : lang === 'hi' ? 'रिपोर्ट तैयार व प्रमाणित"
+  },
+  {
+    "en": "Processing on Analyzer",
+    "mr": "लॅबमध्ये विश्लेषण सुरू' : lang === 'hi' ? 'लैब में विश्लेषण जारी"
+  },
+  {
+    "en": "Sample In Transit (Cold Chain)",
+    "mr": "नमुना लॅबकडे वाहतुकीत' : lang === 'hi' ? 'सैंपल लैब परिवहन में"
+  },
+  {
+    "en": "Order Requisitioned",
+    "mr": "ऑर्डर नोंदवली' : lang === 'hi' ? 'ऑर्डर दर्ज किया गया"
+  },
+  {
+    "en": "STAT (<2h Immediate)",
+    "mr": "तातडीचे (STAT <२ तास)' : lang === 'hi' ? 'अति आवश्यक (STAT <२ घंटे)"
+  },
+  {
+    "en": "Urgent (<6h)",
+    "mr": "प्राधान्य (Urgent <६ तास)' : lang === 'hi' ? 'प्राथमिकता (Urgent <६ घंटे)"
+  },
+  {
+    "en": "Routine (24-48h)",
+    "mr": "नियमित (२४-४८ तास)' : lang === 'hi' ? 'सामान्य (२४-४८ घंटे)"
+  }
+]
