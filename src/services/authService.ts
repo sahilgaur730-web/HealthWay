@@ -11,11 +11,18 @@ const LOCAL_STORAGE_USERS_KEY = 'hw_auth_users_cache_v1';
 const LOCAL_STORAGE_SESSION_KEY = 'hw_auth_active_session_v1';
 const AUTH_EVENT_NAME = 'healthway:auth-change';
 
-// Backend API Base URL with fallback configuration
-const API_BASE_URL =
-  (typeof window !== 'undefined' && (window as any).__HEALTHWAY_API_URL__) ||
-  (import.meta as any).env?.VITE_API_URL ||
-  'http://localhost:5000/api/auth';
+function getApiBaseUrl(): string {
+  const envUrl =
+    (typeof window !== 'undefined' && (window as any).__HEALTHWAY_API_URL__) ||
+    (import.meta as any).env?.VITE_API_URL;
+  if (!envUrl) return 'http://localhost:5000/api/auth';
+  const trimmed = String(envUrl).replace(/\/+$/, '');
+  if (trimmed.endsWith('/api/auth')) return trimmed;
+  if (trimmed.endsWith('/api')) return `${trimmed}/auth`;
+  return `${trimmed}/api/auth`;
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 export const DEFAULT_USERS: UserRecord[] = [
   {
@@ -688,14 +695,41 @@ class AuthService {
    */
   public verifyRolePortalAccess(role: UserRole, path: string): boolean {
     if (role === 'admin') return true;
+    const cleanPath = path.split('?')[0].replace(/\/+$/, '') || '/';
+
     if (role === 'asha') {
-      return path.startsWith('/asha') || path === '/patient/triage' || path === '/emergency' || path === '/consultation';
+      return (
+        cleanPath.startsWith('/asha') ||
+        cleanPath === '/asha-mode' ||
+        cleanPath === '/voice' ||
+        cleanPath === '/voice-input' ||
+        cleanPath === '/patient/triage' ||
+        cleanPath === '/patient/register' ||
+        cleanPath === '/patient/intake' ||
+        cleanPath === '/consultation' ||
+        cleanPath === '/emergency' ||
+        cleanPath === '/sos'
+      );
     }
     if (role === 'doctor') {
-      return path.startsWith('/doctor') || path === '/consultation' || path.startsWith('/diagnostic') || path.startsWith('/referral');
+      return (
+        cleanPath.startsWith('/doctor') ||
+        cleanPath === '/consultation' ||
+        cleanPath.startsWith('/diagnostic') ||
+        cleanPath.startsWith('/referral') ||
+        cleanPath === '/emergency' ||
+        cleanPath === '/sos'
+      );
     }
     if (role === 'patient') {
-      return path.startsWith('/patient') || path === '/consultation' || path === '/emergency' || path === '/sos';
+      return (
+        cleanPath.startsWith('/patient') ||
+        cleanPath === '/consultation' ||
+        cleanPath === '/emergency' ||
+        cleanPath === '/sos' ||
+        cleanPath.startsWith('/referral') ||
+        cleanPath.startsWith('/medicine')
+      );
     }
     return false;
   }

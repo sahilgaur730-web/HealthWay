@@ -1024,6 +1024,67 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
               {/* ========================================================= */}
               {mode === 'signup' && (
                 <form onSubmit={handleSignupSubmit} className="space-y-4">
+                  {/* 1-Click Fast Fill for Evaluator Testing of Registration */}
+                  <div className="p-3 bg-blue-50/70 border border-blue-200 rounded-2xl flex items-center justify-between flex-wrap gap-2 mb-1">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-[#F57C00] shrink-0" />
+                      <span className="text-xs font-bold text-[#1A4B8C]">
+                        {lang === 'mr' ? 'नोंदणी चाचणी १-क्लिक फॉर्म भरा:' : '1-Click Fill Test Registration:'}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (role === 'asha') {
+                          setFullName('Savita Pawar');
+                          setFullNameMr('सविता पवार');
+                          setSignupUsername(`savita.asha.${Math.floor(100 + Math.random() * 900)}`);
+                          setSignupPassword('Asha@Savita2026');
+                          setConfirmPassword('Asha@Savita2026');
+                          setPhone('9822998877');
+                          setVillage('Wagholi');
+                          setSubCentre('Wagholi SC');
+                          setFacility('PHC Wagholi');
+                        } else if (role === 'doctor') {
+                          setFullName('Dr. Priya Sharma');
+                          setFullNameMr('डॉ. प्रिया शर्मा');
+                          setSignupUsername(`dr.priya.${Math.floor(100 + Math.random() * 900)}`);
+                          setSignupPassword('Doctor@2026');
+                          setConfirmPassword('Doctor@2026');
+                          setPhone('9822887766');
+                          setFacility('PHC Wagholi');
+                          setRegNo('MMC-2024-8891');
+                        } else if (role === 'patient') {
+                          setFullName('Ramesh Jadhav');
+                          setFullNameMr('रमेश जाधव');
+                          setSignupUsername(`ramesh.jadhav.${Math.floor(100 + Math.random() * 900)}`);
+                          setSignupPassword('Patient@2026');
+                          setConfirmPassword('Patient@2026');
+                          setPhone('9822112233');
+                          setVillage('Wagholi');
+                          setAbhaId(`MH-PN-26-${Math.floor(10000000 + Math.random() * 90000000)}`);
+                        } else {
+                          setFullName('Dr. S. K. Mahajan');
+                          setFullNameMr('डॉ. एस. के. महाजन');
+                          setSignupUsername(`admin.mahajan.${Math.floor(100 + Math.random() * 900)}`);
+                          setSignupPassword('Admin@2026');
+                          setConfirmPassword('Admin@2026');
+                          setPhone('9822445566');
+                          setDesignation('District Health Officer (DHO Pune)');
+                          setFacility('District Health Directorate, Pune');
+                        }
+                      }}
+                      className="px-2.5 py-1 bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-[11px] font-bold rounded-lg transition flex items-center gap-1 cursor-pointer"
+                    >
+                      <Sparkles className="w-3 h-3" />
+                      <span>
+                        {lang === 'mr'
+                          ? `${role.toUpperCase()} चाचणी डेटा भरा`
+                          : `Pre-fill ${role.toUpperCase()} Template`}
+                      </span>
+                    </button>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
                       <label className="block text-xs font-bold text-[#1C2B3A] mb-1.5 uppercase tracking-wide">

@@ -233,6 +233,30 @@ export default function App() {
               </RoleGuard>
             }
           />
+          <Route
+            path="/patient/register"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="New Patient Registration & Intake"
+                requiredPortalNameMr="नवीन रुग्ण नोंदणी व तपासणी"
+              >
+                <AshaRegister />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/intake"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="Patient Intake & Frontline Screening"
+                requiredPortalNameMr="रुग्ण नोंदणी व तपासणी"
+              >
+                <AshaRegister />
+              </RoleGuard>
+            }
+          />
 
           {/* Emergency & SOS Routes (Always Open to Citizens & Frontline) */}
           <Route path="/patient/emergency" element={<EmergencyPage />} />
@@ -483,9 +507,30 @@ export default function App() {
           <Route path="/referral" element={<ReferralPage />} />
           <Route path="/referrals" element={<ReferralPage />} />
           <Route path="/diagnostic" element={<DiagnosticPage />} />
-          <Route path="/diagnostics" element={<DiagnosticPage />} />
-          <Route path="/patient/diagnostics" element={<DiagnosticPage />} />
-          <Route path="/doctor/diagnostics" element={<DiagnosticPage />} />
+          <Route
+            path="/patient/diagnostics"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Patient Diagnostic Records"
+                requiredPortalNameMr="रुग्ण निदान तपासणी"
+              >
+                <DiagnosticPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/diagnostics"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Diagnostics Coordination"
+                requiredPortalNameMr="वैद्यकीय निदान समन्वय"
+              >
+                <DiagnosticPage />
+              </RoleGuard>
+            }
+          />
 
           {/* District Admin Dashboard & Facility Dashboards (Role-Guarded for Admins) */}
           <Route

@@ -121,12 +121,19 @@ function requireRole(...allowedRoles) {
 
 // POST /api/auth/login - Authenticate user credentials
 router.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
 
-  if (!username || !password) {
+  if (
+    !username ||
+    !password ||
+    typeof username !== 'string' ||
+    typeof password !== 'string' ||
+    !username.trim() ||
+    !password.trim()
+  ) {
     return res.status(400).json({
       success: false,
-      error: 'Both username and password are required.'
+      error: 'Both username and password are required and must be valid non-empty strings.'
     });
   }
 
@@ -182,37 +189,38 @@ router.post('/signup', (req, res) => {
     designationMr,
     abhaId,
     registrationNo
-  } = req.body;
+  } = req.body || {};
 
-  if (!username || username.trim().length < 3) {
+  if (!username || typeof username !== 'string' || username.trim().length < 3) {
     return res.status(400).json({
       success: false,
-      error: 'Username is required and must be at least 3 characters.'
+      error: 'Username is required and must be a string of at least 3 characters.'
     });
   }
 
-  if (!password || password.trim().length < 6) {
+  if (!password || typeof password !== 'string' || password.trim().length < 6) {
     return res.status(400).json({
       success: false,
-      error: 'Password is required and must be at least 6 characters.'
+      error: 'Password is required and must be a string of at least 6 characters.'
     });
   }
 
-  if (!name || name.trim().length < 2) {
+  if (!name || typeof name !== 'string' || name.trim().length < 2) {
     return res.status(400).json({
       success: false,
-      error: 'Full name is required.'
+      error: 'Full name is required and must be a string of at least 2 characters.'
     });
   }
 
-  if (!role || !UserRoleEnum.includes(role)) {
+  if (!role || typeof role !== 'string' || !UserRoleEnum.includes(role)) {
     return res.status(400).json({
       success: false,
       error: `Valid role is required: [${UserRoleEnum.join(', ')}]`
     });
   }
 
-  const existing = findUserByUsername(username);
+  const cleanUsername = username.trim().toLowerCase();
+  const existing = findUserByUsername(cleanUsername);
   if (existing) {
     return res.status(409).json({
       success: false,
@@ -310,10 +318,13 @@ router.get('/users', (req, res) => {
 
 // POST /api/auth/verify-permission - Role-based route permission check
 router.post('/verify-permission', (req, res) => {
-  const { role, portalPath, permission } = req.body;
+  const { role, portalPath, permission } = req.body || {};
 
-  if (!role) {
-    return res.status(400).json({ success: false, error: 'Role is required' });
+  if (!role || typeof role !== 'string' || !UserRoleEnum.includes(role)) {
+    return res.status(400).json({
+      success: false,
+      error: `Valid role is required: [${UserRoleEnum.join(', ')}]`
+    });
   }
 
   const permissions = RolePermissions[role] || [];

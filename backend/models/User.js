@@ -49,10 +49,52 @@ const RolePermissions = {
 };
 
 const RolePortals = {
-  asha: ['/asha', '/patient/register', '/asha/register', '/patient/triage', '/consultation', '/emergency'],
-  doctor: ['/doctor', '/consultation', '/diagnostics', '/referrals', '/emergency'],
-  admin: ['/admin', '/facility-dashboard', '/district-dashboard', '/facilities', '/medicine-stock', '/high-risk', '/interoperability', '/abdm', '/fhir', '/hmis', '/emergency'],
-  patient: ['/patient', '/consultation', '/emergency', '/sos']
+  asha: [
+    '/asha',
+    '/asha-mode',
+    '/voice',
+    '/voice-input',
+    '/patient/triage',
+    '/patient/register',
+    '/patient/intake',
+    '/asha/register',
+    '/consultation',
+    '/emergency',
+    '/sos'
+  ],
+  doctor: [
+    '/doctor',
+    '/consultation',
+    '/diagnostics',
+    '/diagnostic',
+    '/referrals',
+    '/referral',
+    '/emergency',
+    '/sos'
+  ],
+  admin: [
+    '/admin',
+    '/facility-dashboard',
+    '/district-dashboard',
+    '/facilities',
+    '/medicine-stock',
+    '/medicines',
+    '/high-risk',
+    '/interoperability',
+    '/abdm',
+    '/fhir',
+    '/hmis',
+    '/emergency',
+    '/sos'
+  ],
+  patient: [
+    '/patient',
+    '/consultation',
+    '/emergency',
+    '/sos',
+    '/referral',
+    '/medicines'
+  ]
 };
 
 const UserSchemaDefinition = {
@@ -309,7 +351,11 @@ function canAccessPortal(role, portalPath) {
   if (!role || !portalPath) return false;
   if (role === 'admin') return true; // District Health Officer has administrative oversight
   const allowed = RolePortals[role] || [];
-  return allowed.some((prefix) => portalPath.startsWith(prefix));
+  const normalized = portalPath.split('?')[0].replace(/\/+$/, '') || '/';
+  return allowed.some((prefix) => {
+    const cleanPrefix = prefix.replace(/\/+$/, '');
+    return normalized === cleanPrefix || normalized.startsWith(cleanPrefix + '/');
+  });
 }
 
 module.exports = {
