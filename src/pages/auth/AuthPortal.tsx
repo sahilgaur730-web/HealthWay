@@ -31,7 +31,10 @@ import {
   Info,
   BadgeCheck,
   UserPlus,
-  LogOut
+  LogOut,
+  Shield,
+  Activity,
+  ClipboardCheck
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -431,84 +434,168 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
               <div>
                 <h3 className="text-sm font-bold tracking-tight">
                   {lang === 'mr'
-                    ? 'त्वरित चाचणी खाती (परीक्षक व ज्यूरी १-क्लिक मूल्यांकन)'
-                    : '1-Click Hackathon Evaluator Credentials & Pre-Seeded Accounts'}
+                    ? 'अधिकृत आशा कार्यकर्ती खाती व थेट १-क्लिक चाचणी प्रवेश'
+                    : 'Designated ASHA Worker Credentials & 1-Click Evaluation Accounts'}
                 </h3>
                 <p className="text-[11px] text-blue-200">
                   {lang === 'mr'
-                    ? 'कोणत्याही खात्यावर क्लिक करा — वापरकर्ता नाव व पासवर्ड आपोआप भरून त्वरित लॉगिन करा'
-                    : 'Click any pre-seeded profile below to instant-fill or 1-click log in to IndexedDB database'}
+                    ? 'कार्यक्षेत्र, पासवर्ड आणि सक्रिय परवानग्यांसह कोणत्याही खात्यावर १-क्लिक करून त्वरित लॉगिन करा'
+                    : 'Click any profile to instant test-fill credentials or launch directly into authorized portals'}
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-mono bg-emerald-950/80 text-emerald-300 border border-emerald-600/50 px-2.5 py-1 rounded-lg">
-                IndexedDB: Active v4
+                REST API & IndexedDB v4
               </span>
             </div>
           </div>
 
-          {/* Quick Demo Chips */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 pt-3">
-            {demoAccounts.map((demo) => {
-              const isAsha = demo.role === 'asha';
-              const isDoc = demo.role === 'doctor';
-              const isAdm = demo.role === 'admin';
+          {/* Featured Section: The 4 Designated ASHA Field Workers */}
+          <div className="pt-3 pb-2">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-300">
+                <Stethoscope className="w-3.5 h-3.5" />
+                <span>
+                  {lang === 'mr'
+                    ? '४ अधिकृत आशा कार्यकर्ती खाती (महाराष्ट्र शासन आरोग्य विभाग)'
+                    : '4 Official ASHA Field Worker Accounts (Government of Maharashtra)'}
+                </span>
+              </div>
+              <span className="text-[10px] text-blue-200/80 font-mono hidden sm:inline">
+                Permissions: Maternal Care · Screening · Triage · Referrals
+              </span>
+            </div>
 
-              return (
-                <div
-                  key={demo.username}
-                  className="bg-white/10 hover:bg-white/20 border border-white/15 rounded-xl p-2.5 transition flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-1 mb-1">
-                      <span
-                        className={`text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded tracking-wider ${
-                          isAsha
-                            ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-400/40'
-                            : isDoc
-                            ? 'bg-blue-500/30 text-blue-300 border border-blue-400/40'
-                            : isAdm
-                            ? 'bg-slate-500/30 text-slate-200 border border-slate-400/40'
-                            : 'bg-amber-500/30 text-amber-300 border border-amber-400/40'
-                        }`}
-                      >
-                        {demo.role}
-                      </span>
-                      <span className="text-[10px] text-blue-200/70 font-mono truncate max-w-[70px]">
-                        {demo.location.split(' ')[0]}
-                      </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {demoAccounts
+                .filter((d) => d.role === 'asha')
+                .map((demo) => (
+                  <div
+                    key={demo.username}
+                    className="bg-white/10 hover:bg-white/15 border border-emerald-400/40 rounded-xl p-3 transition flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 text-[9px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">
+                          NHM ASHA
+                        </span>
+                        <span className="text-[10px] text-emerald-200 font-mono">
+                          {demo.location.split(' / ')[0]}
+                        </span>
+                      </div>
+                      <p className="text-xs font-bold text-white group-hover:text-emerald-200 transition">
+                        {lang === 'mr' ? demo.nameMr : demo.name}
+                      </p>
+                      <div className="flex items-center gap-1.5 mt-0.5 text-[10px] font-mono">
+                        <span className="text-blue-200">{demo.username}</span>
+                        <span className="text-white/30">|</span>
+                        <span className="text-amber-300">{demo.password}</span>
+                      </div>
+
+                      {/* Active Permissions Badges */}
+                      <div className="mt-2 pt-2 border-t border-white/10">
+                        <span className="text-[9px] font-bold text-slate-300 uppercase tracking-wider block mb-1">
+                          {lang === 'mr' ? 'सक्रिय परवानग्या:' : 'Active Permissions:'}
+                        </span>
+                        <div className="flex flex-wrap gap-1">
+                          {demo.permissions?.slice(0, 3).map((p, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[9px] bg-emerald-950/70 text-emerald-300 border border-emerald-600/40 px-1.5 py-0.5 rounded leading-tight"
+                            >
+                              {p}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-xs font-bold text-white truncate group-hover:text-blue-200">
-                      {lang === 'mr' ? demo.nameMr : demo.name}
-                    </p>
-                    <p className="text-[10px] font-mono text-blue-200/80 truncate">
-                      {demo.username}
-                    </p>
-                  </div>
 
-                  <div className="mt-2 pt-2 border-t border-white/10 flex items-center gap-1">
-                    <button
-                      type="button"
-                      onClick={() => handleSelectDemo(demo)}
-                      className="flex-1 py-1 px-1.5 rounded bg-white/10 hover:bg-white/25 text-[10px] font-semibold text-center text-blue-100 transition"
-                      title={`Fill ${demo.username}`}
-                    >
-                      {lang === 'mr' ? 'भरा' : 'Fill'}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleQuickLoginNow(demo)}
-                      className="py-1 px-2 rounded bg-[#F57C00] hover:bg-[#E65100] text-white text-[10px] font-bold transition flex items-center justify-center gap-0.5 shadow-xs"
-                      title={`Instant Login as ${demo.username}`}
-                    >
-                      <ArrowRight className="w-2.5 h-2.5" />
-                      <span>{lang === 'mr' ? 'थेट' : 'Go'}</span>
-                    </button>
+                    <div className="mt-3 pt-2 border-t border-white/10 flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectDemo(demo)}
+                        className="flex-1 py-1 px-2 rounded-lg bg-white/15 hover:bg-white/25 text-[10px] font-semibold text-center text-white transition flex items-center justify-center gap-1 cursor-pointer"
+                        title={`Fill credentials for ${demo.username}`}
+                      >
+                        <KeyRound className="w-3 h-3 text-blue-200" />
+                        <span>{lang === 'mr' ? 'भरा' : 'Test Fill'}</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleQuickLoginNow(demo)}
+                        className="py-1 px-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold transition flex items-center justify-center gap-1 shadow-xs cursor-pointer active:scale-95"
+                        title={`Instant Launch as ${demo.name}`}
+                      >
+                        <span>{lang === 'mr' ? 'थेट' : 'Launch'}</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                ))}
+            </div>
+          </div>
+
+          {/* Section 2: Doctor, Patient & Admin Accounts */}
+          <div className="pt-2.5 border-t border-white/15">
+            <span className="text-[10px] font-bold text-blue-200 uppercase tracking-wider block mb-1.5">
+              {lang === 'mr' ? 'इतर आरोग्य संस्था भूमिका:' : 'Other Institutional Portals:'}
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {demoAccounts
+                .filter((d) => d.role !== 'asha')
+                .map((demo) => {
+                  const isDoc = demo.role === 'doctor';
+                  const isAdm = demo.role === 'admin';
+
+                  return (
+                    <div
+                      key={demo.username}
+                      className="bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl p-2.5 transition flex items-center justify-between gap-2"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className={`text-[9px] font-extrabold uppercase px-1.5 py-0.2 rounded tracking-wider ${
+                              isDoc
+                                ? 'bg-blue-500/30 text-blue-300 border border-blue-400/40'
+                                : isAdm
+                                ? 'bg-slate-500/30 text-slate-200 border border-slate-400/40'
+                                : 'bg-amber-500/30 text-amber-300 border border-amber-400/40'
+                            }`}
+                          >
+                            {demo.role}
+                          </span>
+                          <span className="text-xs font-bold text-white truncate">
+                            {lang === 'mr' ? demo.nameMr : demo.name}
+                          </span>
+                        </div>
+                        <p className="text-[10px] font-mono text-blue-200/80 truncate mt-0.5">
+                          {demo.username} · <span className="text-amber-300">{demo.password}</span>
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => handleSelectDemo(demo)}
+                          className="py-1 px-2 rounded bg-white/15 hover:bg-white/25 text-[10px] font-semibold text-blue-100 transition cursor-pointer"
+                        >
+                          {lang === 'mr' ? 'भरा' : 'Fill'}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleQuickLoginNow(demo)}
+                          className="py-1 px-2 rounded bg-[#F57C00] hover:bg-[#E65100] text-white text-[10px] font-bold transition flex items-center gap-0.5 cursor-pointer"
+                        >
+                          <ArrowRight className="w-2.5 h-2.5" />
+                          <span>{lang === 'mr' ? 'थेट' : 'Go'}</span>
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
 
@@ -722,6 +809,55 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
               {/* ========================================================= */}
               {mode === 'login' && (
                 <form onSubmit={handleLoginSubmit} className="space-y-4">
+                  {/* ASHA Role 4-Worker 1-Click Fast Selector */}
+                  {role === 'asha' && (
+                    <div className="p-3.5 bg-emerald-50/80 border border-emerald-300 rounded-2xl mb-2">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
+                          <Stethoscope className="w-3.5 h-3.5 text-emerald-700" />
+                          <span>
+                            {lang === 'mr' ? '४ अधिकृत आशा कार्यकर्तींपैकी निवडा:' : 'Select Designated ASHA Worker:'}
+                          </span>
+                        </span>
+                        <span className="text-[10px] text-emerald-800 font-mono bg-emerald-200/60 px-1.5 py-0.5 rounded font-bold">
+                          1-Click Fill
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {demoAccounts
+                          .filter((d) => d.role === 'asha')
+                          .map((d) => {
+                            const isCurrent = loginUsername.toLowerCase() === d.username.toLowerCase();
+                            return (
+                              <button
+                                key={d.username}
+                                type="button"
+                                onClick={() => handleSelectDemo(d)}
+                                className={`p-2 rounded-xl text-left border transition flex flex-col justify-between cursor-pointer ${
+                                  isCurrent
+                                    ? 'bg-emerald-700 text-white border-emerald-800 shadow-xs ring-2 ring-emerald-400'
+                                    : 'bg-white hover:bg-emerald-100/70 text-[#1C2B3A] border-emerald-200'
+                                }`}
+                              >
+                                <div className="flex items-center justify-between gap-1 mb-0.5">
+                                  <span className={`text-[9px] font-mono font-bold ${isCurrent ? 'text-emerald-200' : 'text-emerald-700'}`}>
+                                    {d.location.split(' ')[0]}
+                                  </span>
+                                  {isCurrent && <Check className="w-3 h-3 text-emerald-200" />}
+                                </div>
+                                <p className="text-xs font-bold truncate">
+                                  {lang === 'mr' ? d.nameMr : d.name}
+                                </p>
+                                <p className={`text-[10px] font-mono truncate mt-0.5 ${isCurrent ? 'text-emerald-100' : 'text-slate-500'}`}>
+                                  {d.username.split('-')[0]}
+                                </p>
+                              </button>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-xs font-bold text-[#1C2B3A] mb-1.5 uppercase tracking-wide">
                       {lang === 'mr' ? 'वापरकर्ता नाव किंवा आयडी' : 'Username or User ID'}
@@ -786,6 +922,55 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
                       >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                       </button>
+                    </div>
+                  </div>
+
+                  {/* Active Permission Scopes Indicator for Selected Role */}
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-700">
+                        <Shield className="w-3.5 h-3.5 text-[#1A4B8C]" />
+                        <span>{lang === 'mr' ? 'या भूमिकेच्या अधिकृत परवानग्या:' : 'Active Role Permission Scopes:'}</span>
+                      </div>
+                      <span className="font-mono text-[10px] text-[#1A4B8C] font-bold bg-blue-100 px-1.5 py-0.5 rounded">
+                        {role.toUpperCase()}
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-1 pt-0.5">
+                      {role === 'asha' && (
+                        <>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">Maternal ANC Care</span>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">Village Household Survey</span>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">Frontline Clinical Screening</span>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">Teleconsult Patient Intake</span>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">High-Risk Surveillance</span>
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded font-medium">108 Emergency SOS</span>
+                        </>
+                      )}
+                      {role === 'doctor' && (
+                        <>
+                          <span className="text-[10px] bg-blue-100 text-blue-800 border border-blue-300 px-2 py-0.5 rounded font-medium">Clinical Teleconsultation</span>
+                          <span className="text-[10px] bg-blue-100 text-blue-800 border border-blue-300 px-2 py-0.5 rounded font-medium">Digital Prescriptions</span>
+                          <span className="text-[10px] bg-blue-100 text-blue-800 border border-blue-300 px-2 py-0.5 rounded font-medium">Referral Review & Feedback</span>
+                          <span className="text-[10px] bg-blue-100 text-blue-800 border border-blue-300 px-2 py-0.5 rounded font-medium">Diagnostic Order Verification</span>
+                        </>
+                      )}
+                      {role === 'admin' && (
+                        <>
+                          <span className="text-[10px] bg-slate-200 text-slate-800 border border-slate-300 px-2 py-0.5 rounded font-medium">All 36 Facilities Command</span>
+                          <span className="text-[10px] bg-slate-200 text-slate-800 border border-slate-300 px-2 py-0.5 rounded font-medium">Essential Medicine Supply Chain</span>
+                          <span className="text-[10px] bg-slate-200 text-slate-800 border border-slate-300 px-2 py-0.5 rounded font-medium">ABDM & FHIR Gateway Connectors</span>
+                          <span className="text-[10px] bg-slate-200 text-slate-800 border border-slate-300 px-2 py-0.5 rounded font-medium">District Health Officer Oversight</span>
+                        </>
+                      )}
+                      {role === 'patient' && (
+                        <>
+                          <span className="text-[10px] bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded font-medium">ABHA Health Locker Access</span>
+                          <span className="text-[10px] bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded font-medium">Doctor Teleconsultations</span>
+                          <span className="text-[10px] bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded font-medium">Medicine Availability Search</span>
+                          <span className="text-[10px] bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded font-medium">Emergency 108 Dispatch</span>
+                        </>
+                      )}
                     </div>
                   </div>
 

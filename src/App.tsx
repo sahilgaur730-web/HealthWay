@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PortalSwitcher from './components/common/PortalSwitcher';
 import OfflineIndicator from './components/offline/OfflineIndicator';
+import RoleGuard from './components/common/RoleGuard';
 
 // Public
 import LandingPage from './pages/public/LandingPage';
@@ -86,53 +87,399 @@ export default function App() {
           <Route path="/doctor/login" element={<AuthPortal initialMode="login" initialRole="doctor" />} />
           <Route path="/admin/login" element={<AuthPortal initialMode="login" initialRole="admin" />} />
 
-          {/* Patient Portal */}
+          {/* Patient Portal (Guarded for Patients & Intake) */}
           <Route path="/patient/login" element={<PatientLogin />} />
-          <Route path="/patient" element={<PatientDashboard />} />
-          <Route path="/patient/dashboard" element={<PatientDashboard />} />
-          <Route path="/patient/consultation" element={<PatientConsultation />} />
-          
-          <Route path="/patient/book" element={<BookAppointment />} />
-          <Route path="/patient/book-appointment" element={<BookAppointment />} />
-          
-          <Route path="/patient/records" element={<MyRecords />} />
-          <Route path="/patient/my-records" element={<MyRecords />} />
-          
-          <Route path="/patient/medicines" element={<MedicineCheck />} />
-          <Route path="/patient/medicine-check" element={<MedicineCheck />} />
-          
-          <Route path="/patient/referral" element={<ReferralStatus />} />
-          <Route path="/patient/referral-status" element={<ReferralStatus />} />
-          
-          <Route path="/patient/triage" element={<Triage />} />
+          <Route
+            path="/patient"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Citizen & Patient Portal"
+                requiredPortalNameMr="नागरिक व रुग्ण पोर्टल"
+              >
+                <PatientDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Citizen & Patient Portal"
+                requiredPortalNameMr="नागरिक व रुग्ण पोर्टल"
+              >
+                <PatientDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/consultation"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Patient Teleconsultation"
+                requiredPortalNameMr="रुग्ण दूरध्वनी सल्लामसलत"
+              >
+                <PatientConsultation />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/book"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Book Appointment"
+                requiredPortalNameMr="तपासणी वेळ नोंदवा"
+              >
+                <BookAppointment />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/book-appointment"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Book Appointment"
+                requiredPortalNameMr="तपासणी वेळ नोंदवा"
+              >
+                <BookAppointment />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/records"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="My Health Records (ABHA)"
+                requiredPortalNameMr="माझ्या आरोग्य नोंदी (आभा)"
+              >
+                <MyRecords />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/my-records"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="My Health Records (ABHA)"
+                requiredPortalNameMr="माझ्या आरोग्य नोंदी (आभा)"
+              >
+                <MyRecords />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/medicines"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Medicine Availability"
+                requiredPortalNameMr="औषध साठा उपलब्धता"
+              >
+                <MedicineCheck />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/medicine-check"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Medicine Availability"
+                requiredPortalNameMr="औषध साठा उपलब्धता"
+              >
+                <MedicineCheck />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/referral"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Referral Tracking"
+                requiredPortalNameMr="रेफरल सद्यस्थिती"
+              >
+                <ReferralStatus />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/referral-status"
+            element={
+              <RoleGuard
+                allowedRoles={['patient']}
+                requiredPortalNameEn="Referral Tracking"
+                requiredPortalNameMr="रेफरल सद्यस्थिती"
+              >
+                <ReferralStatus />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/patient/triage"
+            element={
+              <RoleGuard
+                allowedRoles={['patient', 'asha']}
+                requiredPortalNameEn="Symptom Triage & Intake"
+                requiredPortalNameMr="लक्षण तपासणी व ट्रायज"
+              >
+                <Triage />
+              </RoleGuard>
+            }
+          />
+
+          {/* Emergency & SOS Routes (Always Open to Citizens & Frontline) */}
           <Route path="/patient/emergency" element={<EmergencyPage />} />
           <Route path="/emergency" element={<EmergencyPage />} />
           <Route path="/sos" element={<EmergencyPage />} />
-          <Route path="/emergency/tracker" element={<div className="max-w-4xl mx-auto p-4 sm:p-6 w-full"><AmbulanceTracker /></div>} />
-          <Route path="/ambulance" element={<div className="max-w-4xl mx-auto p-4 sm:p-6 w-full"><AmbulanceTracker /></div>} />
-          <Route path="/emergency/contacts" element={<div className="max-w-6xl mx-auto p-4 sm:p-6 w-full"><EmergencyContacts /></div>} />
-          <Route path="/helplines" element={<div className="max-w-6xl mx-auto p-4 sm:p-6 w-full"><EmergencyContacts /></div>} />
+          <Route
+            path="/emergency/tracker"
+            element={
+              <div className="max-w-4xl mx-auto p-4 sm:p-6 w-full">
+                <AmbulanceTracker />
+              </div>
+            }
+          />
+          <Route
+            path="/ambulance"
+            element={
+              <div className="max-w-4xl mx-auto p-4 sm:p-6 w-full">
+                <AmbulanceTracker />
+              </div>
+            }
+          />
+          <Route
+            path="/emergency/contacts"
+            element={
+              <div className="max-w-6xl mx-auto p-4 sm:p-6 w-full">
+                <EmergencyContacts />
+              </div>
+            }
+          />
+          <Route
+            path="/helplines"
+            element={
+              <div className="max-w-6xl mx-auto p-4 sm:p-6 w-full">
+                <EmergencyContacts />
+              </div>
+            }
+          />
 
-          {/* ASHA Worker Portal */}
-          <Route path="/asha" element={<AshaDashboard />} />
-          <Route path="/asha/dashboard" element={<AshaDashboard />} />
-          <Route path="/asha/consultation" element={<AshaConsultation />} />
-          <Route path="/asha/patients" element={<AshaPatients />} />
-          <Route path="/asha/register" element={<AshaRegister />} />
-          <Route path="/asha/triage" element={<AshaTriage />} />
-          <Route path="/asha/mode" element={<ASHAWorkerMode />} />
-          <Route path="/asha-mode" element={<ASHAWorkerMode />} />
-          <Route path="/voice" element={<ASHAWorkerMode />} />
-          <Route path="/voice-input" element={<ASHAWorkerMode />} />
+          {/* ASHA Worker Portal (Role-Guarded for ASHA Workers) */}
+          <Route
+            path="/asha"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Field Worker Portal"
+                requiredPortalNameMr="आशा कार्यकर्ती पोर्टल"
+              >
+                <AshaDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Field Worker Portal"
+                requiredPortalNameMr="आशा कार्यकर्ती पोर्टल"
+              >
+                <AshaDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/consultation"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Teleconsultation Hub"
+                requiredPortalNameMr="आशा दूरध्वनी सल्लामसलत केंद्र"
+              >
+                <AshaConsultation />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/patients"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Beneficiary Register"
+                requiredPortalNameMr="आशा लाभार्थी नोंदवही"
+              >
+                <AshaPatients />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/register"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="New Patient Registration & Intake"
+                requiredPortalNameMr="नवीन रुग्ण नोंदणी व तपासणी"
+              >
+                <AshaRegister />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/triage"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="Frontline Clinical Triage"
+                requiredPortalNameMr="आशा प्राथमिक ट्रायज तपासणी"
+              >
+                <AshaTriage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/mode"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Voice & Field Mode"
+                requiredPortalNameMr="आशा व्हॉइस व फील्ड मोड"
+              >
+                <ASHAWorkerMode />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha-mode"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Voice & Field Mode"
+                requiredPortalNameMr="आशा व्हॉइस व फील्ड मोड"
+              >
+                <ASHAWorkerMode />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/voice"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Voice & Field Mode"
+                requiredPortalNameMr="आशा व्हॉइस व फील्ड मोड"
+              >
+                <ASHAWorkerMode />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/voice-input"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="ASHA Voice & Field Mode"
+                requiredPortalNameMr="आशा व्हॉइस व फील्ड मोड"
+              >
+                <ASHAWorkerMode />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/asha/high-risk"
+            element={
+              <RoleGuard
+                allowedRoles={['asha']}
+                requiredPortalNameEn="High-Risk Maternal & NCD Surveillance"
+                requiredPortalNameMr="अतिजोखमीचे रुग्ण सनियंत्रण"
+              >
+                <HighRiskTracker />
+              </RoleGuard>
+            }
+          />
 
-          {/* Doctor Teleconsultation Portal */}
-          <Route path="/doctor" element={<DoctorDashboard />} />
-          <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
-          <Route path="/doctor/call" element={<DoctorCall />} />
-          <Route path="/doctor/patients" element={<DoctorPatients />} />
-          <Route path="/doctor/referrals" element={<DoctorReferrals />} />
+          {/* Doctor Teleconsultation Portal (Role-Guarded for Doctors) */}
+          <Route
+            path="/doctor"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Teleconsultation Portal"
+                requiredPortalNameMr="वैद्यकीय अधिकारी पोर्टल"
+              >
+                <DoctorDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Teleconsultation Portal"
+                requiredPortalNameMr="वैद्यकीय अधिकारी पोर्टल"
+              >
+                <DoctorDashboard />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/call"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Clinical Video Call"
+                requiredPortalNameMr="वैद्यकीय व्हिडिओ तपासणी"
+              >
+                <DoctorCall />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/patients"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Patient Caseload"
+                requiredPortalNameMr="वैद्यकीय रुग्ण यादी"
+              >
+                <DoctorPatients />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/referrals"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor Clinical Referrals"
+                requiredPortalNameMr="वैद्यकीय रेफरल व्यवस्था"
+              >
+                <DoctorReferrals />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/doctor/high-risk"
+            element={
+              <RoleGuard
+                allowedRoles={['doctor']}
+                requiredPortalNameEn="Doctor High-Risk Surveillance"
+                requiredPortalNameMr="वैद्यकीय अतिजोखमीचे रुग्ण सनियंत्रण"
+              >
+                <HighRiskTracker />
+              </RoleGuard>
+            }
+          />
 
-          {/* Dedicated Referral & Diagnostic Pipeline Routes (Demand 5 & 6) */}
+          {/* Dedicated Referral & Diagnostic Pipeline Hubs */}
           <Route path="/referral" element={<ReferralPage />} />
           <Route path="/referrals" element={<ReferralPage />} />
           <Route path="/diagnostic" element={<DiagnosticPage />} />
@@ -140,28 +487,180 @@ export default function App() {
           <Route path="/patient/diagnostics" element={<DiagnosticPage />} />
           <Route path="/doctor/diagnostics" element={<DiagnosticPage />} />
 
-          {/* District Admin Dashboard & Facility Dashboards (Demand 9) */}
-          <Route path="/admin" element={<AdminOverview />} />
-          <Route path="/admin/dashboard" element={<AdminOverview />} />
-          <Route path="/admin/facilities" element={<FacilitiesPage />} />
-          <Route path="/admin/district-dashboard" element={<DistrictDashboardPage />} />
-          <Route path="/facility-dashboard" element={<DistrictDashboardPage />} />
-          <Route path="/district-dashboard" element={<DistrictDashboardPage />} />
-          <Route path="/facilities" element={<FacilitiesPage />} />
-          <Route path="/admin/medicines" element={<MedicineStock />} />
-          <Route path="/admin/high-risk" element={<HighRiskTracker />} />
-          <Route path="/admin/interop" element={<InteroperabilityPage />} />
-          <Route path="/interoperability" element={<InteroperabilityPage />} />
-          <Route path="/abdm" element={<InteroperabilityPage />} />
-          <Route path="/fhir" element={<InteroperabilityPage />} />
-          <Route path="/hmis" element={<InteroperabilityPage />} />
+          {/* District Admin Dashboard & Facility Dashboards (Role-Guarded for Admins) */}
+          <Route
+            path="/admin"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District Health Administration"
+                requiredPortalNameMr="जिल्हा आरोग्य प्रशासन"
+              >
+                <AdminOverview />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District Health Administration"
+                requiredPortalNameMr="जिल्हा आरोग्य प्रशासन"
+              >
+                <AdminOverview />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/facilities"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District Health Facilities Matrix"
+                requiredPortalNameMr="जिल्हा आरोग्य केंद्र संचलन"
+              >
+                <FacilitiesPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/district-dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District 36-Facility Command Center"
+                requiredPortalNameMr="जिल्हा ३६-केंद्रे कमांड केंद्र"
+              >
+                <DistrictDashboardPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/facility-dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="Facility Command Matrix"
+                requiredPortalNameMr="आरोग्य केंद्र कमांड मॅट्रिक्स"
+              >
+                <DistrictDashboardPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/district-dashboard"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District 36-Facility Command Center"
+                requiredPortalNameMr="जिल्हा ३६-केंद्रे कमांड केंद्र"
+              >
+                <DistrictDashboardPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/facilities"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District Facilities Network"
+                requiredPortalNameMr="जिल्हा आरोग्य केंद्र नेटवर्क"
+              >
+                <FacilitiesPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/medicines"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District Drug Inventory Oversight"
+                requiredPortalNameMr="जिल्हा औषध पुरवठा सनियंत्रण"
+              >
+                <MedicineStock />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/high-risk"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="District High-Risk Epidemiology Surveillance"
+                requiredPortalNameMr="जिल्हा अतिजोखमीचे रुग्ण सनियंत्रण"
+              >
+                <HighRiskTracker />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/admin/interop"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="National Digital Health Mission (ABDM) Gateway"
+                requiredPortalNameMr="राष्ट्रीय डिजिटल आरोग्य अभियान (ABDM)"
+              >
+                <InteroperabilityPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/interoperability"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="National Digital Health Mission (ABDM) Gateway"
+                requiredPortalNameMr="राष्ट्रीय डिजिटल आरोग्य अभियान (ABDM)"
+              >
+                <InteroperabilityPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/abdm"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="ABDM Gateway Integration"
+                requiredPortalNameMr="आयुष्मान भारत डिजिटल मिशन"
+              >
+                <InteroperabilityPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/fhir"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="HL7 FHIR R4 Interoperability Engine"
+                requiredPortalNameMr="HL7 FHIR R4 आंतरप्रणाली"
+              >
+                <InteroperabilityPage />
+              </RoleGuard>
+            }
+          />
+          <Route
+            path="/hmis"
+            element={
+              <RoleGuard
+                allowedRoles={['admin']}
+                requiredPortalNameEn="NHM & HMIS National Reporting Bridge"
+                requiredPortalNameMr="राष्ट्रीय आरोग्य अभियान (NHM/HMIS)"
+              >
+                <InteroperabilityPage />
+              </RoleGuard>
+            }
+          />
 
-          {/* Direct Pipeline & Alias Routes (Demands 7 & 8) */}
+          {/* Shared Clinical Pipelines & Alias Routes */}
           <Route path="/medicines" element={<MedicineCheck />} />
           <Route path="/medicine-stock" element={<MedicineStock />} />
           <Route path="/high-risk" element={<HighRiskTracker />} />
-          <Route path="/asha/high-risk" element={<HighRiskTracker />} />
-          <Route path="/doctor/high-risk" element={<HighRiskTracker />} />
 
           {/* Catch-all fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

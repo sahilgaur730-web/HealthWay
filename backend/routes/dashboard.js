@@ -280,6 +280,20 @@ const facilitiesStore = [
   }
 ];
 
+// GET /api/dashboard/facilities - List all public health facilities in district
+router.get('/facilities', (req, res) => {
+  res.json(facilitiesStore);
+});
+
+// GET /api/dashboard/summary - High-level operational summary
+router.get('/summary', (req, res) => {
+  res.json({
+    success: true,
+    totalFacilities: facilitiesStore.length,
+    facilities: facilitiesStore
+  });
+});
+
 // GET /api/dashboard/district - Complete district overview
 router.get('/district', (req, res) => {
   res.json({

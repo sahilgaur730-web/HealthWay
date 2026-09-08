@@ -1,7 +1,7 @@
 /**
  * HealthWay Authentication & User Database Service
  * Government of Maharashtra - Integrated Rural Health Platform
- * Supports IndexedDB persistence with localStorage fallback mirror.
+ * Supports live backend REST API with seamless IndexedDB / localStorage offline fallback.
  * Strictly zero unicode emojis, 100% Lucide React icons.
  */
 
@@ -10,6 +10,12 @@ import offlineDB, { UserRecord, SessionRecord, UserRole } from './offlineDB';
 const LOCAL_STORAGE_USERS_KEY = 'hw_auth_users_cache_v1';
 const LOCAL_STORAGE_SESSION_KEY = 'hw_auth_active_session_v1';
 const AUTH_EVENT_NAME = 'healthway:auth-change';
+
+// Backend API Base URL with fallback configuration
+const API_BASE_URL =
+  (typeof window !== 'undefined' && (window as any).__HEALTHWAY_API_URL__) ||
+  (import.meta as any).env?.VITE_API_URL ||
+  'http://localhost:5000/api/auth';
 
 export const DEFAULT_USERS: UserRecord[] = [
   {
@@ -160,6 +166,9 @@ export interface DemoAccount {
   location: string;
   badge: string;
   designation: string;
+  assignedArea?: string;
+  assignedFacility?: string;
+  permissions?: string[];
 }
 
 class AuthService {
@@ -265,7 +274,7 @@ class AuthService {
   }
 
   /**
-   * Login user with username and password
+   * Login user with live backend verification and automatic IndexedDB offline fallback
    */
   public async login(
     username: string,
@@ -282,7 +291,64 @@ class AuthService {
       };
     }
 
-    // Check in IndexedDB first
+    // Step 1: Attempt backend API authentication
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+      const res = await fetch(`${API_BASE_URL}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: cleanUsername, password: cleanPassword }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.user && data.session) {
+          const userWithPass: UserRecord = {
+            ...data.user,
+            password: cleanPassword
+          };
+
+          // Synchronize local database with server profile
+          try {
+            await offlineDB.saveUser(userWithPass);
+          } catch {
+            // non-fatal
+          }
+
+          const localUsers = this.getLocalStorageUsers();
+          const existingIdx = localUsers.findIndex((u) => u.username.toLowerCase() === cleanUsername);
+          if (existingIdx >= 0) {
+            localUsers[existingIdx] = userWithPass;
+          } else {
+            localUsers.push(userWithPass);
+          }
+          this.saveLocalStorageUsers(localUsers);
+
+          await this.persistSession(data.session);
+
+          return {
+            success: true,
+            user: userWithPass,
+            session: data.session
+          };
+        }
+      } else if (res.status === 400 || res.status === 401) {
+        // Backend actively responded that credentials are invalid
+        const errData = await res.json().catch(() => null);
+        return {
+          success: false,
+          error: errData?.error || 'Invalid credentials'
+        };
+      }
+    } catch {
+      // Backend not reachable, proceeding with local offline authentication
+    }
+
+    // Step 2: Offline Fallback via IndexedDB & localStorage
     let user: UserRecord | null = null;
     try {
       user = await offlineDB.getUserByUsername(cleanUsername);
@@ -340,7 +406,7 @@ class AuthService {
   }
 
   /**
-   * Sign up a new user and persist to IndexedDB
+   * Sign up a new user with live backend replication and IndexedDB persistence
    */
   public async signUp(
     data: SignUpData
@@ -369,7 +435,57 @@ class AuthService {
       };
     }
 
-    // Check if username already exists in IndexedDB or localStorage
+    // Step 1: Attempt backend registration
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+      const res = await fetch(`${API_BASE_URL}/signup`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (res.ok) {
+        const resData = await res.json();
+        if (resData.success && resData.user && resData.session) {
+          const userWithPass: UserRecord = {
+            ...resData.user,
+            password: data.password.trim()
+          };
+
+          try {
+            await offlineDB.saveUser(userWithPass);
+          } catch {
+            // non-fatal
+          }
+
+          const currentUsers = this.getLocalStorageUsers();
+          currentUsers.push(userWithPass);
+          this.saveLocalStorageUsers(currentUsers);
+
+          await this.persistSession(resData.session);
+
+          return {
+            success: true,
+            user: userWithPass,
+            session: resData.session
+          };
+        }
+      } else if (res.status === 400 || res.status === 409) {
+        const errData = await res.json().catch(() => null);
+        return {
+          success: false,
+          error: errData?.error || 'Registration rejected by server.'
+        };
+      }
+    } catch {
+      // Backend not reachable, proceed with offline IndexedDB registration
+    }
+
+    // Step 2: Offline IndexedDB registration
     let existing: UserRecord | null = null;
     try {
       existing = await offlineDB.getUserByUsername(cleanUsername);
@@ -502,7 +618,11 @@ class AuthService {
     }
 
     const localUsers = this.getLocalStorageUsers();
-    return localUsers.find((u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()) || null;
+    return (
+      localUsers.find(
+        (u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()
+      ) || null
+    );
   }
 
   /**
@@ -513,7 +633,11 @@ class AuthService {
     if (!session) return null;
 
     const localUsers = this.getLocalStorageUsers();
-    return localUsers.find((u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()) || null;
+    return (
+      localUsers.find(
+        (u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()
+      ) || null
+    );
   }
 
   /**
@@ -539,6 +663,18 @@ class AuthService {
    */
   public async getAllUsers(): Promise<UserRecord[]> {
     try {
+      const res = await fetch(`${API_BASE_URL}/users`, { method: 'GET' });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.users && Array.isArray(data.users)) {
+          return data.users;
+        }
+      }
+    } catch {
+      // offline fallback
+    }
+
+    try {
       const users = await offlineDB.getAllUsers();
       if (users && users.length > 0) return users;
     } catch {
@@ -548,7 +684,24 @@ class AuthService {
   }
 
   /**
-   * Return demo accounts list for one-click testing
+   * Verify permissions for a specific role and portal
+   */
+  public verifyRolePortalAccess(role: UserRole, path: string): boolean {
+    if (role === 'admin') return true;
+    if (role === 'asha') {
+      return path.startsWith('/asha') || path === '/patient/triage' || path === '/emergency' || path === '/consultation';
+    }
+    if (role === 'doctor') {
+      return path.startsWith('/doctor') || path === '/consultation' || path.startsWith('/diagnostic') || path.startsWith('/referral');
+    }
+    if (role === 'patient') {
+      return path.startsWith('/patient') || path === '/consultation' || path === '/emergency' || path === '/sos';
+    }
+    return false;
+  }
+
+  /**
+   * Return demo accounts list with assigned centers and active permission indicators
    */
   public getDemoAccounts(): DemoAccount[] {
     return [
@@ -558,9 +711,12 @@ class AuthService {
         name: 'Prachi Patil',
         nameMr: 'प्राची पाटील',
         role: 'asha',
-        location: 'Wagholi SC (वाघोली)',
-        badge: 'ASHA · Wagholi',
-        designation: 'Senior ASHA Field Worker'
+        location: 'Wagholi SC / PHC Wagholi',
+        badge: 'ASHA · Wagholi SC',
+        designation: 'Senior ASHA Field Worker',
+        assignedArea: 'Wagholi SC / PHC Wagholi',
+        assignedFacility: 'PHC Wagholi',
+        permissions: ['Maternal ANC Care', 'Village Survey', 'Frontline Screening', 'Teleconsult Intake', 'SOS Emergency 108']
       },
       {
         username: 'rohit-ashaworker',
@@ -568,9 +724,12 @@ class AuthService {
         name: 'Rohit Kamble',
         nameMr: 'रोहित कांबळे',
         role: 'asha',
-        location: 'Kharadi SC (खराडी)',
-        badge: 'ASHA · Kharadi',
-        designation: 'Community Health ASHA Facilitator'
+        location: 'Kharadi SC / PHC Kharadi',
+        badge: 'ASHA · Kharadi SC',
+        designation: 'Community Health ASHA Facilitator',
+        assignedArea: 'Kharadi SC / PHC Kharadi',
+        assignedFacility: 'PHC Kharadi',
+        permissions: ['NCD Screening', 'Community Mobilization', 'Triage Survey', 'Offline Sync Gateway', 'Patient Intake']
       },
       {
         username: 'anjali-ashaworker',
@@ -578,9 +737,12 @@ class AuthService {
         name: 'Anjali Shinde',
         nameMr: 'अंजली शिंदे',
         role: 'asha',
-        location: 'Lohegaon SC (लोहगाव)',
-        badge: 'ASHA · Lohegaon',
-        designation: 'ASHA Health Worker'
+        location: 'Lohegaon SC / PHC Lohegaon',
+        badge: 'ASHA · Lohegaon SC',
+        designation: 'ASHA Health Worker',
+        assignedArea: 'Lohegaon SC / PHC Lohegaon',
+        assignedFacility: 'PHC Lohegaon',
+        permissions: ['Child Immunization', 'Malnutrition Tracking', 'High-Risk Follow-up', 'Home Visits & Vitals']
       },
       {
         username: 'jaya-ashaworker',
@@ -588,9 +750,12 @@ class AuthService {
         name: 'Jaya Deshmukh',
         nameMr: 'जया देशमुख',
         role: 'asha',
-        location: 'Vadgaon SC (वडगाव)',
-        badge: 'ASHA · Vadgaon',
-        designation: 'Lead ASHA Worker - Maternal Health'
+        location: 'Vadgaon SC / PHC Shirur',
+        badge: 'ASHA · Vadgaon SC',
+        designation: 'Lead ASHA Worker - Maternal Health',
+        assignedArea: 'Vadgaon SC / PHC Shirur',
+        assignedFacility: 'PHC Shirur',
+        permissions: ['High-Risk Maternal Health', 'TB DOTS Surveillance', 'Referral Escalation', 'Patient Intake']
       },
       {
         username: 'dr.shinde',
@@ -600,7 +765,10 @@ class AuthService {
         role: 'doctor',
         location: 'PHC Shirur (शिरूर)',
         badge: 'Doctor · PHC Shirur',
-        designation: 'Chief Medical Officer & Specialist'
+        designation: 'Chief Medical Officer & Specialist',
+        assignedArea: 'PHC Shirur & Telemedicine Node',
+        assignedFacility: 'PHC Shirur',
+        permissions: ['Clinical Teleconsultation', 'Digital Prescriptions', 'Referral Review & Feedback', 'Diagnostic Test Orders']
       },
       {
         username: 'sunita.patil',
@@ -610,7 +778,10 @@ class AuthService {
         role: 'patient',
         location: 'Vadgaon (वडगाव)',
         badge: 'Citizen · ABHA Card',
-        designation: 'Registered Rural Beneficiary'
+        designation: 'Registered Rural Beneficiary',
+        assignedArea: 'Vadgaon / PHC Shirur',
+        assignedFacility: 'PHC Shirur',
+        permissions: ['ABHA Health Locker Access', 'Doctor Teleconsultations', 'Medicine Availability Check', 'SOS Emergency 108']
       },
       {
         username: 'dho.pune',
@@ -620,7 +791,10 @@ class AuthService {
         role: 'admin',
         location: 'Pune Zilla Parishad (पुणे)',
         badge: 'Admin · DHO Pune',
-        designation: 'District Health Officer'
+        designation: 'District Health Officer',
+        assignedArea: 'District Health Directorate, Pune Zilla Parishad',
+        assignedFacility: 'District Health Directorate, Pune',
+        permissions: ['All Portals Full Access', '36 Facility Command Dashboards', 'District Supply Chain Oversight', 'ABDM Interoperability']
       }
     ];
   }
