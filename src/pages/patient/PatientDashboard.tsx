@@ -20,12 +20,14 @@ import {
   Tv
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { CURRENT_PATIENT, PAST_VISITS } from '../../data/mockData';
 
 export default function PatientDashboard() {
   const navigate = useNavigate();
   const { lang, t } = useLanguage();
+  const { user } = useAuth();
 
   const referralSteps = [
     { labelMr: 'रेफर केले', labelHi: 'रेफर किया गया', labelEn: 'Referred', done: true },
@@ -33,6 +35,15 @@ export default function PatientDashboard() {
     { labelMr: 'तज्ञ सल्ला', labelHi: 'विशेषज्ञ परामर्श', labelEn: 'Specialist Consult', done: false },
     { labelMr: 'उपचार पूर्ण', labelHi: 'उपचार पूर्ण', labelEn: 'Treatment Complete', done: false },
   ];
+
+  const patientDisplayName = user
+    ? (lang === 'mr' ? user.nameMr || user.name : user.name)
+    : (lang === 'mr' ? CURRENT_PATIENT.nameMr : lang === 'hi' ? 'सुनीता जाधव' : CURRENT_PATIENT.nameEn);
+
+  const patientAbha = user?.abhaId || CURRENT_PATIENT.abhaId;
+  const patientVillage = user?.village
+    ? (lang === 'mr' ? user.villageMr || user.village : user.village)
+    : CURRENT_PATIENT.village;
 
   return (
     <DashboardLayout>
@@ -50,14 +61,14 @@ export default function PatientDashboard() {
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="text-xl font-bold tracking-tight">
-                    {lang === 'mr' ? CURRENT_PATIENT.nameMr : lang === 'hi' ? 'सुनीता जाधव' : CURRENT_PATIENT.nameEn}
+                    {patientDisplayName}
                   </h2>
                   <span className="bg-[#F57C00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
                     {lang === 'mr' ? 'सक्रिय' : lang === 'hi' ? 'सक्रिय' : 'Active'}
                   </span>
                 </div>
                 <p className="text-blue-200 text-xs font-medium mt-0.5">
-                  {CURRENT_PATIENT.nameEn}
+                  {user ? user.name : CURRENT_PATIENT.nameEn}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-2.5">
@@ -80,7 +91,7 @@ export default function PatientDashboard() {
                 <span>ABHA DIGITAL HEALTH ID</span>
               </div>
               <p className="font-mono text-sm font-extrabold text-white mt-1">
-                {CURRENT_PATIENT.abhaId}
+                {patientAbha}
               </p>
 
               <div className="mt-3 grid grid-cols-2 gap-2 text-center text-xs">
@@ -100,7 +111,7 @@ export default function PatientDashboard() {
           <div className="mt-4 pt-3 border-t border-white/20 flex flex-wrap items-center justify-between text-xs text-blue-100 gap-2">
             <div className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-blue-200" />
-              <span>{CURRENT_PATIENT.village}, {CURRENT_PATIENT.block}, {CURRENT_PATIENT.district} {lang === 'mr' ? 'जिल्हा' : lang === 'hi' ? 'जिला' : 'District'}</span>
+              <span>{patientVillage}, {CURRENT_PATIENT.block}, {CURRENT_PATIENT.district} {lang === 'mr' ? 'जिल्हा' : 'District'}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-blue-200" />

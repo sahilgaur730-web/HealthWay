@@ -30,7 +30,8 @@ import {
   Sparkles,
   Info,
   BadgeCheck,
-  UserPlus
+  UserPlus,
+  LogOut
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -46,7 +47,7 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { lang, setLang } = useLanguage();
-  const { login, signUp, quickLogin, demoAccounts, user: currentUser, isAuthenticated } = useAuth();
+  const { login, signUp, quickLogin, demoAccounts, user: currentUser, isAuthenticated, logout } = useAuth();
 
   // Mode: login vs signup
   const [mode, setMode] = useState<'login' | 'signup'>(() => {
@@ -81,6 +82,7 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
   const [village, setVillage] = useState('');
   const [subCentre, setSubCentre] = useState('');
   const [facility, setFacility] = useState('');
+  const [designation, setDesignation] = useState('');
   const [abhaId, setAbhaId] = useState('');
   const [regNo, setRegNo] = useState('');
 
@@ -248,12 +250,15 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
     setIsLoading(true);
     try {
       const res = await login(loginUsername.trim(), loginPassword.trim());
-      if (res.success) {
+      if (res.success && res.user) {
         setSuccessMsg(
           lang === 'mr' ? 'प्रवेश यशस्वी! डॅशबोर्ड उघडत आहे...' : 'Login successful! Opening dashboard...'
         );
+        const userRole = res.user.role;
+        setRole(userRole);
+        const targetPath = roleMeta[userRole]?.dashboardPath || currentRoleInfo.dashboardPath;
         setTimeout(() => {
-          navigate(currentRoleInfo.dashboardPath);
+          navigate(targetPath);
         }, 500);
       } else {
         setError(
@@ -314,10 +319,11 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
         nameMr: fullNameMr.trim() || fullName.trim(),
         role,
         phone: phone.trim(),
-        village: village.trim() || (role === 'asha' ? 'Wagholi' : 'Vadgaon'),
-        villageMr: village.trim() || (role === 'asha' ? 'वाघोली' : 'वडगाव'),
-        subCentre: subCentre.trim() || (role === 'asha' ? `${village || 'Wagholi'} SC` : undefined),
-        facility: facility.trim() || (role === 'doctor' ? 'PHC Shirur' : undefined),
+        village: role === 'asha' || role === 'patient' ? village.trim() || (role === 'asha' ? 'Wagholi' : 'Vadgaon') : undefined,
+        villageMr: role === 'asha' || role === 'patient' ? (village.trim() || (role === 'asha' ? 'वाघोली' : 'वडगाव')) : undefined,
+        subCentre: role === 'asha' ? subCentre.trim() || `${village || 'Wagholi'} SC` : undefined,
+        facility: facility.trim() || (role === 'doctor' ? 'PHC Shirur' : role === 'admin' ? 'District Health Directorate, Pune' : undefined),
+        designation: designation.trim() || undefined,
         abhaId: abhaId.trim() || (role === 'patient' ? `MH-PN-26-${Date.now().toString().slice(-8)}` : undefined),
         registrationNo: regNo.trim() || (role === 'doctor' ? 'MMC-2024-1189' : undefined)
       });
@@ -328,8 +334,10 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
             ? 'नवीन खाते यशस्वीरित्या तयार झाले! डॅशबोर्ड उघडत आहे...'
             : 'Account registered successfully in database! Launching portal...'
         );
+        const userRole = res.user?.role || role;
+        const targetPath = roleMeta[userRole]?.dashboardPath || currentRoleInfo.dashboardPath;
         setTimeout(() => {
-          navigate(currentRoleInfo.dashboardPath);
+          navigate(targetPath);
         }, 700);
       } else {
         setError(res.error || 'Registration failed');
@@ -503,6 +511,58 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
             })}
           </div>
         </div>
+
+        {/* ACTIVE AUTHENTICATED SESSION BANNER */}
+        {isAuthenticated && currentUser && (
+          <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 shadow-xs flex items-center justify-between flex-wrap gap-4 animate-in fade-in">
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-2xl bg-[#1A4B8C] text-white flex items-center justify-center font-bold text-sm shadow-xs shrink-0">
+                {currentUser.avatar || currentUser.name.slice(0, 2).toUpperCase()}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-slate-500 font-semibold uppercase tracking-wide">
+                    {lang === 'mr' ? 'सक्रिय लॉगिन सत्र' : 'Active Session'}
+                  </span>
+                  <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded-full bg-[#1A4B8C] text-white">
+                    {currentUser.role}
+                  </span>
+                </div>
+                <h4 className="text-sm sm:text-base font-extrabold text-[#1C2B3A] mt-0.5">
+                  {lang === 'mr' ? currentUser.nameMr || currentUser.name : currentUser.name}
+                  <span className="ml-2 text-xs font-mono font-normal text-slate-500">
+                    (@{currentUser.username})
+                  </span>
+                </h4>
+                <p className="text-xs text-slate-600">
+                  {currentUser.subCentre || currentUser.facility || currentUser.village || 'Maharashtra Rural Health'}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => navigate(roleMeta[currentUser.role]?.dashboardPath || '/')}
+                className="px-4 py-2 rounded-xl bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs cursor-pointer active:scale-95"
+              >
+                <span>{lang === 'mr' ? 'डॅशबोर्ड उघडा' : 'Go to Dashboard'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <button
+                type="button"
+                onClick={async () => {
+                  await logout();
+                  setSuccessMsg(lang === 'mr' ? 'सत्र समाप्त केले' : 'Logged out successfully');
+                }}
+                className="px-3.5 py-2 rounded-xl bg-white hover:bg-red-50 text-red-700 hover:text-red-800 text-xs font-bold transition flex items-center gap-1.5 border border-red-200 cursor-pointer shadow-xs"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span>{lang === 'mr' ? 'बाहेर पडा' : 'Log Out'}</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Central Auth Container */}
         <div className="bg-white rounded-3xl border border-[#CFD8DC] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
@@ -1020,6 +1080,35 @@ export default function AuthPortal({ initialMode = 'login', initialRole = 'asha'
                         placeholder="MH-PN-26-XXXXXXXX or user@abdm"
                         className="w-full px-3 py-2 bg-white border border-blue-300 rounded-lg text-xs font-mono"
                       />
+                    </div>
+                  )}
+
+                  {role === 'admin' && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 p-3.5 bg-slate-100 rounded-2xl border border-slate-300">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-900 mb-1">
+                          {lang === 'mr' ? 'प्रशासकीय पद (Designation)' : 'Administrative Designation'}
+                        </label>
+                        <input
+                          type="text"
+                          value={designation}
+                          onChange={(e) => setDesignation(e.target.value)}
+                          placeholder="e.g. District Health Officer (DHO Pune)"
+                          className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-900 mb-1">
+                          {lang === 'mr' ? 'जिल्हा कार्यालय / मुख्यालय' : 'District Directorate / Headquarters'}
+                        </label>
+                        <input
+                          type="text"
+                          value={facility}
+                          onChange={(e) => setFacility(e.target.value)}
+                          placeholder="e.g. Pune Zilla Parishad"
+                          className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs"
+                        />
+                      </div>
                     </div>
                   )}
 

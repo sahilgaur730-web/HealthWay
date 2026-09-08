@@ -722,7 +722,7 @@ export default function LandingPage() {
                       {lang === 'mr' ? 'आरोग्य डेटाबेस लॉगिन व नोंदणी' : 'Unified Database Auth & Sign Up'}
                     </h4>
                     <p className="text-[11px] text-blue-200">
-                      {lang === 'mr' ? 'प्रची-आशा, रोहित-आशा, डॉक्टर व प्रशासक खाती' : 'Prachi-ASHA, Rohit-ASHA, Doctor & Admin accounts'}
+                      {lang === 'mr' ? 'प्राची-आशा, रोहित-आशा, डॉक्टर व प्रशासक खाती' : 'Prachi-ASHA, Rohit-ASHA, Doctor & Admin accounts'}
                     </p>
                   </div>
                 </div>

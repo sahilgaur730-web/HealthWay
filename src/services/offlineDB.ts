@@ -146,7 +146,11 @@ class HealthWayOfflineDB {
 
   private async init(): Promise<IDBDatabase> {
     return new Promise((resolve, reject) => {
-      const request = indexedDB.open(DB_NAME, DB_VERSION);
+      if (typeof window === 'undefined' || !('indexedDB' in window)) {
+        return reject(new Error('IndexedDB not supported in this environment'));
+      }
+
+      const request = window.indexedDB.open(DB_NAME, DB_VERSION);
 
       request.onerror = () => {
         console.error('[OfflineDB] Failed to open IndexedDB:', request.error);
@@ -234,6 +238,9 @@ class HealthWayOfflineDB {
   }
 
   public async ensureReady(): Promise<IDBDatabase> {
+    if (typeof window === 'undefined' || !('indexedDB' in window)) {
+      throw new Error('IndexedDB is not supported in this environment');
+    }
     if (this.db) return this.db;
     if (this.initPromise) return this.initPromise;
     this.initPromise = this.init();

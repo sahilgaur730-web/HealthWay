@@ -118,9 +118,12 @@ export default function PortalSwitcher() {
           {isAuthenticated && user ? (
             <button
               type="button"
-              onClick={() => navigate('/login')}
-              className="hidden xl:flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-900/80 hover:bg-blue-800 border border-blue-400/50 text-[10px] text-blue-100 transition cursor-pointer"
-              title={`Logged in as ${user.username} (${user.role}) · Click to switch account`}
+              onClick={() => {
+                const target = user.role === 'asha' ? '/asha' : user.role === 'doctor' ? '/doctor' : user.role === 'admin' ? '/admin' : '/patient';
+                navigate(target);
+              }}
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-blue-900/80 hover:bg-blue-800 border border-blue-400/50 text-[10px] text-blue-100 transition cursor-pointer"
+              title={`Logged in as ${user.username} (${user.role}) · Click to open dashboard`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="font-bold truncate max-w-[90px]">{lang === 'mr' ? user.nameMr || user.name : user.name}</span>

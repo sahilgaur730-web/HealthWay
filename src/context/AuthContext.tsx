@@ -14,8 +14,8 @@ export interface AuthContextType {
   session: SessionRecord | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (username: string, password: string) => Promise<{ success: boolean; error?: string }>;
-  signUp: (data: SignUpData) => Promise<{ success: boolean; error?: string }>;
+  login: (username: string, password: string) => Promise<{ success: boolean; error?: string; user?: UserRecord }>;
+  signUp: (data: SignUpData) => Promise<{ success: boolean; error?: string; user?: UserRecord }>;
   logout: () => Promise<void>;
   quickLogin: (username: string) => Promise<boolean>;
   demoAccounts: DemoAccount[];
@@ -26,7 +26,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<SessionRecord | null>(() => authService.getActiveSessionSync());
-  const [user, setUser] = useState<UserRecord | null>(null);
+  const [user, setUser] = useState<UserRecord | null>(() => authService.getCurrentUserSync());
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Refresh current user record from database
@@ -86,14 +86,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Login handler
   const login = useCallback(
-    async (username: string, password: string): Promise<{ success: boolean; error?: string }> => {
+    async (username: string, password: string): Promise<{ success: boolean; error?: string; user?: UserRecord }> => {
       setIsLoading(true);
       try {
         const res = await authService.login(username, password);
         if (res.success && res.user && res.session) {
           setSession(res.session);
           setUser(res.user);
-          return { success: true };
+          return { success: true, user: res.user };
         }
         return { success: false, error: res.error || 'Login failed' };
       } catch (err: any) {
@@ -107,14 +107,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Sign Up handler
   const signUp = useCallback(
-    async (data: SignUpData): Promise<{ success: boolean; error?: string }> => {
+    async (data: SignUpData): Promise<{ success: boolean; error?: string; user?: UserRecord }> => {
       setIsLoading(true);
       try {
         const res = await authService.signUp(data);
         if (res.success && res.user && res.session) {
           setSession(res.session);
           setUser(res.user);
-          return { success: true };
+          return { success: true, user: res.user };
         }
         return { success: false, error: res.error || 'Sign up failed' };
       } catch (err: any) {

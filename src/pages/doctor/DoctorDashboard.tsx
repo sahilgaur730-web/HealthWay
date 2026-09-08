@@ -18,12 +18,14 @@ import {
   Filter
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { INITIAL_CONSULT_REQUESTS, ConsultRequest } from '../../data/mockData';
 
 export default function DoctorDashboard() {
   const navigate = useNavigate();
   const { lang } = useLanguage();
+  const { user } = useAuth();
 
   const [queue, setQueue] = useState<ConsultRequest[]>(INITIAL_CONSULT_REQUESTS);
   const [filter, setFilter] = useState<'all' | 'urgent'>('all');
@@ -34,6 +36,21 @@ export default function DoctorDashboard() {
     if (filter === 'urgent') return c.urgency === 'urgent';
     return true;
   });
+
+  const doctorDisplayName = user
+    ? (lang === 'mr' ? user.nameMr || user.name : user.name)
+    : (lang === 'mr' ? 'डॉ. आनंद शिंदे' : lang === 'hi' ? 'डॉ. आनंद शिंदे' : 'Dr. Anand Shinde');
+
+  const doctorDesignation = user
+    ? (lang === 'mr' ? user.designationMr || user.designation : user.designation) || 'Medical Officer'
+    : (lang === 'mr' 
+        ? 'वैद्यकीय अधिकारी (Medical Officer) · प्राथमिक आरोग्य केंद्र शिरूर' 
+        : lang === 'hi'
+          ? 'चिकित्सा अधिकारी (Medical Officer) · प्राथमिक स्वास्थ्य केंद्र शिरूर'
+          : 'Medical Officer (MBBS, DGO) · Primary Health Centre Shirur');
+
+  const doctorRegNo = user?.registrationNo || 'MMC-2016-08492';
+  const doctorFacility = user?.facility || 'PHC Shirur';
 
   return (
     <DashboardLayout>
@@ -50,21 +67,19 @@ export default function DoctorDashboard() {
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="text-xl font-bold tracking-tight">
-                    {lang === 'mr' ? 'डॉ. मीरा देशमुख' : lang === 'hi' ? 'डॉ. मीरा देशमुख' : 'Dr. Meera Deshmukh'}
+                    {doctorDisplayName}
                   </h1>
                   <span className="bg-green-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
                     {lang === 'mr' ? 'कर्तव्यावर उपस्थित (Active)' : lang === 'hi' ? 'ड्यूटी पर उपस्थित (Active)' : 'On Duty'}
                   </span>
                 </div>
                 <p className="text-blue-100 text-xs font-medium mt-0.5">
-                  {lang === 'mr' 
-                    ? 'वैद्यकीय अधिकारी (Medical Officer) · प्राथमिक आरोग्य केंद्र शिरूर' 
-                    : lang === 'hi'
-                      ? 'चिकित्सा अधिकारी (Medical Officer) · प्राथमिक स्वास्थ्य केंद्र शिरूर'
-                      : 'Medical Officer (MBBS, DGO) · Primary Health Centre Shirur'}
+                  {doctorDesignation}
                 </p>
                 <div className="flex items-center gap-3 text-xs text-blue-200 mt-2">
-                  <span>Reg No: <strong className="font-mono text-white">MMC-2016-08492</strong></span>
+                  <span>Reg No: <strong className="font-mono text-white">{doctorRegNo}</strong></span>
+                  <span>·</span>
+                  <span>Facility: <strong className="text-white">{doctorFacility}</strong></span>
                   <span>·</span>
                   <span>{lang === 'mr' ? 'OPD कक्ष:' : lang === 'hi' ? 'OPD कक्ष:' : 'OPD Room:'} <strong className="text-white">०२</strong></span>
                 </div>

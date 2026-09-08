@@ -7,15 +7,18 @@ import {
   ArrowLeft, 
   Lock, 
   AlertCircle,
-  CreditCard
+  CreditCard,
+  Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 
 type LoginStep = 'method' | 'mobile' | 'otp' | 'abha' | 'abha_otp';
 
 export default function PatientLogin() {
   const navigate = useNavigate();
   const { lang, setLang } = useLanguage();
+  const { quickLogin } = useAuth();
   const [step, setStep] = useState<LoginStep>('method');
   const [mobile, setMobile] = useState('');
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
@@ -36,7 +39,7 @@ export default function PatientLogin() {
     }, 1000);
   };
 
-  const handleVerifyOTP = () => {
+  const handleVerifyOTP = async () => {
     const entered = otp.join('');
     if (entered.length !== 6) {
       setError(lang === 'mr' ? 'कृपया पूर्ण ६ अंकी OTP टाका' : 'Please enter complete 6-digit OTP');
@@ -44,10 +47,27 @@ export default function PatientLogin() {
     }
     setError('');
     setIsLoading(true);
+    try {
+      await quickLogin('sunita.patil');
+    } catch (err) {
+      console.warn('Auto auth login failed:', err);
+    }
     setTimeout(() => {
       setIsLoading(false);
       navigate('/patient/dashboard');
-    }, 1200);
+    }, 600);
+  };
+
+  const handleQuickDemo = async () => {
+    setError('');
+    setIsLoading(true);
+    try {
+      await quickLogin('sunita.patil');
+    } catch (err) {
+      console.warn('Demo login failed:', err);
+    }
+    setIsLoading(false);
+    navigate('/patient/dashboard');
   };
 
   const handleAbhaSubmit = () => {
@@ -189,14 +209,17 @@ export default function PatientLogin() {
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#F57C00] transition-transform group-hover:translate-x-0.5" />
                 </button>
 
-                {/* Quick Demo Bypass Button for Judges */}
+                {/* Quick Demo Button for Judges */}
                 <div className="pt-3 border-t border-gray-200 text-center">
                   <button
-                    onClick={() => navigate('/patient/dashboard')}
-                    className="text-xs text-[#1A4B8C] font-semibold hover:underline flex items-center justify-center gap-1 mx-auto"
+                    type="button"
+                    onClick={handleQuickDemo}
+                    disabled={isLoading}
+                    className="text-xs text-[#1A4B8C] font-bold hover:underline flex items-center justify-center gap-1.5 mx-auto py-1 px-3 rounded-lg bg-blue-50 border border-blue-200 cursor-pointer"
                   >
-                    <span>{lang === 'mr' ? 'थेट चाचणी डॅशबोर्ड उघडा (सुनीता जाधव)' : "Quick Demo: Open Sunita's Dashboard"}</span>
-                    <ArrowRight className="w-3 h-3" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#F57C00]" />
+                    <span>{lang === 'mr' ? '१-क्लिक चाचणी प्रवेश (सुनीता पाटील · sunita.patil)' : "1-Click Quick Demo: Sunita Patil (sunita.patil)"}</span>
+                    <ArrowRight className="w-3 h-3 text-[#1A4B8C]" />
                   </button>
                 </div>
               </div>
@@ -362,10 +385,14 @@ export default function PatientLogin() {
                 </div>
 
                 <button
-                  onClick={() => navigate('/patient/dashboard')}
-                  className="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white py-3 rounded-xl font-bold text-sm transition-colors"
+                  type="button"
+                  onClick={handleQuickDemo}
+                  disabled={isLoading}
+                  className="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white py-3 rounded-xl font-bold text-sm transition-colors cursor-pointer"
                 >
-                  {lang === 'mr' ? 'डॅशबोर्ड उघडा' : 'Confirm and Open Dashboard'}
+                  {isLoading
+                    ? (lang === 'mr' ? 'प्रवेश करत आहे...' : 'Authenticating...')
+                    : (lang === 'mr' ? 'डॅशबोर्ड उघडा' : 'Confirm and Open Dashboard')}
                 </button>
               </div>
             )}

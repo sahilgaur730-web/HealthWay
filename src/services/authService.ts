@@ -423,7 +423,13 @@ class AuthService {
     // Save to IndexedDB
     try {
       await offlineDB.saveUser(newUser);
-    } catch (err) {
+    } catch (err: any) {
+      if (err?.name === 'ConstraintError' || err?.message?.includes('ConstraintError')) {
+        return {
+          success: false,
+          error: 'This username is already taken. Please choose another username.'
+        };
+      }
       console.warn('[AuthService] Error saving user to IndexedDB, saving to localStorage cache:', err);
     }
 
@@ -494,6 +500,17 @@ class AuthService {
     } catch {
       // fallback
     }
+
+    const localUsers = this.getLocalStorageUsers();
+    return localUsers.find((u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()) || null;
+  }
+
+  /**
+   * Synchronous retrieval of active user from cached local storage
+   */
+  public getCurrentUserSync(): UserRecord | null {
+    const session = this.getActiveSessionSync();
+    if (!session) return null;
 
     const localUsers = this.getLocalStorageUsers();
     return localUsers.find((u) => u.id === session.userId || u.username.toLowerCase() === session.username.toLowerCase()) || null;

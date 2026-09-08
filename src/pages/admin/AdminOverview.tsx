@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import AbdmInteroperabilityModal from '../../components/common/AbdmInteroperabilityModal';
 import DistrictDashboard from '../../components/dashboard/DistrictDashboard';
@@ -28,8 +29,15 @@ import { ADMIN_TREND_DATA, ADMIN_FACILITIES_METRICS } from '../../data/mockData'
 export default function AdminOverview() {
   const navigate = useNavigate();
   const { lang } = useLanguage();
+  const { user } = useAuth();
   const [isAbdmModalOpen, setIsAbdmModalOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'overview' | 'command_dashboard'>('overview');
+
+  const adminDisplayName = user
+    ? (lang === 'mr' ? user.nameMr || user.name : user.name)
+    : (lang === 'mr' ? 'डॉ. आर. के. चव्हाण (DHO)' : 'Dr. R. K. Chavan (DHO)');
+
+  const adminFacility = user?.facility || (lang === 'mr' ? 'पुणे जिल्हा परिषद' : 'Pune Zilla Parishad');
 
   return (
     <DashboardLayout>
@@ -53,16 +61,16 @@ export default function AdminOverview() {
                   </span>
                 </div>
                 <p className="text-blue-100 text-xs font-medium mt-0.5">
-                  {lang === 'mr' 
+                  {user?.designation ? (lang === 'mr' ? user.designationMr || user.designation : user.designation) : (lang === 'mr' 
                     ? 'सार्वजनिक आरोग्य विभाग · राष्ट्रीय आरोग्य अभियान (NHM) महाराष्ट्र' 
                     : lang === 'hi'
                       ? 'सार्वजनिक स्वास्थ्य विभाग · राष्ट्रीय स्वास्थ्य मिशन (NHM) महाराष्ट्र'
-                      : 'Directorate of Health Services · Government of Maharashtra'}
+                      : 'Directorate of Health Services · Government of Maharashtra')}
                 </p>
                 <div className="flex items-center gap-3 text-xs text-blue-200 mt-2">
-                  <span>{lang === 'mr' ? 'तालुका:' : lang === 'hi' ? 'ब्लॉक:' : 'Block:'} <strong>{lang === 'mr' ? 'शिरूर / खेड / हवेली' : lang === 'hi' ? 'शिरूर / खेड / हवेली' : 'Shirur / Khed / Haveli'}</strong></span>
+                  <span>{lang === 'mr' ? 'मुख्यालय / संकुल:' : 'Headquarters:'} <strong>{adminFacility}</strong></span>
                   <span>·</span>
-                  <span>{lang === 'mr' ? 'नोडल अधिकारी:' : lang === 'hi' ? 'नोडल अधिकारी:' : 'Nodal Officer:'} <strong>{lang === 'mr' ? 'डॉ. भगवान पवार (DHO)' : lang === 'hi' ? 'डॉ. भगवान पवार (DHO)' : 'Dr. Bhagwan Pawar (DHO)'}</strong></span>
+                  <span>{lang === 'mr' ? 'नोडल अधिकारी:' : lang === 'hi' ? 'नोडल अधिकारी:' : 'Nodal Officer:'} <strong>{adminDisplayName}</strong></span>
                 </div>
               </div>
             </div>
