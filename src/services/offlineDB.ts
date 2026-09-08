@@ -6,7 +6,7 @@
  */
 
 export const DB_NAME = 'HealthWayOfflineDB';
-export const DB_VERSION = 3;
+export const DB_VERSION = 4;
 
 export const STORES = {
   SYNC_QUEUE: 'syncQueue',
@@ -16,7 +16,9 @@ export const STORES = {
   FACILITY_DATA: 'facilityData',
   REFERRAL_DRAFTS: 'referralDrafts',
   SETTINGS: 'settings',
-  SYNC_LOG: 'syncLog'
+  SYNC_LOG: 'syncLog',
+  USERS: 'users',
+  SESSIONS: 'sessions'
 } as const;
 
 export type StoreName = typeof STORES[keyof typeof STORES];
@@ -87,6 +89,49 @@ export interface StorageEstimateInfo {
   usedMB: string;
   totalMB: string;
   percentage: number;
+}
+
+export type UserRole = 'patient' | 'asha' | 'doctor' | 'admin';
+
+export interface UserRecord {
+  id: string;
+  username: string;
+  password: string;
+  role: UserRole;
+  name: string;
+  nameMr: string;
+  phone: string;
+  email?: string;
+  village?: string;
+  villageMr?: string;
+  subCentre?: string;
+  subCentreMr?: string;
+  facility?: string;
+  designation?: string;
+  designationMr?: string;
+  abhaId?: string;
+  registrationNo?: string;
+  createdAt: string;
+  avatar?: string;
+}
+
+export interface SessionRecord {
+  id: string; // e.g. 'ACTIVE_SESSION'
+  userId: string;
+  username: string;
+  name: string;
+  nameMr: string;
+  role: UserRole;
+  token: string;
+  loginTime: string;
+  village?: string;
+  villageMr?: string;
+  subCentre?: string;
+  subCentreMr?: string;
+  facility?: string;
+  designation?: string;
+  designationMr?: string;
+  abhaId?: string;
 }
 
 class HealthWayOfflineDB {
@@ -169,6 +214,20 @@ class HealthWayOfflineDB {
           });
           syncLog.createIndex('timestamp', 'timestamp', { unique: false });
           syncLog.createIndex('status', 'status', { unique: false });
+        }
+
+        // 9. users
+        if (!db.objectStoreNames.contains(STORES.USERS)) {
+          const userStore = db.createObjectStore(STORES.USERS, { keyPath: 'id' });
+          userStore.createIndex('username', 'username', { unique: true });
+          userStore.createIndex('role', 'role', { unique: false });
+          userStore.createIndex('phone', 'phone', { unique: false });
+        }
+
+        // 10. sessions
+        if (!db.objectStoreNames.contains(STORES.SESSIONS)) {
+          const sessionStore = db.createObjectStore(STORES.SESSIONS, { keyPath: 'id' });
+          sessionStore.createIndex('userId', 'userId', { unique: false });
         }
       };
     });
@@ -811,6 +870,115 @@ class HealthWayOfflineDB {
         }
       };
       request.onerror = () => resolve(0);
+    });
+  }
+
+  // ==========================================
+  // 11. USER DATABASE OPERATIONS
+  // ==========================================
+
+  public async saveUser(user: UserRecord): Promise<void> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readwrite');
+      const store = tx.objectStore(STORES.USERS);
+      const req = store.put(user);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async getUserById(id: string): Promise<UserRecord | null> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readonly');
+      const store = tx.objectStore(STORES.USERS);
+      const req = store.get(id);
+      req.onsuccess = () => resolve((req.result as UserRecord) || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async getUserByUsername(username: string): Promise<UserRecord | null> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readonly');
+      const store = tx.objectStore(STORES.USERS);
+      const index = store.index('username');
+      const req = index.get(username.trim().toLowerCase());
+      req.onsuccess = () => resolve((req.result as UserRecord) || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async getAllUsers(): Promise<UserRecord[]> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readonly');
+      const store = tx.objectStore(STORES.USERS);
+      const req = store.getAll();
+      req.onsuccess = () => resolve((req.result as UserRecord[]) || []);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async getUsersByRole(role: UserRole): Promise<UserRecord[]> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readonly');
+      const store = tx.objectStore(STORES.USERS);
+      const index = store.index('role');
+      const req = index.getAll(role);
+      req.onsuccess = () => resolve((req.result as UserRecord[]) || []);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async deleteUser(id: string): Promise<void> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.USERS, 'readwrite');
+      const store = tx.objectStore(STORES.USERS);
+      const req = store.delete(id);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  // ==========================================
+  // 12. SESSION PERSISTENCE OPERATIONS
+  // ==========================================
+
+  public async saveSession(session: SessionRecord): Promise<void> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.SESSIONS, 'readwrite');
+      const store = tx.objectStore(STORES.SESSIONS);
+      const req = store.put(session);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async getCurrentSession(): Promise<SessionRecord | null> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.SESSIONS, 'readonly');
+      const store = tx.objectStore(STORES.SESSIONS);
+      const req = store.get('ACTIVE_SESSION');
+      req.onsuccess = () => resolve((req.result as SessionRecord) || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  public async clearSession(): Promise<void> {
+    const db = await this.ensureReady();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORES.SESSIONS, 'readwrite');
+      const store = tx.objectStore(STORES.SESSIONS);
+      const req = store.delete('ACTIVE_SESSION');
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
     });
   }
 

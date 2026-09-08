@@ -174,7 +174,23 @@ const hi = {
   doctor: 'डॉक्टर',
   facility: 'स्वास्थ्य केंद्र',
   action: 'कार्रवाई',
-  view: 'देखें'
+  view: 'देखें',
+  auth: {
+    title: 'स्वास्थ्य प्रमाणीकरण व लॉगिन',
+    login: 'लॉगिन',
+    signup: 'नया पंजीकरण',
+    username: 'उपयोगकर्ता नाम या आईडी',
+    password: 'पासवर्ड',
+    confirm_password: 'पासवर्ड की पुष्टि करें',
+    full_name: 'पूरा नाम',
+    role: 'भूमिका',
+    mobile: 'मोबाइल नंबर',
+    remember_me: 'सत्र याद रखें',
+    forgot_password: 'पासवर्ड भूल गए?',
+    logout: 'लॉग आउट',
+    demo_evaluator: 'त्वरित परीक्षण खाते',
+    db_ready: 'IndexedDB डेटाबेस सक्रिय'
+  }
 };
 
 export default hi;

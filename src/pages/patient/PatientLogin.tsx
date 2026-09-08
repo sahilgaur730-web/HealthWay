@@ -169,6 +169,26 @@ export default function PatientLogin() {
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#2E7D32] transition-transform group-hover:translate-x-0.5" />
                 </button>
 
+                <button
+                  onClick={() => navigate('/login?role=patient')}
+                  className="w-full flex items-center justify-between p-4 border-2 border-[#CFD8DC] rounded-xl hover:border-[#F57C00] hover:bg-amber-50 transition-all group text-left"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 bg-amber-100 group-hover:bg-[#F57C00] rounded-lg flex items-center justify-center transition-colors">
+                      <Lock className="w-5 h-5 text-[#F57C00] group-hover:text-white" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm text-[#1C2B3A]">
+                        {lang === 'mr' ? 'वापरकर्ता नाव व पासवर्डने लॉग इन' : 'Login with Username & Password'}
+                      </p>
+                      <p className="text-xs text-[#546E7A]">
+                        {lang === 'mr' ? 'डेटाबेस खाते किंवा नवीन नोंदणी (sunita.patil)' : 'Database account or new registration (sunita.patil)'}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#F57C00] transition-transform group-hover:translate-x-0.5" />
+                </button>
+
                 {/* Quick Demo Bypass Button for Judges */}
                 <div className="pt-3 border-t border-gray-200 text-center">
                   <button

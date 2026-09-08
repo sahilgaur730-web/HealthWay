@@ -174,7 +174,23 @@ const mr = {
   doctor: 'डॉक्टर',
   facility: 'आरोग्य केंद्र',
   action: 'कृती',
-  view: 'पहा'
+  view: 'पहा',
+  auth: {
+    title: 'आरोग्य प्रवेश व प्रमाणीकरण',
+    login: 'लॉग इन',
+    signup: 'नवीन नोंदणी',
+    username: 'वापरकर्ता नाव किंवा आयडी',
+    password: 'पासवर्ड',
+    confirm_password: 'पासवर्डची पुष्टी करा',
+    full_name: 'पूर्ण नाव',
+    role: 'भूमिका',
+    mobile: 'मोबाइल क्रमांक',
+    remember_me: 'सत्र लक्षात ठेवा',
+    forgot_password: 'पासवर्ड विसरलात?',
+    logout: 'बाहेर पडा',
+    demo_evaluator: 'त्वरित चाचणी खाती',
+    db_ready: 'IndexedDB स्थानिक डेटाबेस सक्रिय'
+  }
 };
 
 export default mr;

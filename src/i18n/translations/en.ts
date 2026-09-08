@@ -174,7 +174,23 @@ const en = {
   doctor: 'Doctor',
   facility: 'Health Facility',
   action: 'Action',
-  view: 'View'
+  view: 'View',
+  auth: {
+    title: 'Healthcare Authentication',
+    login: 'Sign In',
+    signup: 'New Registration',
+    username: 'Username or User ID',
+    password: 'Password',
+    confirm_password: 'Confirm Password',
+    full_name: 'Full Name',
+    role: 'Role',
+    mobile: 'Mobile Number',
+    remember_me: 'Remember my session',
+    forgot_password: 'Forgot password?',
+    logout: 'Log Out',
+    demo_evaluator: '1-Click Demo Accounts',
+    db_ready: 'IndexedDB User Database Active'
+  }
 };
 
 export default en;

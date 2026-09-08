@@ -23,6 +23,7 @@ import {
   Network
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 import LanguageSwitcher from '../components/language/LanguageSwitcher';
 
 interface DashboardLayoutProps {
@@ -33,6 +34,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { lang } = useLanguage();
+  const { user, isAuthenticated, logout } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const pathname = location.pathname;
@@ -136,22 +138,28 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             {isPatient && (
               <div className="hidden sm:flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/15 text-xs">
                 <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span className="text-blue-100 font-mono">ABHA: MH-PN-24-00000001</span>
+                <span className="text-blue-100 font-mono">{user?.abhaId || 'ABHA: MH-PN-24-00000001'}</span>
               </div>
             )}
             {isAsha && (
               <div className="hidden sm:flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/15 text-xs">
-                <span className="text-blue-100 font-mono">ASHA-PN-2024-0847</span>
+                <span className="text-blue-100 font-mono">
+                  {user ? `${user.username}` : 'ASHA-PN-2024-0847'}
+                </span>
               </div>
             )}
             {isDoctor && (
               <div className="hidden sm:flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/15 text-xs">
-                <span className="text-blue-100 font-mono">MMC-2016-08492</span>
+                <span className="text-blue-100 font-mono">
+                  {user?.registrationNo || 'MMC-2016-08492'}
+                </span>
               </div>
             )}
             {isAdmin && (
               <div className="hidden sm:flex items-center gap-2 bg-black/20 px-3 py-1.5 rounded-lg border border-white/15 text-xs">
-                <span className="text-blue-100 font-mono">DHO-PUNE-ZONE</span>
+                <span className="text-blue-100 font-mono">
+                  {user?.facility ? 'DHO-PUNE' : 'DHO-PUNE-ZONE'}
+                </span>
               </div>
             )}
 
@@ -159,11 +167,15 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             <LanguageSwitcher compact={true} />
 
             <button
-              onClick={() => navigate(isPatient ? '/patient/login' : '/')}
-              className="flex items-center gap-1.5 text-xs text-blue-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-lg transition"
+              onClick={async () => {
+                await logout();
+                navigate('/login');
+              }}
+              className="flex items-center gap-1.5 text-xs text-blue-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-lg transition cursor-pointer"
+              title="Log out and return to login"
             >
               <LogOut className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{lang === 'mr' ? 'बाहेर पडा' : lang === 'hi' ? 'बाहर निकलें' : 'Exit'}</span>
+              <span className="hidden sm:inline">{lang === 'mr' ? 'बाहेर पडा' : lang === 'hi' ? 'बाहर निकलें' : 'Log Out'}</span>
             </button>
           </div>
         </div>
@@ -186,13 +198,19 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 </div>
                 <div>
                   <p className="font-bold text-xs text-[#1C2B3A]">
-                    {isAsha ? (lang === 'mr' ? 'सुमन ताई पाटील' : lang === 'hi' ? 'सुमन ताई पाटिल' : 'Suman Tai Patil') :
+                    {user ? (lang === 'mr' ? user.nameMr || user.name : user.name) :
+                     isAsha ? (lang === 'mr' ? 'सुमन ताई पाटील' : lang === 'hi' ? 'सुमन ताई पाटिल' : 'Suman Tai Patil') :
                      isDoctor ? (lang === 'mr' ? 'डॉ. मीरा देशमुख' : lang === 'hi' ? 'डॉ. मीरा देशमुख' : 'Dr. Meera Deshmukh') :
                      isAdmin ? (lang === 'mr' ? 'जिल्हा आरोग्य अधिकारी' : lang === 'hi' ? 'जिला स्वास्थ्य अधिकारी' : 'District Health Officer') :
                      (lang === 'mr' ? 'सुनीता जाधव' : lang === 'hi' ? 'सुनीता जाधव' : 'Sunita Jadhav')}
                   </p>
                   <p className="text-[11px] text-[#546E7A]">
-                    {isAsha ? (lang === 'mr' ? 'आशा कार्यकर्ती · वडगाव' : lang === 'hi' ? 'आशा कार्यकर्ता · वडगांव' : 'ASHA Worker · Vadgaon') :
+                    {user ? (
+                      user.village
+                        ? `${lang === 'mr' ? user.villageMr || user.village : user.village} · ${user.subCentre || (lang === 'mr' ? user.designationMr || user.designation : user.designation) || 'ASHA'}`
+                        : (lang === 'mr' ? user.designationMr || user.designation : user.designation) || user.facility || 'Maharashtra Health'
+                    ) :
+                     isAsha ? (lang === 'mr' ? 'आशा कार्यकर्ती · वडगाव' : lang === 'hi' ? 'आशा कार्यकर्ता · वडगांव' : 'ASHA Worker · Vadgaon') :
                      isDoctor ? (lang === 'mr' ? 'वैद्यकीय अधिकारी · PHC शिरूर' : lang === 'hi' ? 'चिकित्सा अधिकारी · PHC शिरूर' : 'Medical Officer · PHC Shirur') :
                      isAdmin ? (lang === 'mr' ? 'पुणे जिल्हा परिषद' : lang === 'hi' ? 'पुणे जिला परिषद' : 'Pune Zilla Parishad') :
                      (lang === 'mr' ? 'वडगाव, शिरूर' : lang === 'hi' ? 'वडगांव, शिरूर' : 'Vadgaon, Shirur')}

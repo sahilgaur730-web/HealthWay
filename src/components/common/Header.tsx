@@ -23,9 +23,12 @@ import {
   Tv,
   Network,
   ChevronDown,
-  Layers
+  Layers,
+  LogOut,
+  User
 } from 'lucide-react';
 import { useLanguage, Language } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 
 interface HeaderProps {
   onOpenModal?: () => void;
@@ -35,15 +38,21 @@ export default function Header({ onOpenModal }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { lang, setLang } = useLanguage();
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hubsDropdownOpen, setHubsDropdownOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const hubsRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on outside click
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (hubsRef.current && !hubsRef.current.contains(e.target as Node)) {
         setHubsDropdownOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleOutsideClick);
@@ -305,15 +314,85 @@ export default function Header({ onOpenModal }: HeaderProps) {
               <span className="tracking-tight">108 SOS</span>
             </button>
 
-            {/* Portal Access / Sign In CTA */}
-            <button
-              onClick={onOpenModal || (() => navigate('/patient/login'))}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-xs font-bold transition-all duration-150 shadow-xs hover:shadow-md cursor-pointer active:scale-95 shrink-0"
-            >
-              <Hospital className="w-3.5 h-3.5 text-blue-200" />
-              <span>{lang === 'mr' ? 'पोर्टल प्रवेश' : lang === 'hi' ? 'पोर्टल प्रवेश' : 'Portal Access'}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            {/* User Profile Badge (when authenticated) OR Sign In CTA */}
+            {isAuthenticated && user ? (
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  className="hidden sm:flex items-center gap-2 pl-1.5 pr-3 py-1 rounded-xl bg-blue-50 border border-blue-200 hover:border-[#1A4B8C] transition text-left cursor-pointer group shadow-xs"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#1A4B8C] text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                    {user.avatar || user.name.slice(0, 2).toUpperCase()}
+                  </div>
+                  <div className="text-left leading-tight hidden md:block">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-bold text-[#1C2B3A] line-clamp-1 max-w-[120px]">
+                        {lang === 'mr' ? user.nameMr || user.name : user.name}
+                      </span>
+                      <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 bg-[#1A4B8C] text-white rounded">
+                        {user.role}
+                      </span>
+                    </div>
+                    <span className="text-[10px] text-[#546E7A] line-clamp-1 max-w-[130px]">
+                      {user.village ? (lang === 'mr' ? user.villageMr || user.village : user.village) : (user.facility || user.designation || 'Maharashtra')}
+                    </span>
+                  </div>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#1A4B8C] transition" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {userDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-[#CFD8DC] p-2 z-50 animate-in fade-in zoom-in-95">
+                    <div className="p-3 bg-slate-50 rounded-xl mb-2 border border-slate-200">
+                      <p className="text-xs font-bold text-[#1C2B3A]">{lang === 'mr' ? user.nameMr || user.name : user.name}</p>
+                      <p className="text-[11px] text-slate-500 font-mono">@{user.username}</p>
+                      <div className="mt-1 text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block font-semibold">
+                        {user.subCentre || user.facility || user.village || 'Pune District'}
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setUserDropdownOpen(false);
+                        const targetPath = user.role === 'asha' ? '/asha' : user.role === 'doctor' ? '/doctor' : user.role === 'admin' ? '/admin' : '/patient';
+                        navigate(targetPath);
+                      }}
+                      className="w-full text-left px-3 py-2 text-xs font-bold text-[#1A4B8C] hover:bg-blue-50 rounded-lg transition flex items-center justify-between cursor-pointer"
+                    >
+                      <span>{lang === 'mr' ? 'डॅशबोर्ड उघडा' : 'Open Dashboard'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        setUserDropdownOpen(false);
+                        await logout();
+                        navigate('/login');
+                      }}
+                      className="w-full text-left px-3 py-2 text-xs font-bold text-red-600 hover:bg-red-50 rounded-lg transition flex items-center justify-between cursor-pointer border-t border-slate-100 mt-1"
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <LogOut className="w-3.5 h-3.5" />
+                        <span>{lang === 'mr' ? 'बाहेर पडा (Log Out)' : 'Log Out'}</span>
+                      </div>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => navigate('/login')}
+                className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-xs font-bold transition-all duration-150 shadow-xs hover:shadow-md cursor-pointer active:scale-95 shrink-0"
+              >
+                <Hospital className="w-3.5 h-3.5 text-blue-200" />
+                <span>{lang === 'mr' ? 'लॉगिन / नोंदणी' : 'Sign In / Register'}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            )}
 
             {/* Mobile Hamburger Menu Toggle */}
             <button
@@ -432,18 +511,57 @@ export default function Header({ onOpenModal }: HeaderProps) {
 
           {/* Mobile Bottom Actions */}
           <div className="pt-3 border-t border-[#CFD8DC] space-y-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenModal) onOpenModal();
-                else navigate('/patient/login');
-              }}
-              className="w-full py-3 rounded-xl bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-xs font-bold text-center flex items-center justify-center gap-2 shadow-xs cursor-pointer"
-            >
-              <Hospital className="w-4 h-4" />
-              <span>{lang === 'mr' ? 'पोर्टल प्रवेश (लॉगिन)' : lang === 'hi' ? 'पोर्टल प्रवेश (लॉगिन)' : 'Portal Access (Login)'}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            {isAuthenticated && user ? (
+              <div className="space-y-2 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#1A4B8C] text-white flex items-center justify-center font-bold text-xs">
+                    {user.avatar || user.name.slice(0, 2).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#1C2B3A]">{lang === 'mr' ? user.nameMr || user.name : user.name}</p>
+                    <p className="text-[10px] text-slate-500 font-mono">@{user.username} · {user.role.toUpperCase()}</p>
+                  </div>
+                </div>
+                <div className="flex gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      const targetPath = user.role === 'asha' ? '/asha' : user.role === 'doctor' ? '/doctor' : user.role === 'admin' ? '/admin' : '/patient';
+                      navigate(targetPath);
+                    }}
+                    className="flex-1 py-2 rounded-xl bg-[#1A4B8C] text-white text-xs font-bold text-center"
+                  >
+                    {lang === 'mr' ? 'डॅशबोर्ड' : 'Dashboard'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setMobileMenuOpen(false);
+                      await logout();
+                      navigate('/login');
+                    }}
+                    className="py-2 px-3 rounded-xl bg-red-100 text-red-700 text-xs font-bold text-center flex items-center gap-1"
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                    <span>{lang === 'mr' ? 'बाहेर' : 'Exit'}</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate('/login');
+                }}
+                className="w-full py-3 rounded-xl bg-[#1A4B8C] hover:bg-[#0D3470] text-white text-xs font-bold text-center flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+              >
+                <Hospital className="w-4 h-4" />
+                <span>{lang === 'mr' ? 'लॉगिन / नोंदणी' : 'Sign In / Register'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
 
             <button
               onClick={() => {

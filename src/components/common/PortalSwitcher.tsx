@@ -11,6 +11,7 @@ import {
   Network
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import { useOffline } from '../../hooks/useOffline';
 import NotificationBell from '../shared/NotificationBell';
 import LanguageSwitcher from '../language/LanguageSwitcher';
@@ -19,6 +20,7 @@ export default function PortalSwitcher() {
   const navigate = useNavigate();
   const { lang, setLang } = useLanguage();
   const { isOnline, setSimulatedOffline } = useOffline();
+  const { user, isAuthenticated } = useAuth();
 
   return (
     <div className="bg-[#0B2545] text-white border-b border-[#1A4B8C] text-xs select-none shadow-xs relative z-50">
@@ -112,6 +114,28 @@ export default function PortalSwitcher() {
         {/* Right: Notification Bell, Global Language Toggle & 108 Emergency Call */}
         <div className="flex items-center gap-2 shrink-0 ml-auto sm:ml-0">
           
+          {/* Active Logged-In User Badge or Login Link */}
+          {isAuthenticated && user ? (
+            <button
+              type="button"
+              onClick={() => navigate('/login')}
+              className="hidden xl:flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-900/80 hover:bg-blue-800 border border-blue-400/50 text-[10px] text-blue-100 transition cursor-pointer"
+              title={`Logged in as ${user.username} (${user.role}) · Click to switch account`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="font-bold truncate max-w-[90px]">{lang === 'mr' ? user.nameMr || user.name : user.name}</span>
+              <span className="text-[9px] bg-white/20 px-1 rounded uppercase font-mono">{user.role}</span>
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => navigate('/login')}
+              className="hidden lg:flex items-center gap-1 px-2 py-0.5 rounded bg-blue-900/60 hover:bg-blue-800 border border-blue-400/40 text-[10px] text-blue-200 transition cursor-pointer font-bold"
+            >
+              <span>{lang === 'mr' ? 'लॉगिन' : 'Login'}</span>
+            </button>
+          )}
+
           {/* Real-time Overdue & Critical Lab Notification Bell */}
           <NotificationBell />
 

@@ -22,12 +22,14 @@ import {
   Video
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { ASHA_USER, INITIAL_ASHA_TASKS, AshaTask } from '../../data/mockData';
 
 export default function AshaDashboard() {
   const navigate = useNavigate();
   const { lang, t } = useLanguage();
+  const { user } = useAuth();
 
   const [isOnline, setIsOnline] = useState(true);
   const [tasks, setTasks] = useState<AshaTask[]>(INITIAL_ASHA_TASKS);
@@ -89,21 +91,27 @@ export default function AshaDashboard() {
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="text-xl font-bold tracking-tight">
-                    {lang === 'mr' ? ASHA_USER.name : lang === 'hi' ? 'सुमन कांबले' : ASHA_USER.nameEn}
+                    {user
+                      ? (lang === 'mr' ? user.nameMr || user.name : user.name)
+                      : (lang === 'mr' ? ASHA_USER.name : lang === 'hi' ? 'सुमन कांबले' : ASHA_USER.nameEn)}
                   </h2>
                   <span className="bg-[#F57C00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
                     ASHA
                   </span>
                 </div>
                 <p className="text-blue-100 text-xs font-medium mt-0.5">
-                  {lang === 'mr' ? 'राष्ट्रीय आरोग्य अभियान · मान्यताप्राप्त सामाजिक आरोग्य कार्यकर्ती' : lang === 'hi' ? 'राष्ट्रीय स्वास्थ्य मिशन · मान्यताप्राप्त सामाजिक स्वास्थ्य कार्यकर्ता' : 'National Health Mission · Accredited Social Health Activist'}
+                  {user
+                    ? (lang === 'mr' ? user.designationMr || user.designation : user.designation) || (lang === 'mr' ? 'राष्ट्रीय आरोग्य अभियान · मान्यताप्राप्त सामाजिक आरोग्य कार्यकर्ती' : 'National Health Mission · Accredited Social Health Activist')
+                    : (lang === 'mr' ? 'राष्ट्रीय आरोग्य अभियान · मान्यताप्राप्त सामाजिक आरोग्य कार्यकर्ती' : lang === 'hi' ? 'राष्ट्रीय स्वास्थ्य मिशन · मान्यताप्राप्त सामाजिक स्वास्थ्य कार्यकर्ता' : 'National Health Mission · Accredited Social Health Activist')}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-blue-200 mt-2">
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5" />
-                    {ASHA_USER.village}, ता. {ASHA_USER.block}, जि. {ASHA_USER.district}
+                    {user?.village ? (lang === 'mr' ? user.villageMr || user.village : user.village) : ASHA_USER.village}
+                    {user?.subCentre ? ` (${lang === 'mr' ? user.subCentreMr || user.subCentre : user.subCentre})` : ''}
+                    , ता. {ASHA_USER.block}, जि. {ASHA_USER.district}
                   </span>
-                  <span>ID: <strong className="font-mono text-white">{ASHA_USER.ashaId}</strong></span>
+                  <span>ID: <strong className="font-mono text-white">{user?.username || ASHA_USER.ashaId}</strong></span>
                 </div>
               </div>
             </div>

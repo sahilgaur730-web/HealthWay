@@ -709,6 +709,28 @@ export default function LandingPage() {
 
             <div className="p-6 space-y-3">
               <button
+                type="button"
+                onClick={() => { setIsModalOpen(false); navigate('/login'); }}
+                className="w-full p-3.5 rounded-xl bg-[#1A4B8C] text-white text-left transition flex items-center justify-between group cursor-pointer shadow-xs hover:bg-[#0D3470]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-white/20 text-white flex items-center justify-center">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white">
+                      {lang === 'mr' ? 'आरोग्य डेटाबेस लॉगिन व नोंदणी' : 'Unified Database Auth & Sign Up'}
+                    </h4>
+                    <p className="text-[11px] text-blue-200">
+                      {lang === 'mr' ? 'प्रची-आशा, रोहित-आशा, डॉक्टर व प्रशासक खाती' : 'Prachi-ASHA, Rohit-ASHA, Doctor & Admin accounts'}
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              <button
+                type="button"
                 onClick={() => { setIsModalOpen(false); navigate('/patient/login'); }}
                 className="w-full p-3.5 rounded-xl border border-[#CFD8DC] hover:border-[#1A4B8C] hover:bg-[#E8F0FE]/40 text-left transition flex items-center justify-between group cursor-pointer"
               >

@@ -5,6 +5,7 @@ import OfflineIndicator from './components/offline/OfflineIndicator';
 
 // Public
 import LandingPage from './pages/public/LandingPage';
+import AuthPortal from './pages/auth/AuthPortal';
 
 // Patient Portal
 import PatientLogin from './pages/patient/PatientLogin';
@@ -75,6 +76,15 @@ export default function App() {
           <Route path="/queue-display" element={<QueueDisplay />} />
           <Route path="/staff/queue" element={<HealthCenterDashboard />} />
           <Route path="/health-center/queue" element={<HealthCenterDashboard />} />
+
+          {/* Universal Authentication & Database User Access */}
+          <Route path="/login" element={<AuthPortal initialMode="login" />} />
+          <Route path="/signup" element={<AuthPortal initialMode="signup" />} />
+          <Route path="/register" element={<AuthPortal initialMode="signup" />} />
+          <Route path="/auth" element={<AuthPortal initialMode="login" />} />
+          <Route path="/asha/login" element={<AuthPortal initialMode="login" initialRole="asha" />} />
+          <Route path="/doctor/login" element={<AuthPortal initialMode="login" initialRole="doctor" />} />
+          <Route path="/admin/login" element={<AuthPortal initialMode="login" initialRole="admin" />} />
 
           {/* Patient Portal */}
           <Route path="/patient/login" element={<PatientLogin />} />
